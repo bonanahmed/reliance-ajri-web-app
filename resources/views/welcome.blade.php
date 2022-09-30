@@ -14,6 +14,11 @@
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <!-- slick slider -->
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <title>Reliance</title>
 </head>
 
@@ -93,9 +98,133 @@
     </section>
     <!-- jumbotron end -->
 
+    <div class="row my-5">
+        <div class="col text-center">
+            <h3 class="display-9">Dipercaya Oleh</h3>
+            <p>Inilah beberapa dari mereka yang sudah bekerja sama dengan kami. Hubungi kami untuk kerja sama lebih lanjut</p>
+        </div>
+    </div>
+    <!-- slider -->
+    <div class="row">
+        <!-- <div>your content</div> -->
+        <div class="your-class my-2 mb-5">
+            <div>
+                <img class="rounded" src="https://via.placeholder.com/100" alt="">
+            </div>
+            <div><img class="rounded" src="https://via.placeholder.com/100" alt=""></div>
+            <div><img class="rounded" src="https://via.placeholder.com/100" alt=""></div>
+            <div><img class="rounded" src="https://via.placeholder.com/100" alt=""></div>
+            <div><img class="rounded" src="https://via.placeholder.com/100" alt=""></div>
+            <div><img class="rounded" src="https://via.placeholder.com/100" alt=""></div>
+            <div><img class="rounded" src="https://via.placeholder.com/100" alt=""></div>
+        </div>
+    </div>
+    <!-- slider end -->
+
+    <div class="d-flex flex-column my-5 mt-5">
+        <div class="text-center mb-5">
+            <p>Big Coverage Insurance Made Easy For You</p>
+            <p>Asuransi jiwa murni hingga 5Miliar tanpa cek medis</p>
+        </div>
+        <div class="d-flex flex-row justify-content-around">
+            <img class="rounded" src="https://via.placeholder.com/300" alt="">
+            <img class="rounded" src="https://via.placeholder.com/300" alt="">
+        </div>
+        <!-- progress tracker -->
+        <div class="">
+            <div class="flex-row text-center">
+                <div class="flex-col-xs-12">
+                    <ul class="tab-steps--list">
+                        <li class="active" data-step="1"></li>
+                        <li data-step="2"></li>
+                        <li data-step="3"></li>
+                        <li data-step="4"></li>
+                        <li data-step="5"></li>
+                    </ul>
+                    <ul class="tab-steps">
+                        <li class="tab-steps--one active">
+                            <div class="tab-steps--blocks active">
+                                <span class="tab-steps--number active">1</span>
+                                <span class="tab-steps--desease">Template</span>
+                            </div>
+                        </li>
+                        <li class="tab-steps--two">
+                            <div class="tab-steps--blocks">
+                                <span class="tab-steps--number">2</span>
+                                <span class="tab-steps--desease">copie-colle</span>
+                            </div>
+                        </li>
+                        <li class="tab-steps--three">
+                            <div class="tab-steps--blocks">
+                                <span class="tab-steps--number">3</span>
+                                <span class="tab-steps--desease">Edites</span>
+                            </div>
+                        </li>
+                        <li class="tab-steps--four">
+                            <div class="tab-steps--blocks">
+                                <div class="tab-steps--number">4</div>
+                                <div class="tab-steps--desease">Générer</div>
+                            </div>
+                        </li>
+                        <li class="tab-steps--four">
+                            <div class="tab-steps--blocks">
+                                <div class="tab-steps--number">5</div>
+                                <div class="tab-steps--desease">Générer</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- progress tracker -->
+    </div>
+
+
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.your-class').slick({
+                arrows: false,
+                slidesToShow: 6,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 0,
+                infinite: true,
+                speed: 5000,
+            });
+
+        });
+
+        $(document).ready(function() {
+
+            $('.tab-steps--list li').click(function() {
+
+                $(this).addClass('active');
+
+                var dataStep = $(this).attr('data-step');
+                $('.tab-steps--list li').each(function() {
+                    if ($(this).attr('data-step') > dataStep) {
+                        $(this).removeClass('active');
+                    } else {
+                        $(this).addClass('active');
+                    }
+                });
+                $(".tab-steps li").removeClass("active");
+                $(".tab-steps li").eq($(this).index()).addClass("active");
+                $(".tab-steps li").eq($(this).index() + 1).removeClass("active");
+
+            })
+        })
+    </script>
 
 </body>
 
