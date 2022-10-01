@@ -101,7 +101,7 @@
     <div class="row my-5">
         <div class="col text-center">
             <h3 class="display-9">Dipercaya Oleh</h3>
-            <p>Inilah beberapa dari mereka yang sudah bekerja sama dengan kami. Hubungi kami untuk kerja sama lebih lanjut</p>
+            <p><small class="text-muted">Inilah beberapa dari mereka yang sudah bekerja sama dengan kami. Hubungi kami untuk kerja sama lebih lanjut</small></p>
         </div>
     </div>
     <!-- slider -->
@@ -123,12 +123,53 @@
 
     <div class="d-flex flex-column my-5 mt-5">
         <div class="text-center mb-5">
-            <p>Big Coverage Insurance Made Easy For You</p>
-            <p>Asuransi jiwa murni hingga 5Miliar tanpa cek medis</p>
+            <p class="h4" style="color:#043055"><b>Big Coverage Insurance Made Easy For You</b></p>
+            <p><small class="text-muted"> jiwa murni hingga 5Miliar tanpa cek medis</small></p>
         </div>
-        <div class="d-flex flex-row justify-content-around">
-            <img class="rounded" src="https://via.placeholder.com/300" alt="">
-            <img class="rounded" src="https://via.placeholder.com/300" alt="">
+        <div class="tab-steps py-5" style="background-color: #dbdbdb">
+            <div class="tab-steps-item">
+                <div class="d-flex flex-row justify-content-center">
+                    <div style="margin-right: 10rem;">
+                        <img style="border-radius: 1rem;" src="https://via.placeholder.com/300" alt="">
+                    </div>
+                    <div>
+                        <div class="card opacity-10" style="width: 26rem;border-radius:1rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">4. Reliance Group Term Life</h5>
+                                <p><small class="text-muted"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum corrupti vero ratione laboriosam enim? Deleniti est nam voluptate porro, ipsam facilis alias placeat eum dolore praesentium quidem odio adipisci fuga!</small></p>
+                                <button type="button" class="btn btn-primary btn-sm p-2" style="border-radius: 10px; background-color: #31386b;">
+                                    Cek Flexi Life Sekarang
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="tab-steps-item d-none">
+                <div class="tab-steps--blocks">
+                    <span class="tab-steps--number">2</span>
+                    <span class="tab-steps--desease">copie-colle</span>
+                </div>
+            </div>
+            <div class="tab-steps-item d-none">
+                <div class="tab-steps--blocks">
+                    <span class="tab-steps--number">3</span>
+                    <span class="tab-steps--desease">Edites</span>
+                </div>
+            </div>
+            <div class="tab-steps-item d-none">
+                <div class="tab-steps--blocks">
+                    <div class="tab-steps--number">4</div>
+                    <div class="tab-steps--desease">Générer</div>
+                </div>
+            </div>
+            <div class="tab-steps-item d-none">
+                <div class="tab-steps--blocks">
+                    <div class="tab-steps--number">5</div>
+                    <div class="tab-steps--desease">Générer</div>
+                </div>
+            </div>
         </div>
         <!-- progress tracker -->
         <div class="">
@@ -140,38 +181,6 @@
                         <li data-step="3"></li>
                         <li data-step="4"></li>
                         <li data-step="5"></li>
-                    </ul>
-                    <ul class="tab-steps">
-                        <li class="tab-steps--one active">
-                            <div class="tab-steps--blocks active">
-                                <span class="tab-steps--number active">1</span>
-                                <span class="tab-steps--desease">Template</span>
-                            </div>
-                        </li>
-                        <li class="tab-steps--two">
-                            <div class="tab-steps--blocks">
-                                <span class="tab-steps--number">2</span>
-                                <span class="tab-steps--desease">copie-colle</span>
-                            </div>
-                        </li>
-                        <li class="tab-steps--three">
-                            <div class="tab-steps--blocks">
-                                <span class="tab-steps--number">3</span>
-                                <span class="tab-steps--desease">Edites</span>
-                            </div>
-                        </li>
-                        <li class="tab-steps--four">
-                            <div class="tab-steps--blocks">
-                                <div class="tab-steps--number">4</div>
-                                <div class="tab-steps--desease">Générer</div>
-                            </div>
-                        </li>
-                        <li class="tab-steps--four">
-                            <div class="tab-steps--blocks">
-                                <div class="tab-steps--number">5</div>
-                                <div class="tab-steps--desease">Générer</div>
-                            </div>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -218,9 +227,9 @@
                         $(this).addClass('active');
                     }
                 });
-                $(".tab-steps li").removeClass("active");
-                $(".tab-steps li").eq($(this).index()).addClass("active");
-                $(".tab-steps li").eq($(this).index() + 1).removeClass("active");
+                $(".tab-steps").find(".tab-steps-item").addClass("d-none");
+                $(".tab-steps").find(".tab-steps-item").eq($(this).index()).removeClass("d-none").addClass('in');
+                $(".tab-steps").find(".tab-steps-item").eq($(this).index() + 1).addClass("d-none");
 
             })
         })

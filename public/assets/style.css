@@ -119,7 +119,7 @@ background-color: rgb(172, 175, 175);
   }
   
   .tab-steps--list li.active:after {
-    background: #043055;
+    background: #31386b;
     height: 5px;
     width: 100%;
     -moz-transition: all 0.3s;
@@ -142,8 +142,8 @@ background-color: rgb(172, 175, 175);
   
   .tab-steps--list li:before {
     color: rgb(255, 255, 255);
-    border: 1px solid #043055;
-    background-color: #043055;
+    border: 1px solid #31386b;
+    background-color: #31386b;
   }
   
   
@@ -250,4 +250,12 @@ background-color: rgb(172, 175, 175);
     text-transform: uppercase;
     line-height: 1.2;
   }
+
+
+  /* custom css */
+  .custom-hide {
+    height: 0;
+    overflow: hidden;
+   -prefix-animation: slide 1s ease 3.5s forwards;
+}
   
