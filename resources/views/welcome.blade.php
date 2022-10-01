@@ -86,8 +86,8 @@
                 <p>Reliance</p>
                 <h1 class="display-4">Reliance Endowment</h1>
                 <p class="lead">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam hic deleniti ratione modi sequi sapiente, officia amet consectetur dolor dolore a architecto voluptatem veritatis error, debitis eaque eos facilis unde?</p>
-                <button type="button" class="btn btn-primary btn-lg">
-                    <i class="fa-brands fa-whatsapp" style="color:aliceblue"></i> Konsultasi Sekarang
+                <button type="button" class="btn btn-md" style="background-color: #31386b;color:aliceblue">
+                    <i class="fa-brands fa-whatsapp"></i> Konsultasi Sekarang
                 </button>
             </div>
             <div class="col">
@@ -105,7 +105,7 @@
         </div>
     </div>
     <!-- slider -->
-    <div class="row">
+    <section class="row">
         <!-- <div>your content</div> -->
         <div class="your-class my-2 mb-5">
             <div>
@@ -118,28 +118,30 @@
             <div><img class="rounded" src="https://via.placeholder.com/100" alt=""></div>
             <div><img class="rounded" src="https://via.placeholder.com/100" alt=""></div>
         </div>
-    </div>
+    </section>
     <!-- slider end -->
 
-    <div class="d-flex flex-column my-5 mt-5">
+    <section class="d-flex flex-column my-5 mt-5">
         <div class="text-center mb-5">
             <p class="h4" style="color:#043055"><b>Big Coverage Insurance Made Easy For You</b></p>
             <p><small class="text-muted"> jiwa murni hingga 5Miliar tanpa cek medis</small></p>
         </div>
-        <div class="tab-steps py-5" style="background-color: #dbdbdb">
+        <div class="tab-steps py-5" style="background-image:url('https://i.pinimg.com/474x/6f/76/97/6f769766a1ebea9f1b9c92281df8c518--white-patterns-random-things.jpg')">
             <div class="tab-steps-item">
-                <div class="d-flex flex-row justify-content-center">
-                    <div style="margin-right: 10rem;">
-                        <img style="border-radius: 1rem;" src="https://via.placeholder.com/300" alt="">
+                <div class="row">
+                    <div class="col text-center">
+                        <img style="border-radius: 1rem;" src="https://via.placeholder.com/500x200" alt="">
                     </div>
-                    <div>
-                        <div class="card opacity-10" style="width: 26rem;border-radius:1rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">4. Reliance Group Term Life</h5>
-                                <p><small class="text-muted"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum corrupti vero ratione laboriosam enim? Deleniti est nam voluptate porro, ipsam facilis alias placeat eum dolore praesentium quidem odio adipisci fuga!</small></p>
-                                <button type="button" class="btn btn-primary btn-sm p-2" style="border-radius: 10px; background-color: #31386b;">
-                                    Cek Flexi Life Sekarang
-                                </button>
+                    <div class="col">
+                        <div class="row justify-content-end">
+                            <div class="card" style="width: 40rem;border-radius:1rem;background-color: #FFFFFF7F;">
+                                <div class="card-body">
+                                    <h5 class="card-title">4. Reliance Group Term Life</h5>
+                                    <p class="text-dark" style="width: 25rem"><small> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum corrupti vero ratione laboriosam enim? Deleniti est nam voluptate porro, ipsam facilis alias placeat eum dolore praesentium quidem odio adipisci fuga!</small></p>
+                                    <button type="button" class="btn btn-primary btn-sm p-2" style="border-radius: 10px; background-color: #31386b;">
+                                        Cek Flexi Life Sekarang
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -170,9 +172,7 @@
                     <div class="tab-steps--desease">Générer</div>
                 </div>
             </div>
-        </div>
-        <!-- progress tracker -->
-        <div class="">
+            <!-- progress tracker -->
             <div class="flex-row text-center">
                 <div class="flex-col-xs-12">
                     <ul class="tab-steps--list">
@@ -182,11 +182,23 @@
                         <li data-step="4"></li>
                         <li data-step="5"></li>
                     </ul>
+                    <p class="fw-bolder">Reliance Group Term Life</p>
                 </div>
             </div>
+            <!-- progress tracker -->
         </div>
-        <!-- progress tracker -->
-    </div>
+
+    </section>
+
+    <section class="row justify-content-around p-5">
+        <div class="col px-5">
+            <h1 class="display-4">Cukup Bayar</h1>
+            <p class="w-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non nulla fugiat nesciunt. Ipsam ducimus officiis explicabo reiciendis dolorem nam, deleniti tempore similique quidem. Pariatur voluptatem, ullam quae esse placeat sed.</p>
+            <button type="button" class="btn btn-primary btn-sm py-3 px-4" style="border-radius: 10px;border:none; background-color: #31386b;">
+                Lihat Selengkapnya
+            </button>
+        </div>
+    </section>
 
 
 

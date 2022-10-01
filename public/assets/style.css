@@ -101,7 +101,7 @@ background-color: rgb(172, 175, 175);
     padding-left: 0;
     width: 100%;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
   }
   
   .tab-steps--list li {
@@ -258,4 +258,14 @@ background-color: rgb(172, 175, 175);
     overflow: hidden;
    -prefix-animation: slide 1s ease 3.5s forwards;
 }
-  
+
+
+.div-wrapper {
+  position: relative;
+}
+
+.div-wrapper img.bgs {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
