@@ -81,7 +81,7 @@
 
     <!-- jumbotron -->
     <section class="jumbotron ">
-        <div class="row justify-content-evenly">
+        <div class="row justify-content-around">
             <div class="col">
                 <p>Reliance</p>
                 <h1 class="display-4">Reliance Endowment</h1>
@@ -194,9 +194,14 @@
 
     </section>
 
-    <section class="row justify-content-around" style="background-image: url('https://via.placeholder.com/1600x800');">
-        <div class="p-5">
-            <div class="col px-10 py-10">
+    <section style="
+    background-image: url('https://via.placeholder.com/1600x800');
+    
+background-size:contain;
+background-position:center;
+    ">
+        <div class="row p-5">
+            <div class="col p-lg-5">
                 <h1 class="display-4">Cukup Bayar</h1>
                 <p class="w-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non nulla fugiat nesciunt. Ipsam ducimus officiis explicabo reiciendis dolorem nam, deleniti tempore similique quidem. Pariatur voluptatem, ullam quae esse placeat sed.Lorem ipsum dolor sit amet consectetur adipisicing elit. Non nulla fugiat nesciunt. Ipsam ducimus officiis explicabo reiciendis dolorem nam, deleniti tempore similique quidem. Pariatur voluptatem, ullam quae esse placeat sed.</p>
                 <button type="button" class="btn btn-primary btn-sm py-3 px-4" style="border-radius: 10px;border:none; background-color: #31386b;">
@@ -204,14 +209,34 @@
                 </button>
             </div>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path fill="#ffffff" fill-opacity="1" d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-        </svg>
+        <div style="position: relative; bottom:0px">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#ffffff" fill-opacity="1" d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
     </section>
 
+    <div class="row justify-content-around">
+        <div class="col text-center">
+            <img src="https://via.placeholder.com/200x200" alt="">
+            <p>Cek Status Premi</p>
+            <p>Ingin cek status klaim Anda?</p>
+        </div>
+        <div class="col text-center">
+            <img src="https://via.placeholder.com/200x200" alt="">
+            <p>Cek Status Premi</p>
+            <p>Ingin cek status klaim Anda?</p>
+        </div>
+    </div>
 
 
 
+    <div class="row">
+        <div class="col text-center">
+            <p>Pilihan Produk Terbaik Kami</p>
+            <p>Asuransi jiwa murni hingga 5miliar tanpa cek medis</p>
+        </div>
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
