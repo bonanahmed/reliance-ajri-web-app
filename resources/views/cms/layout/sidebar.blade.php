@@ -9,15 +9,15 @@
                 Pages
             </li>
 
-            <li class="sidebar-item active">
+            <li class="sidebar-item {{ Request::is('dashboard') ? 'active' : '' }}">
                 <a class="sidebar-link" href="index.html">
                     <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
                 </a>
             </li>
 
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="pages-profile.html">
-                    <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
+            <li class="sidebar-item {{ Request::is('c/news') ? 'active' : '' }}">
+                <a class="sidebar-link" href="/c/news">
+                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">News</span>
                 </a>
             </li>
 
