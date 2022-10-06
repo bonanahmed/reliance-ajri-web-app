@@ -16,6 +16,25 @@ class NewsController extends Controller
         ]);
     }
 
+    public function create(Request $request)
+    {
+        return view('cms.news.create');
+    }
+
+    public function edit(Request $request, News $news)
+    {
+        return view('cms.news.update', [
+            'news' => $news
+        ]);
+    }
+
+    public function show(News $news)
+    {
+        return view('cms.news.show', [
+            'news' => $news
+        ]);
+    }
+
     public function store(Request $request)
     {
         // return $request->file('image')->store('news-image');
@@ -35,30 +54,6 @@ class NewsController extends Controller
 
         News::create($validatedData);
         return redirect('/c/news')->with('success', 'Data has been added');
-    }
-
-    public function show(News $news)
-    {
-        return view('cms.news.show', [
-            'news' => $news
-        ]);
-    }
-
-
-    public function destroy(News $news)
-    {
-        if ($news->image) {
-            Storage::delete($news->image);
-        }
-        News::destroy($news->id);
-        return redirect('/c/news')->with('success', 'News has been deleted');
-    }
-
-    public function edit(Request $request, News $news)
-    {
-        return view('cms.news.update', [
-            'news' => $news
-        ]);
     }
 
     public function update(Request $request, News $news)
@@ -89,8 +84,12 @@ class NewsController extends Controller
         return redirect('/c/news')->with('success', 'Data has been updated');
     }
 
-    public function create(Request $request)
+    public function destroy(News $news)
     {
-        return view('cms.news.create');
+        if ($news->image) {
+            Storage::delete($news->image);
+        }
+        News::destroy($news->id);
+        return redirect('/c/news')->with('success', 'News has been deleted');
     }
 }

@@ -39,10 +39,10 @@
                         <a class="nav-link" href="#">Tentang Kami</a>
                     </li>
                     <li class="nav-item mx-3">
-                        <a class="nav-link" href="#">Produk</a>
+                        <a class="nav-link" href="#produk">Produk</a>
                     </li>
                     <li class="nav-item mx-3">
-                        <a class="nav-link" href="#">Mitra</a>
+                        <a class="nav-link" href="#mitra">Mitra</a>
                     </li>
                     <li class="nav-item mx-3">
                         <a class="nav-link" href="#">Klaim</a>
@@ -51,7 +51,7 @@
                         <a class="nav-link" href="#">Gallery</a>
                     </li>
                     <li class="nav-item mx-3">
-                        <a class="nav-link" href="#">Berita</a>
+                        <a class="nav-link" href="#news">Berita</a>
                     </li>
                     <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -103,7 +103,7 @@
     <!-- jumbotron end -->
 
     <section id="mitra">
-        <div class="row my-5">
+        <div class="row">
             <div class="col text-center">
                 <h3 class="display-9">Dipercaya Oleh</h3>
                 <p><small class="text-muted">Inilah beberapa dari mereka yang sudah bekerja sama dengan kami. Hubungi kami untuk kerja sama lebih lanjut</small></p>
@@ -243,7 +243,7 @@
     </section>
 
 
-    <section>
+    <section id="produk">
         <div class="container">
             <div class="row">
                 <div class="col text-center">
