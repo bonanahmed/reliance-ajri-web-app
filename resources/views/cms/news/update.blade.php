@@ -4,14 +4,15 @@
 <main class="content">
     <div class="container-fluid p-0">
 
-        <h1 class="h3 mb-3">Create News</h1>
+        <h1 class="h3 mb-3">Edit News</h1>
 
         <div class="col-lg-8">
-            <form action="/c/news" method="post" enctype="multipart/form-data">
+            <form action="/c/news/{{ $news->slug }}" method="post" enctype="multipart/form-data">
+                @method('put')
                 @csrf
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
-                    <input name="title" value="{{ old('title')}}" type="text" class="form-control @error('title') is-invalid @enderror" id="title" aria-describedby="title">
+                    <input name="title" value="{{ old('title',$news->title)}}" type="text" class="form-control @error('title') is-invalid @enderror" id="title" aria-describedby="title">
                     @error('title')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -20,7 +21,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="slug" class="form-label">Slug</label>
-                    <input value="{{ old('slug')}}" name="slug" type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" aria-describedby="slug">
+                    <input value="{{ old('slug',$news->slug)}}" name="slug" type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" aria-describedby="slug">
                     @error('slug')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -29,6 +30,10 @@
                 </div>
                 <div class="mb-3">
                     <label for="image" class="form-label">News Image</label>
+                    <input type="hidden" name="oldImage" value="{{ $news->image }}">
+                    @if($news->image)
+                    <img src="{{ asset('storage/'.$news->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                    @endif
                     <img class="img-preview img-fluid mb-3 col-sm-5">
                     <input name="image" id="image" class="form-control @error('image') is-invalid @enderror" type="file" onchange="previewImage()">
                     @error('image')
@@ -39,7 +44,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="title" class="form-label">Body</label>
-                    <input id="body" type="hidden" name="body" value="{{ old('body') }}">
+                    <input id="body" type="hidden" name="body" value="{{ old('body',$news->body) }}">
                     @error('body')
                     <p class="text-danger">
                         {{ $message }}
@@ -67,5 +72,4 @@
         }
     }
 </script>
-
 @endsection
