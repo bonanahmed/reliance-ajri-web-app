@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMitrasTable extends Migration
+class CreateVariabelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateMitrasTable extends Migration
      */
     public function up()
     {
-        Schema::create('mitras', function (Blueprint $table) {
+        Schema::create('variabels', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable(false);
-            $table->string('slug')->nullable(false);
-            $table->text('description')->nullable();
-            $table->string('image')->nullable(false);
+            $table->string('var')->unique()->nullable(false);
+            $table->text('value');
+            $table->text('content');
+            $table->text('image');
             $table->integer('created_by');
             $table->timestamps();
         });
@@ -31,6 +31,6 @@ class CreateMitrasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mitras');
+        Schema::dropIfExists('variabels');
     }
 }

@@ -5,26 +5,31 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\News;
+use App\Models\Kategori;
 use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
     public function index(Request $request)
     {
+        // dd(News::paginate(1));
         return view('cms.news.news', [
-            'news' => News::all()
+            'news' => News::paginate(1)
         ]);
     }
 
     public function create(Request $request)
     {
-        return view('cms.news.create');
+        return view('cms.news.create', [
+            'kategori' => Kategori::all()
+        ]);
     }
 
     public function edit(Request $request, News $news)
     {
         return view('cms.news.update', [
-            'news' => $news
+            'news' => $news,
+            'kategori' => Kategori::all()
         ]);
     }
 
@@ -42,6 +47,7 @@ class NewsController extends Controller
             'title' => 'required|max:255',
             'slug' => 'required',
             'body' => 'required',
+            'kategori_id' => 'required',
             'image' => 'image|file|max:1024'
         ]);
 
@@ -61,6 +67,7 @@ class NewsController extends Controller
         $rules = [
             'title' => 'required',
             'body' => 'required',
+            'kategori_id' => 'required',
             'image' => 'image|file|max:1024'
         ];
 

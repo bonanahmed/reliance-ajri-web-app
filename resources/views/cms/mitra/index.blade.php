@@ -6,7 +6,7 @@
 
     <div class="container-fluid p-0">
 
-        <h1 class="h3 mb-3"><strong>News</strong> Dashboard</h1>
+        <h1 class="h3 mb-3"><strong>Mitra</strong> Dashboard</h1>
         <div class="row">
             <div class="col-12 d-flex">
                 <div class="card flex-fill">
@@ -28,7 +28,7 @@
             <div class="col-12 d-flex">
                 <div class="card flex-fill">
                     <div class="card-header">
-                        <a href="/c/news/create" class="btn btn-primary m-2">Create news</a>
+                        <a href="/c/mitra/create" class="btn btn-primary m-2">Add Mitra</a>
                     </div>
 
                     <table class="table table-hover my-0">
@@ -42,20 +42,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($news as $item)
+                            @foreach($mitra as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td class="d-none d-xl-table-cell">{{ $item->title }}</td>
+                                <td class="d-none d-xl-table-cell">{{ $item->name }}</td>
                                 <td class="d-none d-xl-table-cell">{{ $item->created_at }}</td>
                                 <td><span class="badge bg-success">Publish</span></td>
                                 <td class="d-none d-md-table-cell">
-                                    <a href="/c/news/{{$item->slug}}" class="badge bg-primary">
+                                    <a href="/c/mitra/{{$item->id}}" class="badge bg-primary">
                                         <span data-feather="eye"></span>
                                     </a>
-                                    <a href="/c/news/{{$item->slug}}/edit" class="badge bg-success">
+                                    <a href="/c/mitra/{{$item->id}}/edit" class="badge bg-success">
                                         <span data-feather="edit-2"></span>
                                     </a>
-                                    <form action="/c/news/{{$item->slug}}" class="d-inline" method="post">
+                                    <form action="/c/mitra/{{$item->id}}" class="d-inline" method="post">
                                         @method('delete')
                                         @csrf
                                         <button onclick="return confirm('Are you sure?')" class="badge bg-danger border-0"><span data-feather="trash-2"></span></button>
@@ -67,7 +67,7 @@
                         </tbody>
                     </table>
                     <div class="d-flex justify-content-center mt-3">
-                        {{ $news->links() }}
+                        {{ $mitra->links() }}
                     </div>
                 </div>
             </div>

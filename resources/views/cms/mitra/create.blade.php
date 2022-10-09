@@ -4,15 +4,15 @@
 <main class="content">
     <div class="container-fluid p-0">
 
-        <h1 class="h3 mb-3">Create News</h1>
+        <h1 class="h3 mb-3">Add Mitra</h1>
 
         <div class="col-lg-8">
-            <form action="/c/news" method="post" enctype="multipart/form-data">
+            <form action="/c/mitra" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
-                    <label for="title" class="form-label">Title</label>
-                    <input name="title" value="{{ old('title')}}" type="text" class="form-control @error('title') is-invalid @enderror" id="title" aria-describedby="title">
-                    @error('title')
+                    <label for="name" class="form-label">Name</label>
+                    <input name="name" value="{{ old('name')}}" type="text" class="form-control @error('name') is-invalid @enderror" id="name" aria-describedby="name">
+                    @error('name')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
@@ -28,15 +28,7 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="image" class="form-label">Kategori</label>
-                    <select class="form-select" aria-label="kategori_id" name="kategori_id">
-                        @foreach($kategori as $item)
-                        <option value="{{ $item->id }}">{{ $item->title }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="image" class="form-label">News Image</label>
+                    <label for="image" class="form-label">Mitra Logo</label>
                     <img class="img-preview img-fluid mb-3 col-sm-5">
                     <input name="image" id="image" class="form-control @error('image') is-invalid @enderror" type="file" onchange="previewImage()">
                     @error('image')
@@ -46,14 +38,14 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="title" class="form-label">Body</label>
-                    <input id="body" type="hidden" name="body" value="{{ old('body') }}">
-                    @error('body')
+                    <label for="description" class="form-label">Description</label>
+                    <input id="description" type="hidden" name="description" value="{{ old('description') }}">
+                    @error('description')
                     <p class="text-danger">
                         {{ $message }}
                     </p>
                     @enderror
-                    <trix-editor input="body"></trix-editor>
+                    <trix-editor input="description"></trix-editor>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

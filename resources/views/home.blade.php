@@ -316,6 +316,34 @@
         </div>
     </section>
 
+    <footer class="bg-primary py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Reliance</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam facere animi placeat quae ad delectus pariatur dolores velit, odio, optio hic nihil. Animi laboriosam rem iure vel. Accusantium, praesentium neque.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Sitemap</h5>
+                    <div class="row row-cols-2">
+                        <div class="col">Column</div>
+                        <div class="col">Column</div>
+                        <div class="col">Column</div>
+                        <div class="col">Column</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5>Kontak</h5>
+                    <p>Gedung Soho West Point. Kota Kedoya</p>
+                    <p>JL Macan Kav.4-5 Kedoya Utara. Kebon Jeruk</p>
+                    <p>Jakarta Barat 11510</p>
+                    <p>021-21102288</p>
+                    <p>info@reliance.id</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
