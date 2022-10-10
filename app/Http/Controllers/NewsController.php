@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\News;
 use App\Models\Kategori;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
@@ -14,7 +15,7 @@ class NewsController extends Controller
     {
         // dd(News::paginate(1));
         return view('cms.news.news', [
-            'news' => News::paginate(1)
+            'news' => News::orderBy('id', 'desc')->paginate(10)
         ]);
     }
 
@@ -98,5 +99,11 @@ class NewsController extends Controller
         }
         News::destroy($news->id);
         return redirect('/c/news')->with('success', 'News has been deleted');
+    }
+
+    public function checkSlug(Request $request)
+    {
+        $slug = SlugService::createSlug(News::class, 'slug', $request->title);
+        return response()->json(['slug' => $slug]);
     }
 }

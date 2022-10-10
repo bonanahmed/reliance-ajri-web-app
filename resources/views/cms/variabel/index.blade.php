@@ -44,7 +44,7 @@
                         <tbody>
                             @foreach($variabel as $item)
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $variabel->firstItem() + $loop->index }}</td>
                                 <td class="d-none d-xl-table-cell">{{ $item->var }}</td>
                                 <td class="d-none d-xl-table-cell">{{ $item->created_at }}</td>
                                 <td><span class="badge bg-success">Publish</span></td>

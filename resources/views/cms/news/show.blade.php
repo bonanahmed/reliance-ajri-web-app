@@ -17,18 +17,23 @@
                     @csrf
                     <button onclick="return confirm('Are you sure?')" class="btn btn-danger"><span data-feather="trash-2"></span>Delete</button>
                 </form>
+
+
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-md-6">
                 @if($news->image)
                 <div style="max-height: 350px;overflow:hidden">
                     <img src="{{ asset('storage/'.$news->image) }}" alt="{{ $news->title }}" class="img-fluid mt-3">
-
                 </div>
-                @else
-                <img src="" alt="{{$news->title}}" class="img-fluid mt-3">
                 @endif
-                <article class="my-3 fs-5">
-                    {!! $news->body !!}
-                </article>
             </div>
+        </div>
+        <div class="row">
+            <article class="my-3 fs-5">
+                {!! $news->body !!}
+            </article>
         </div>
     </div>
 </main>

@@ -28,9 +28,11 @@ class DatabaseSeeder extends Seeder
             'role' => 'admin',
             'password' => bcrypt('admin')
         ]);
-        User::factory(10)->create();
+        User::factory(15)->create();
 
         $this->call(VariabelSeeder::class);
         $this->call(MitraSeeder::class);
+        $this->call(KategoriSeeder::class);
+        $this->call(NewsSeeder::class);
     }
 }

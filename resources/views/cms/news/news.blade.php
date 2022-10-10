@@ -44,7 +44,7 @@
                         <tbody>
                             @foreach($news as $item)
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $news->firstItem() + $loop->index }}</td>
                                 <td class="d-none d-xl-table-cell">{{ $item->title }}</td>
                                 <td class="d-none d-xl-table-cell">{{ $item->created_at }}</td>
                                 <td><span class="badge bg-success">Publish</span></td>

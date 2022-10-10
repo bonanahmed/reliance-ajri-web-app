@@ -15,7 +15,7 @@ class KategoriController extends Controller
     public function index()
     {
         return view('cms.kategori.kategori', [
-            'kategori' => Kategori::paginate(1)
+            'kategori' => Kategori::paginate(10)
         ]);
     }
 

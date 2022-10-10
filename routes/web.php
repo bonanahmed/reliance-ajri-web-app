@@ -24,12 +24,9 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('c/', function () {
-    return view('cms.login');
-});
-
 Route::get('/c/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 Route::get('/c/news', [NewsController::class, 'index'])->middleware('auth');
+Route::get('/c/news/checkSlug', [NewsController::class, 'checkSlug'])->middleware('auth');
 Route::get('/c/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/c/login', [LoginController::class, 'authenticate']);
 Route::get('/c/register', [RegisterController::class, 'index']);
