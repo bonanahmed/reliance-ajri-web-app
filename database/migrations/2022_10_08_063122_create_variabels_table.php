@@ -16,10 +16,11 @@ class CreateVariabelsTable extends Migration
         Schema::create('variabels', function (Blueprint $table) {
             $table->id();
             $table->string('var')->unique()->nullable(false);
-            $table->text('value');
-            $table->text('content');
-            $table->text('image');
-            $table->integer('created_by');
+            $table->text('value')->nullable();
+            $table->text('content')->nullable();
+            $table->text('image')->nullable();
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
             $table->timestamps();
         });
     }

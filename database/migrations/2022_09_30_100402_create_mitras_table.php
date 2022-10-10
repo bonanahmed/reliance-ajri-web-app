@@ -18,8 +18,8 @@ class CreateMitrasTable extends Migration
             $table->string('name')->nullable(false);
             $table->string('slug')->nullable(false);
             $table->text('description')->nullable();
-            $table->string('image')->nullable(false);
-            $table->integer('created_by');
+            $table->string('image')->nullable();
+            $table->integer('created_by')->nullable();
             $table->timestamps();
         });
     }

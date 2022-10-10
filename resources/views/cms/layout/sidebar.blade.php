@@ -5,6 +5,7 @@
         </a>
 
         <ul class="sidebar-nav">
+            @can('super')
             <li class="sidebar-header">
                 Admin Panel
             </li>
@@ -13,6 +14,7 @@
                     <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Variabel</span>
                 </a>
             </li>
+            @endcan
             <li class="sidebar-header">
                 Pages
             </li>

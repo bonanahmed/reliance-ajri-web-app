@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\URL;
 
 class MitraFactory extends Factory
 {
@@ -14,7 +15,9 @@ class MitraFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->company(),
+            'slug' => $this->faker->slug(),
+            'description' => $this->faker->paragraph(),
         ];
     }
 }

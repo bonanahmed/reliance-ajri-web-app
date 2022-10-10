@@ -19,14 +19,14 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <!-- Add the slick-theme.css if you want default styling -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
-    <title>Reliance</title>
+    <title>{{ $variabel->title->value ?? 'WEBSITE' }}</title>
 </head>
 
 <body>
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Reliance</a>
+            <a class="navbar-brand" href="#">{{ $variabel->title->value ?? 'WEBSITE' }}</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -104,22 +104,20 @@
 
     <section id="mitra">
         <div class="row">
-            <div class="col text-center">
+            <div class="col-md-12 text-center">
                 <h3 class="display-9">Dipercaya Oleh</h3>
                 <p><small class="text-muted">Inilah beberapa dari mereka yang sudah bekerja sama dengan kami. Hubungi kami untuk kerja sama lebih lanjut</small></p>
             </div>
-            <div class="col">
-                <div class="your-class my-2 mb-5">
-                    <div>
-                        <img class="rounded" src="https://via.placeholder.com/100" alt="">
-                    </div>
-                    <div><img class="rounded" src="https://via.placeholder.com/100" alt=""></div>
-                    <div><img class="rounded" src="https://via.placeholder.com/100" alt=""></div>
-                    <div><img class="rounded" src="https://via.placeholder.com/100" alt=""></div>
-                    <div><img class="rounded" src="https://via.placeholder.com/100" alt=""></div>
-                    <div><img class="rounded" src="https://via.placeholder.com/100" alt=""></div>
-                    <div><img class="rounded" src="https://via.placeholder.com/100" alt=""></div>
+            <div class="col-md-12 your-class my-2 mb-5">
+                @foreach($mitras as $mitra)
+                <div class="mx-2 justify-content-center text-center">
+                    @if($mitra->image)
+                    <img style="height: 200px;object-fit: contain ;" class="img-thumbnail" src="{{ asset('storage/'.$mitra->image) }}" alt="">
+                    @else
+                    <img style="height: 200px;object-fit: contain ;" class="img-thumbnail" src="https://via.placeholder.com/150" alt="">
+                    @endif
                 </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -334,11 +332,7 @@
                 </div>
                 <div class="col-md-4">
                     <h5>Kontak</h5>
-                    <p>Gedung Soho West Point. Kota Kedoya</p>
-                    <p>JL Macan Kav.4-5 Kedoya Utara. Kebon Jeruk</p>
-                    <p>Jakarta Barat 11510</p>
-                    <p>021-21102288</p>
-                    <p>info@reliance.id</p>
+                    {!! $variabel->contact->content ?? '' !!}
                 </div>
             </div>
         </div>

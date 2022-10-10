@@ -17,12 +17,12 @@ class CreateNewsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
-            $table->integer('kategori_id')->nullable(false);
+            $table->foreignId('kategori_id');
+            $table->foreignId('created_by');
             $table->string('image')->nullable();
             $table->text('excerpt');
             $table->text('body');
             $table->timestamp('published_at')->nullable();
-            $table->integer('created_by');
             $table->timestamps();
         });
     }

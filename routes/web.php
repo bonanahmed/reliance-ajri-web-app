@@ -38,4 +38,4 @@ Route::post('/c/logout', [LoginController::class, 'logout']);
 Route::resource('/c/news', NewsController::class)->middleware('auth');
 Route::resource('/c/kategori', KategoriController::class)->middleware('auth');
 Route::resource('/c/mitra', MitraController::class)->middleware('auth');
-Route::resource('/c/variabel', VariabelController::class)->middleware('auth');
+Route::resource('/c/variabel', VariabelController::class)->middleware('super');

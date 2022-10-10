@@ -2,12 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mitra;
 use Illuminate\Http\Request;
+use App\Models\Variabel;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('home');
+        $variabel = Variabel::all();
+        $mitra = Mitra::all();
+        $object = new \stdClass;
+        foreach ($variabel as $key => $value) {
+            $object->{$value->var} = (object)[
+                'value' => $value->value,
+                'content' => $value->content,
+                'image' => $value->image
+            ];
+        }
+        return view('home', [
+            'variabel' => $object,
+            'mitras' => $mitra
+        ]);
     }
 }

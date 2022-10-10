@@ -7,7 +7,7 @@
         <h1 class="h3 mb-3">Create Variabel</h1>
 
         <div class="col-lg-8">
-            <form action="/c/news" method="post" enctype="multipart/form-data">
+            <form action="/c/variabel" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label for="var" class="form-label">Variabel</label>

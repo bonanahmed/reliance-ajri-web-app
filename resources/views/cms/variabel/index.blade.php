@@ -45,16 +45,21 @@
                             @foreach($variabel as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td class="d-none d-xl-table-cell">{{ $variabel->title }}</td>
-                                <td class="d-none d-xl-table-cell">{{ $variabel->created_at }}</td>
+                                <td class="d-none d-xl-table-cell">{{ $item->var }}</td>
+                                <td class="d-none d-xl-table-cell">{{ $item->created_at }}</td>
                                 <td><span class="badge bg-success">Publish</span></td>
                                 <td class="d-none d-md-table-cell">
-                                    <a href="/c/variabel/{{$variabel->id}}" class="badge bg-primary">
+                                    <a href="/c/variabel/{{$item->id}}" class="badge bg-primary">
                                         <span data-feather="eye"></span>
                                     </a>
-                                    <a href="/c/variabel/{{$variabel->id}}/edit" class="badge bg-success">
+                                    <a href="/c/variabel/{{$item->id}}/edit" class="badge bg-success">
                                         <span data-feather="edit-2"></span>
                                     </a>
+                                    <form action="/c/variabel/{{$item->id}}" class="d-inline" method="post">
+                                        @method('delete')
+                                        @csrf
+                                        <button onclick="return confirm('Are you sure?')" class="badge bg-danger border-0"><span data-feather="trash-2"></span></button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach

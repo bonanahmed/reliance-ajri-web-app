@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Mitra;
+use Illuminate\Support\Facades\Storage;
 
 class MitraController extends Controller
 {
@@ -85,9 +86,30 @@ class MitraController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Mitra $mitra)
     {
-        //
+        $rules = [
+            'name' => 'required',
+            'description' => '',
+            'image' => 'image|file|max:1024'
+        ];
+
+        if ($request->slug != $mitra->slug) {
+            $rules['slug'] = 'required';
+        }
+
+        $validatedData = $request->validate($rules);
+
+        if ($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('news-image');
+        }
+
+        Mitra::where('id', $mitra->id)
+            ->update($validatedData);
+        return redirect('/c/mitra')->with('success', 'Data has been updated');
     }
 
     /**
@@ -96,8 +118,12 @@ class MitraController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Mitra $mitra)
     {
-        //
+        if ($mitra->image) {
+            Storage::delete($mitra->image);
+        }
+        Mitra::destroy($mitra->id);
+        return redirect('/c/mitra')->with('success', 'Mitra has been deleted');
     }
 }

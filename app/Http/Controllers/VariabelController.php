@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Variabel;
+use Illuminate\Support\Facades\Storage;
 
 class VariabelController extends Controller
 {
@@ -37,7 +38,16 @@ class VariabelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'var' => 'required',
+            'value' => '',
+            'image' => '',
+            'content' => ''
+        ]);
+
+        $validatedData['created_by'] = auth()->user()->id;
+        Variabel::create($validatedData);
+        return redirect('/c/variabel')->with('success', 'Data has been added!');
     }
 
     /**
@@ -57,9 +67,11 @@ class VariabelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Variabel $variabel)
     {
-        //
+        return view('cms.variabel.update', [
+            'variabel' => $variabel
+        ]);
     }
 
     /**
@@ -69,9 +81,25 @@ class VariabelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Variabel $variabel)
     {
-        //
+        $validatedData = $request->validate([
+            'value' => '',
+            'image' => 'image|file|max:1024',
+            'content' => ''
+        ]);
+
+        if ($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('var-image');
+        }
+
+        $validatedData['created_by'] = auth()->user()->id;
+        Variabel::where('id', $variabel->id)
+            ->update($validatedData);
+        return redirect('/c/variabel')->with('success', 'Data has been added!');
     }
 
     /**
@@ -80,8 +108,12 @@ class VariabelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Variabel $variabel)
     {
-        //
+        if ($variabel->image) {
+            Storage::delete($variabel->image);
+        }
+        Variabel::destroy($variabel->id);
+        return redirect('/c/variabel')->with('success', 'Variabel has been deleted');
     }
 }

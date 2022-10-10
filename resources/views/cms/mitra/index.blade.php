@@ -44,7 +44,7 @@
                         <tbody>
                             @foreach($mitra as $item)
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $mitra->firstItem() + $loop->index }}</td>
                                 <td class="d-none d-xl-table-cell">{{ $item->name }}</td>
                                 <td class="d-none d-xl-table-cell">{{ $item->created_at }}</td>
                                 <td><span class="badge bg-success">Publish</span></td>
