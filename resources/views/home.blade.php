@@ -67,10 +67,10 @@
                             </li>
                             <li><a class="dropdown-item" href="#">Something else here</a></li>
                         </ul>
-                    </li> -->
+                    </li> 
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    </li>
+                    </li>-->
                 </ul>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -85,17 +85,19 @@
     <section class="jumbotron">
         <div class="row justify-content-around">
             <div class="col-md-6">
-                <p>Reliance</p>
-                <h1 class="display-4">Reliance Endowment</h1>
-                <p class="lead">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam hic deleniti ratione modi sequi sapiente, officia amet consectetur dolor dolore a architecto voluptatem veritatis error, debitis eaque eos facilis unde?</p>
-                <button type="button" class="btn btn-md" style="background-color: #31386b;color:aliceblue">
-                    <i class="fa-brands fa-whatsapp"></i> Konsultasi Sekarang
-                </button>
+                <div class="pt-5">
+                    <p style="margin: 0px;">Reliance</p>
+                    <p style="color:#29559B;font-size:61px;font-weight:700">Reliance Endowment</p>
+                    <p class="lead">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam hic deleniti ratione modi sequi sapiente, officia amet consectetur dolor dolore a architecto voluptatem veritatis error, debitis eaque eos facilis unde?</p>
+                    <button type="button" class="btn btn-md" style="background-color: #31386b;color:aliceblue">
+                        <i class="fa-brands fa-whatsapp"></i> Konsultasi Sekarang
+                    </button>
+                </div>
             </div>
             <div class="col-md-6">
                 <div class="row justify-content-center">
                     <div class="col">
-                        <img class="rounded img-fluid" src="https://via.placeholder.com/400" alt="">
+                        <img class="rounded img-fluid" src="{{ asset('assets/img/frame.png') }}" alt="">
                     </div>
                 </div>
             </div>
@@ -233,11 +235,13 @@
                 <img class="img-fluid" src="{{ asset('assets/img/shield.png') }}" alt="">
                 <p>Cek Status Premi</p>
                 <p>Ingin cek status klaim Anda?</p>
+                <button type="button" class="btn btn-outline-primary">Cek Status Premi Sekarang</button>
             </div>
             <div class="col text-center">
                 <img class="img-fluid" src="{{ asset('assets/img/papers.png') }}" alt="">
                 <p>Cek Status Premi</p>
                 <p>Ingin cek status klaim Anda?</p>
+                <button type="button" class="btn btn-outline-primary">Ajukan Sekarang</button>
             </div>
         </div>
     </section>
@@ -291,9 +295,9 @@
         </div>
     </section>
 
-    <section id="news">
+    <section id="news" class="mb-5">
         <div class="container">
-            <div class="row">
+            <div class="row mb-5">
                 <div class="col text-center">
                     <h5>Info Daily Reliance</h5>
                 </div>
@@ -301,8 +305,27 @@
             <div class="row">
                 <div class="col-md-4 mb-5">
                     <div class="card">
-                        <img src="https://via.placeholder.com/200x200" class="card-img-top" alt="...">
+                        <img src="{{ asset('assets/img/info-daily.png') }}" class="card-img-top" alt="...">
                         <div class="card-body">
+                            <p class="mb-2"><b>Kategori</b> <span class="text-muted">12 Januari 2022</span></p>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card">
+                        <img src="{{ asset('assets/img/info-daily.png') }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="mb-2"><b>Kategori</b> <span class="text-muted">12 Januari 2022</span></p>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card">
+                        <img src="{{ asset('assets/img/info-daily.png') }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="mb-2"><b>Kategori</b> <span class="text-muted">12 Januari 2022</span></p>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </div>
                     </div>
@@ -320,7 +343,7 @@
         <div class="container py-5">
             <div class="row">
                 <div class="col-md-4">
-                    <h5>Reliance</h5>
+                    <img src="{{ asset('assets/img/logo-2.png') }}" alt="">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam facere animi placeat quae ad delectus pariatur dolores velit, odio, optio hic nihil. Animi laboriosam rem iure vel. Accusantium, praesentium neque.</p>
                 </div>
                 <div class="col-md-4">
