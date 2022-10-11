@@ -26,7 +26,9 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">{{ $variabel->title->value ?? 'WEBSITE' }}</a>
+            <a class="navbar-brand" href="#">
+                <img src="assets/img/logo-1.png" alt="" height="30">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -206,9 +208,9 @@
 
     </section>
 
-    <section style="background-image: url('https://via.placeholder.com/1600x800');background-size:contain;background-position:center;">
-        <div class="row p-5">
-            <div class="col-md-6 p-lg-5">
+    <section style="background-image: url('{{ asset('assets/img/family-portrait.png') }}');background-size: cover;background-repeat: no-repeat;">
+        <div class="row" style="padding:25px 60px 0px ;">
+            <div class="col-md-6">
                 <h1 class="display-4">Cukup Bayar Sesuai Risikomu</h1>
                 <p class="w-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non nulla fugiat nesciunt. Ipsam ducimus officiis explicabo reiciendis dolorem nam, deleniti tempore similique quidem. Pariatur voluptatem, ullam quae esse placeat sed.Lorem ipsum dolor sit amet consectetur adipisicing elit. Non nulla fugiat nesciunt. Ipsam ducimus officiis explicabo reiciendis dolorem nam, deleniti tempore similique quidem. Pariatur voluptatem, ullam quae esse placeat sed.</p>
                 <button type="button" class="btn btn-primary btn-sm py-3 px-4" style="border-radius: 10px;border:none; background-color: #31386b;">
@@ -216,7 +218,7 @@
                 </button>
             </div>
         </div>
-        <div style="position: relative; bottom:0px">
+        <div style="position: relative; bottom:0rem">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
                 <path fill="#ffffff" fill-opacity="1" d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
             </svg>
@@ -228,12 +230,12 @@
     <section>
         <div class="row justify-content-around">
             <div class="col text-center">
-                <img src="https://via.placeholder.com/200x200" alt="">
+                <img class="img-fluid" src="{{ asset('assets/img/shield.png') }}" alt="">
                 <p>Cek Status Premi</p>
                 <p>Ingin cek status klaim Anda?</p>
             </div>
             <div class="col text-center">
-                <img src="https://via.placeholder.com/200x200" alt="">
+                <img class="img-fluid" src="{{ asset('assets/img/papers.png') }}" alt="">
                 <p>Cek Status Premi</p>
                 <p>Ingin cek status klaim Anda?</p>
             </div>
@@ -252,37 +254,37 @@
             <div class="row justify-content-center">
                 <div class="col-md-4 mb-5">
                     <div class="text-center">
-                        <img src="https://via.placeholder.com/200x200" alt="...">
+                        <img class="img-fluid" src="{{ asset('assets/img/umbrella.png') }}" alt="...">
                         <h5>Individu</h5>
-                        <button type="button" class="btn btn-outline-primary">Primary</button>
+                        <button type="button" class="btn btn-outline-primary">Cek Detail Sekarang</button>
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">
                     <div class="text-center">
-                        <img src="https://via.placeholder.com/200x200" alt="...">
-                        <h5>Individu</h5>
-                        <button type="button" class="btn btn-outline-primary">Primary</button>
+                        <img class="img-fluid" src="{{ asset('assets/img/umbrella-rain.png') }}" alt="...">
+                        <h5>Kumpulan</h5>
+                        <button type="button" class="btn btn-outline-primary">Cek Detail Sekarang</button>
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">
                     <div class="text-center">
-                        <img src="https://via.placeholder.com/200x200" alt="...">
-                        <h5>Individu</h5>
-                        <button type="button" class="btn btn-outline-primary">Primary</button>
+                        <img class="img-fluid" src="{{ asset('assets/img/brosur.png') }}" alt="...">
+                        <h5>Brosur</h5>
+                        <button type="button" class="btn btn-outline-primary">Cek Detail Sekarang</button>
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">
                     <div class="text-center">
-                        <img src="https://via.placeholder.com/200x200" alt="...">
-                        <h5>Individu</h5>
-                        <button type="button" class="btn btn-outline-primary">Primary</button>
+                        <img class="img-fluid" src="{{ asset('assets/img/form-simulator.png') }}" alt="...">
+                        <h5>Form Simulasi</h5>
+                        <button type="button" class="btn btn-outline-primary">Cek Form Simulasi Sekarang</button>
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">
                     <div class="text-center">
-                        <img src="https://via.placeholder.com/200x200" alt="...">
-                        <h5>Individu</h5>
-                        <button type="button" class="btn btn-outline-primary">Primary</button>
+                        <img class="img-fluid" src="{{ asset('assets/img/form-request.png') }}" alt="...">
+                        <h5>Form Request</h5>
+                        <button type="button" class="btn btn-outline-primary">Cek Form Request Sekarang</button>
                     </div>
                 </div>
             </div>
@@ -314,8 +316,8 @@
         </div>
     </section>
 
-    <footer class="bg-primary py-5">
-        <div class="container">
+    <footer style="background: linear-gradient(106deg, rgba(41, 85, 155, 0.5) 10.89%, #29559B 100%);">
+        <div class="container py-5">
             <div class="row">
                 <div class="col-md-4">
                     <h5>Reliance</h5>
@@ -334,6 +336,12 @@
                     <h5>Kontak</h5>
                     {!! $variabel->contact->content ?? '' !!}
                 </div>
+            </div>
+
+        </div>
+        <div class="row justify-content-center" style="background-color: #29559B;">
+            <div class="col-md-4 text-center p-4" style="color:white ;">
+                Copyrights 2022 Reliance Life
             </div>
         </div>
     </footer>

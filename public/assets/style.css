@@ -276,3 +276,7 @@ section {
   left: 0;
   bottom: 0;
 }
+
+footer {
+  background: linear-gradient(106deg, rgba(41, 85, 155, 0.5) 10.89%, #29559B 100%);
+}
