@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Variabel;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Storage;
@@ -136,8 +137,21 @@ class AboutController extends Controller
 
     // For Web
 
-    public function aboutus()
+    public function aboutus(About $about)
     {
-        return view('web.pages.about');
+        $variabel = Variabel::all();
+        $object = new \stdClass;
+        foreach ($variabel as $key => $value) {
+            $object->{$value->var} = (object)[
+                'value' => $value->value,
+                'content' => $value->content,
+                'image' => $value->image
+            ];
+        }
+        return view('web.pages.about', [
+            'variabel' => $object,
+            'list' => About::all(),
+            'about' => $about
+        ]);
     }
 }

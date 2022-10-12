@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- my css -->
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="{{ asset('assets/style.css') }}">
 
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -35,21 +35,23 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="list-group">
-                        <a type="button" class="list-group-item list-group-item-action active">
+                        @foreach($list as $item)
+                        <a href="/about/{{ $item->slug }}#konten" class="list-group-item list-group-item-action {{ Request::is('about/'.$item->slug) ? 'active' : '' }}">
+                            {{ $item->title }}
+                        </a>
+                        @endforeach
+                        <!-- <a type="button" class="list-group-item list-group-item-action active">
                             Cras justo odio
                         </a>
                         <a type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
                         <a type="button" class="list-group-item list-group-item-action">Morbi leo risus</a>
                         <a type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-                        <a type="button" class="list-group-item list-group-item-action" disabled>Vestibulum at eros</a>
+                        <a type="button" class="list-group-item list-group-item-action" disabled>Vestibulum at eros</a> -->
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <h1 class="text-center mb-5">Asuransi Jiwa Reliance Indonesia</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. A odit, dolorum eos nisi perspiciatis optio laudantium voluptatibus cupiditate corrupti quam qui architecto velit officiis! Voluptates perspiciatis corporis praesentium autem ratione.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. A odit, dolorum eos nisi perspiciatis optio laudantium voluptatibus cupiditate corrupti quam qui architecto velit officiis! Voluptates perspiciatis corporis praesentium autem ratione.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. A odit, dolorum eos nisi perspiciatis optio laudantium voluptatibus cupiditate corrupti quam qui architecto velit officiis! Voluptates perspiciatis corporis praesentium autem ratione.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. A odit, dolorum eos nisi perspiciatis optio laudantium voluptatibus cupiditate corrupti quam qui architecto velit officiis! Voluptates perspiciatis corporis praesentium autem ratione.</p>
+                    <h1 class="text-center mb-5">{{ $about->title }}</h1>
+                    {!! $about->body !!}
                 </div>
             </div>
         </div>
