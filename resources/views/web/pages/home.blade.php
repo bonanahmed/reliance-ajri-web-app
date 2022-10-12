@@ -24,87 +24,10 @@
 
 <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="assets/img/logo-1.png" alt="" height="30">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                    <li class="nav-item mx-1">
-                        <a class="nav-link active" aria-current="page" href="#">Beranda</a>
-                    </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link" href="#">Tentang Kami</a>
-                    </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link" href="#produk">Produk</a>
-                    </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link" href="#mitra">Mitra</a>
-                    </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link" href="#">Klaim</a>
-                    </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link" href="#">Gallery</a>
-                    </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link" href="#news">Berita</a>
-                    </li>
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li> 
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    </li>-->
-                </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
+    @include('web.component.navbar')
     <!-- navbar end -->
 
-    <!-- jumbotron -->
-    <section class="jumbotron">
-        <div class="row justify-content-around">
-            <div class="col-md-6">
-                <div class="pt-5">
-                    <p style="margin: 0px;">Reliance</p>
-                    <p style="color:#29559B;font-size:61px;font-weight:700">Reliance Endowment</p>
-                    <p class="lead">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam hic deleniti ratione modi sequi sapiente, officia amet consectetur dolor dolore a architecto voluptatem veritatis error, debitis eaque eos facilis unde?</p>
-                    <button type="button" class="btn btn-md" style="background-color: #31386b;color:aliceblue">
-                        <i class="fa-brands fa-whatsapp"></i> Konsultasi Sekarang
-                    </button>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="row justify-content-center">
-                    <div class="col">
-                        <img class="rounded img-fluid" src="{{ asset('assets/img/frame.png') }}" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section>
-    <!-- jumbotron end -->
+    @include('web.component.jumbotron1')
 
     <section id="mitra">
         <div class="row">
@@ -125,21 +48,6 @@
             </div>
         </div>
     </section>
-    <!-- slider 
-    <section class="row">
-        <div class="your-class my-2 mb-5">
-            <div>
-                <img class="rounded" src="https://via.placeholder.com/100" alt="">
-            </div>
-            <div><img class="rounded" src="https://via.placeholder.com/100" alt=""></div>
-            <div><img class="rounded" src="https://via.placeholder.com/100" alt=""></div>
-            <div><img class="rounded" src="https://via.placeholder.com/100" alt=""></div>
-            <div><img class="rounded" src="https://via.placeholder.com/100" alt=""></div>
-            <div><img class="rounded" src="https://via.placeholder.com/100" alt=""></div>
-            <div><img class="rounded" src="https://via.placeholder.com/100" alt=""></div>
-        </div>
-    </section>
-    slider end -->
 
     <section class="d-flex flex-column my-5 mt-5">
         <div class="text-center mb-5">
@@ -339,35 +247,7 @@
         </div>
     </section>
 
-    <footer style="background: linear-gradient(106deg, rgba(41, 85, 155, 0.5) 10.89%, #29559B 100%);">
-        <div class="container py-5">
-            <div class="row">
-                <div class="col-md-4">
-                    <img src="{{ asset('assets/img/logo-2.png') }}" alt="">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam facere animi placeat quae ad delectus pariatur dolores velit, odio, optio hic nihil. Animi laboriosam rem iure vel. Accusantium, praesentium neque.</p>
-                </div>
-                <div class="col-md-4">
-                    <h5>Sitemap</h5>
-                    <div class="row row-cols-2">
-                        <div class="col">Column</div>
-                        <div class="col">Column</div>
-                        <div class="col">Column</div>
-                        <div class="col">Column</div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <h5>Kontak</h5>
-                    {!! $variabel->contact->content ?? '' !!}
-                </div>
-            </div>
-
-        </div>
-        <div class="row justify-content-center" style="background-color: #29559B;">
-            <div class="col-md-4 text-center p-4" style="color:white ;">
-                Copyrights 2022 Reliance Life
-            </div>
-        </div>
-    </footer>
+    @include('web.component.footer')
 
 
 

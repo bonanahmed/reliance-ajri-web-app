@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use App\Models\Variabel;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -34,5 +33,6 @@ class DatabaseSeeder extends Seeder
         $this->call(MitraSeeder::class);
         $this->call(KategoriSeeder::class);
         $this->call(NewsSeeder::class);
+        $this->call(AboutSeeder::class);
     }
 }

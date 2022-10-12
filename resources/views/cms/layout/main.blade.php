@@ -8,6 +8,7 @@
     <meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
     <meta name="author" content="AdminKit">
     <meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="shortcut icon" href="{{ asset('assets/c/img/icons/icon-48x48.png') }}" />
@@ -22,6 +23,7 @@
     <link href={{asset('assets/c/css/app.css')}} rel="stylesheet">
     <link href={{asset('assets/c/css/trix.css')}} rel="stylesheet">
     <script type="text/javascript" src="{{asset('assets/c/js/trix.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/c/js/attachments.js')}}"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 

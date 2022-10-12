@@ -106,4 +106,31 @@ class NewsController extends Controller
         $slug = SlugService::createSlug(News::class, 'slug', $request->title);
         return response()->json(['slug' => $slug]);
     }
+
+    public function upload(Request $request)
+    {
+        if ($request->hasFile('file')) {
+            //get filename with extension
+            $filenamewithextension = $request->file('file')->getClientOriginalName();
+
+            //get filename without extension
+            $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+
+            //get file extension
+            $extension = $request->file('file')->getClientOriginalExtension();
+
+            //filename to store
+            $filenametostore = $filename . '_' . time() . '.' . $extension;
+
+            //Upload File
+            $request->file('file')->storeAs('uploads', $filenametostore);
+            // $request->file('image')->store('trix-image');
+
+            // you can save image path below in database
+            $path = asset('storage/uploads/' . $filenametostore);
+
+            echo $path;
+            exit;
+        }
+    }
 }

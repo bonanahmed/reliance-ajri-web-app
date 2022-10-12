@@ -7,7 +7,7 @@
         <h1 class="h3 mb-3">Create News</h1>
 
         <div class="col-lg-8">
-            <form action="/c/news" method="post" enctype="multipart/form-data">
+            <form action="/c/about" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
@@ -28,15 +28,7 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="image" class="form-label">Kategori</label>
-                    <select class="form-select" aria-label="kategori_id" name="kategori_id">
-                        @foreach($kategori as $item)
-                        <option value="{{ $item->id }}">{{ $item->title }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="image" class="form-label">News Image</label>
+                    <label for="image" class="form-label">Image</label>
                     <img class="img-preview img-fluid mb-3 col-sm-5">
                     <input name="image" id="image" class="form-control @error('image') is-invalid @enderror" type="file" onchange="previewImage()">
                     @error('image')
@@ -65,7 +57,7 @@
     const title = document.querySelector('#title')
     const slug = document.querySelector('#slug')
     title.addEventListener('change', function() {
-        fetch('/c/news/checkSlug?title=' + title.value).then(resp => resp.json()).then(data => slug.value = data.slug)
+        fetch('/c/about/checkSlug?title=' + title.value).then(resp => resp.json()).then(data => slug.value = data.slug)
     })
 
     // const attachment = new Trix.Attachment({

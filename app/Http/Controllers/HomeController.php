@@ -20,7 +20,7 @@ class HomeController extends Controller
                 'image' => $value->image
             ];
         }
-        return view('home', [
+        return view('web.pages.home', [
             'variabel' => $object,
             'mitras' => $mitra
         ]);

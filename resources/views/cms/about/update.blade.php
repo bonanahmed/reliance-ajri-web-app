@@ -4,14 +4,15 @@
 <main class="content">
     <div class="container-fluid p-0">
 
-        <h1 class="h3 mb-3">Create News</h1>
+        <h1 class="h3 mb-3">Edit Item About</h1>
 
         <div class="col-lg-8">
-            <form action="/c/news" method="post" enctype="multipart/form-data">
+            <form action="/c/about/{{ $about->slug }}" method="post" enctype="multipart/form-data">
+                @method('put')
                 @csrf
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
-                    <input name="title" value="{{ old('title')}}" type="text" class="form-control @error('title') is-invalid @enderror" id="title" aria-describedby="title">
+                    <input name="title" value="{{ old('title',$about->title)}}" type="text" class="form-control @error('title') is-invalid @enderror" id="title" aria-describedby="title">
                     @error('title')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -20,7 +21,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="slug" class="form-label">Slug</label>
-                    <input value="{{ old('slug')}}" name="slug" type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" aria-describedby="slug">
+                    <input value="{{ old('slug',$about->slug)}}" name="slug" type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" aria-describedby="slug">
                     @error('slug')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -28,15 +29,11 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="image" class="form-label">Kategori</label>
-                    <select class="form-select" aria-label="kategori_id" name="kategori_id">
-                        @foreach($kategori as $item)
-                        <option value="{{ $item->id }}">{{ $item->title }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="image" class="form-label">News Image</label>
+                    <label for="image" class="form-label">Image</label>
+                    <input type="hidden" name="oldImage" value="{{ $about->image }}">
+                    @if($about->image)
+                    <img src="{{ asset('storage/'.$about->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                    @endif
                     <img class="img-preview img-fluid mb-3 col-sm-5">
                     <input name="image" id="image" class="form-control @error('image') is-invalid @enderror" type="file" onchange="previewImage()">
                     @error('image')
@@ -47,7 +44,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="title" class="form-label">Body</label>
-                    <input id="body" type="hidden" name="body" value="{{ old('body') }}">
+                    <input id="body" type="hidden" name="body" value="{{ old('body',$about->body) }}">
                     @error('body')
                     <p class="text-danger">
                         {{ $message }}
@@ -65,13 +62,9 @@
     const title = document.querySelector('#title')
     const slug = document.querySelector('#slug')
     title.addEventListener('change', function() {
-        fetch('/c/news/checkSlug?title=' + title.value).then(resp => resp.json()).then(data => slug.value = data.slug)
+        fetch('/c/about/checkSlug?title=' + title.value).then(resp => resp.json()).then(data => slug.value = data.slug)
     })
 
-    // const attachment = new Trix.Attachment({
-    //     content: '<iframe width="560" height="315" src="https://www.youtube.com/embed/_UbDeqPdUek" frameborder="0" allowfullscreen></iframe>'
-    // });
-    // document.querySelector('trix-editor').editor.insertAttachment(attachment);
 
     function previewImage() {
         const image = document.querySelector('#image');
@@ -86,5 +79,4 @@
         }
     }
 </script>
-
 @endsection
