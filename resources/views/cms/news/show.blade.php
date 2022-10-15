@@ -15,7 +15,7 @@
                 <form action="/c/news/{{$news->slug}}" class="d-inline" method="post">
                     @method('delete')
                     @csrf
-                    <button onclick="return confirm('Are you sure?')" class="btn btn-danger"><span data-feather="trash-2"></span>Delete</button>
+                    <button class="btn btn-danger button-submit"><span data-feather="trash-2"></span>Delete</button>
                 </form>
 
 
