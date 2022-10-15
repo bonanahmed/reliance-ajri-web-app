@@ -133,4 +133,18 @@ class NewsController extends Controller
             exit;
         }
     }
+
+    public function news()
+    {
+        return view('web.pages.news', [
+            'news' => News::orderBy('id', 'desc')->paginate(12)
+        ]);
+    }
+
+    public function newsDetail(News $news)
+    {
+        return view('web.pages.newsDetail', [
+            'news' => $news
+        ]);
+    }
 }

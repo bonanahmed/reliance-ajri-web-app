@@ -28,6 +28,9 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/about', [AboutController::class, 'aboutus']);
 Route::get('/about/{about}', [AboutController::class, 'aboutus']);
 
+Route::get('/news', [NewsController::class, 'news']);
+Route::get('/news/{news}', [NewsController::class, 'newsDetail']);
+
 // cms
 Route::get('/c/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 Route::get('/c/news', [NewsController::class, 'index'])->middleware('auth');

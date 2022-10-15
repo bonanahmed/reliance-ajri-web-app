@@ -27,7 +27,7 @@
                     <a class="nav-link" href="#">Gallery</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a class="nav-link" href="#news">Berita</a>
+                    <a class="nav-link" href="/news">Berita</a>
                 </li>
             </ul>
             <form class="d-flex">

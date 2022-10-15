@@ -228,37 +228,12 @@
                     </div>
                 </div>
                 @endforeach
-                <!-- <div class="col-md-4 mb-5">
-                    <div class="card">
-                        <img src="{{ asset('assets/img/info-daily.png') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="mb-2"><b>Kategori</b> <span class="text-muted">12 Januari 2022</span></p>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-5">
-                    <div class="card">
-                        <img src="{{ asset('assets/img/info-daily.png') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="mb-2"><b>Kategori</b> <span class="text-muted">12 Januari 2022</span></p>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-5">
-                    <div class="card">
-                        <img src="{{ asset('assets/img/info-daily.png') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="mb-2"><b>Kategori</b> <span class="text-muted">12 Januari 2022</span></p>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div> -->
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-3 text-center">
+                    @if($news->count() >= 3)
                     <button type="button" class="btn btn-outline-danger">Lihat Semua Berita</button>
+                    @endif
                 </div>
             </div>
         </div>
