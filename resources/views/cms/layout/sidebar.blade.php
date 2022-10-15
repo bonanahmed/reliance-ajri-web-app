@@ -49,6 +49,12 @@
                 </a>
             </li>
 
+            <li class="sidebar-item {{ Request::is('c/produk') ? 'active' : '' }}">
+                <a class="sidebar-link" href="/c/produk">
+                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Produk</span>
+                </a>
+            </li>
+
             <!-- 
             <li class="sidebar-item">
                 <a class="sidebar-link" href="pages-sign-in.html">

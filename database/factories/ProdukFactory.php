@@ -14,7 +14,9 @@ class ProdukFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->words(2, true),
+            'slug' => $this->faker->slug(2, true),
+            'body' => $this->faker->paragraph(12, true)
         ];
     }
 }

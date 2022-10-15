@@ -58,7 +58,7 @@
                                     <form action="/c/news/{{$item->slug}}" class="d-inline" method="post">
                                         @method('delete')
                                         @csrf
-                                        <button onclick="return confirm('Are you sure?')" class="badge bg-danger border-0"><span data-feather="trash-2"></span></button>
+                                        <button class="badge bg-danger border-0 button-submit"><span data-feather="trash-2"></span></button>
                                     </form>
                                 </td>
                             </tr>
@@ -75,5 +75,25 @@
 
     </div>
 </main>
+
+<script>
+    $(document).ready(function() {
+        $('.button-submit').on('click', function(e) {
+            var form = $(this).parents('form')
+            e.preventDefault();
+            Swal.fire({
+                title: 'Do you want to delete this item?',
+                showCancelButton: true,
+                confirmButtonText: 'Delete',
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    form.submit()
+                    // Swal.fire('Saved!', '', 'success')
+                }
+            })
+        })
+    })
+</script>
 
 @endsection

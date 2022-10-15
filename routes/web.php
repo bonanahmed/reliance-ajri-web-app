@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MitraController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\VariabelController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -27,11 +28,14 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/about', [AboutController::class, 'aboutus']);
 Route::get('/about/{about}', [AboutController::class, 'aboutus']);
 
+// cms
 Route::get('/c/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 Route::get('/c/news', [NewsController::class, 'index'])->middleware('auth');
+Route::get('/c/produk', [ProdukController::class, 'index'])->middleware('auth');
 Route::post('/upload', [NewsController::class, 'upload']);
 Route::get('/c/news/checkSlug', [NewsController::class, 'checkSlug'])->middleware('auth');
 Route::get('/c/about/checkSlug', [AboutController::class, 'checkSlug'])->middleware('auth');
+Route::get('/c/produk/checkSlug', [ProdukController::class, 'checkSlug'])->middleware('auth');
 Route::get('/c/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/c/login', [LoginController::class, 'authenticate']);
 Route::get('/c/register', [RegisterController::class, 'index']);
@@ -41,4 +45,5 @@ Route::resource('/c/news', NewsController::class)->middleware('auth');
 Route::resource('/c/kategori', KategoriController::class)->middleware('auth');
 Route::resource('/c/mitra', MitraController::class)->middleware('auth');
 Route::resource('/c/about', AboutController::class)->middleware('auth');
+Route::resource('/c/produk', ProdukController::class)->middleware('auth');
 Route::resource('/c/variabel', VariabelController::class)->middleware('super');

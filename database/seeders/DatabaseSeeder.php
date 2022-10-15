@@ -34,5 +34,6 @@ class DatabaseSeeder extends Seeder
         $this->call(KategoriSeeder::class);
         $this->call(NewsSeeder::class);
         $this->call(AboutSeeder::class);
+        $this->call(ProdukSeeder::class);
     }
 }

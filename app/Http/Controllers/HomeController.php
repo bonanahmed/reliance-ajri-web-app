@@ -10,8 +10,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $variabel = Variabel::all();
+
         $mitra = Mitra::all();
+        $variabel = Variabel::all();
         $object = new \stdClass;
         foreach ($variabel as $key => $value) {
             $object->{$value->var} = (object)[
