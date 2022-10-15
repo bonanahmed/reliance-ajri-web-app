@@ -211,7 +211,24 @@
                 </div>
             </div>
             <div class="row">
+                @foreach($news as $item)
                 <div class="col-md-4 mb-5">
+                    <div class="card">
+
+                        @if($item->image)
+                        <img src="{{ asset('storage/'.$item->image) }}" class="card-img-top" alt="{{ $item->title }}">
+                        @else
+                        <img src="{{ asset('assets/img/info-daily.png') }}" class="card-img-top" alt="{{ $item->title }}">
+                        @endif
+
+                        <div class="card-body">
+                            <p class="mb-2"><b>Kategori</b> <span class="text-muted">{{ date('d M Y', strtotime($item->created_at)); }}</span></p>
+                            <p class="card-text">{{ $item->title }}</p>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+                <!-- <div class="col-md-4 mb-5">
                     <div class="card">
                         <img src="{{ asset('assets/img/info-daily.png') }}" class="card-img-top" alt="...">
                         <div class="card-body">
@@ -237,7 +254,7 @@
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-3 text-center">
