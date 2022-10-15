@@ -58,7 +58,7 @@
                                     <form action="/c/about/{{$item->slug}}" class="d-inline" method="post">
                                         @method('delete')
                                         @csrf
-                                        <button onclick="return confirm('Are you sure?')" class="badge bg-danger border-0"><span data-feather="trash-2"></span></button>
+                                        <button class="badge bg-danger border-0 button-submit"><span data-feather="trash-2"></span></button>
                                     </form>
                                 </td>
                             </tr>

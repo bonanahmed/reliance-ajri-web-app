@@ -37,7 +37,7 @@
                                 <th>#</th>
                                 <th>Name</th>
                                 <th class="d-none d-xl-table-cell">Created At</th>
-                                <th>Status</th>
+                                <!-- <th>Status</th> -->
                                 <th class="d-none d-md-table-cell">Action</th>
                             </tr>
                         </thead>
@@ -47,7 +47,7 @@
                                 <td>{{ $news->firstItem() + $loop->index }}</td>
                                 <td class="d-none d-xl-table-cell">{{ $item->title }}</td>
                                 <td class="d-none d-xl-table-cell">{{ $item->created_at }}</td>
-                                <td><span class="badge bg-success">Publish</span></td>
+                                <!-- <td><span class="badge bg-success">Publish</span></td> -->
                                 <td class="d-none d-md-table-cell">
                                     <a href="/c/news/{{$item->slug}}" class="badge bg-primary">
                                         <span data-feather="eye"></span>
@@ -76,24 +76,5 @@
     </div>
 </main>
 
-<script>
-    $(document).ready(function() {
-        $('.button-submit').on('click', function(e) {
-            var form = $(this).parents('form')
-            e.preventDefault();
-            Swal.fire({
-                title: 'Do you want to delete this item?',
-                showCancelButton: true,
-                confirmButtonText: 'Delete',
-            }).then((result) => {
-                /* Read more about isConfirmed, isDenied below */
-                if (result.isConfirmed) {
-                    form.submit()
-                    // Swal.fire('Saved!', '', 'success')
-                }
-            })
-        })
-    })
-</script>
 
 @endsection

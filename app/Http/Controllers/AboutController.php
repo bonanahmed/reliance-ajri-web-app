@@ -126,7 +126,7 @@ class AboutController extends Controller
             Storage::delete($about->image);
         }
         About::destroy($about->id);
-        return redirect('/c/about')->with('success', 'News has been deleted');
+        return redirect('/c/about')->with('success', $about->title . ' has been deleted');
     }
 
     public function checkSlug(Request $request)

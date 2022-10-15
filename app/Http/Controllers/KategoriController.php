@@ -15,7 +15,7 @@ class KategoriController extends Controller
     public function index()
     {
         return view('cms.kategori.kategori', [
-            'kategori' => Kategori::paginate(10)
+            'kategori' => Kategori::orderBy('id', 'desc')->paginate(10)
         ]);
     }
 
@@ -39,6 +39,7 @@ class KategoriController extends Controller
     {
         $validatedData = $request->validate([
             'title' => 'required',
+            'description' => ''
         ]);
 
         $validatedData['created_by'] = auth()->user()->id;
@@ -52,9 +53,11 @@ class KategoriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Kategori $kategori)
     {
-        //
+        return view('cms.kategori.show', [
+            'kategori' => $kategori
+        ]);
     }
 
     /**
@@ -96,8 +99,9 @@ class KategoriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Kategori $kategori)
     {
-        //
+        Kategori::destroy($kategori->id);
+        return redirect('/c/kategori')->with('success', $kategori->title . ' has been deleted!');
     }
 }

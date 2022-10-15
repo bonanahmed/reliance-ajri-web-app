@@ -70,6 +70,7 @@
     </div>
 
     <script src="{{ asset('assets/c/js/app.js') }}"></script>
+    <script src="{{ asset('assets/c/js/custom.js') }}"></script>
 
 
 </body>
