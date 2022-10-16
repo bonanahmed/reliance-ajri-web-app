@@ -14,10 +14,17 @@ class ProdukController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index_kumpulan()
     {
         return view('cms.produk.index', [
-            'produk' => Produk::orderBy('id', 'desc')->paginate(10)
+            'produk' => Produk::where('type', 'kumpulan')->orderBy('id', 'desc')->paginate(10)
+        ]);
+    }
+
+    public function index_individu()
+    {
+        return view('cms.produk.indexIndividu', [
+            'produk' => Produk::where('type', 'individu')->orderBy('id', 'desc')->paginate(10)
         ]);
     }
 
@@ -104,5 +111,29 @@ class ProdukController extends Controller
     {
         $slug = SlugService::createSlug(Produk::class, 'slug', $request->title);
         return response()->json(['slug' => $slug]);
+    }
+
+    public function individu(Request $request)
+    {
+        $variabel = $request->variabel;
+        return view('web.pages.produkIndividu', [
+            'title' => 'Produk Individu',
+            'produk' => Produk::where('type', 'individu')->first(),
+            'head_title' => $variabel->produk_title->value ?? 'produk_title',
+            'head_sub_title' => $variabel->produk_sub_title->value ?? 'produk_sub_title',
+            'btn_simulasi' => $variabel->btn_simulasi->value ?? 'btn_simulasi',
+        ]);
+    }
+
+    public function kumpulan(Request $request, Produk $produk)
+    {
+        $variabel = $request->variabel;
+        return view('web.pages.produkKumpulan', [
+            'produk' => $produk,
+            'head_title' => $variabel->produk_title->value ?? 'produk_title',
+            'head_sub_title' => $variabel->produk_sub_title->value ?? 'produk_sub_title',
+            'btn_simulasi' => $variabel->btn_simulasi->value ?? 'btn_simulasi',
+            'list' => Produk::where('type', 'kumpulan')->get()
+        ]);
     }
 }

@@ -24,17 +24,31 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/about', [AboutController::class, 'aboutus']);
-Route::get('/about/{about}', [AboutController::class, 'aboutus']);
 
-Route::get('/news', [NewsController::class, 'news']);
-Route::get('/news/{news}', [NewsController::class, 'newsDetail']);
+
+Route::middleware(['landing'])->group(function () {
+    Route::get('/', [HomeController::class, 'index']);
+
+    Route::get('/about', [AboutController::class, 'aboutus']);
+    Route::get('/about/{about}', [AboutController::class, 'aboutus']);
+
+    Route::get('/news', [NewsController::class, 'news']);
+    Route::get('/news/{news}', [NewsController::class, 'newsDetail']);
+
+    Route::get('/produk/individu', [ProdukController::class, 'individu']);
+    Route::get('/produk/kumpulan', [ProdukController::class, 'kumpulan']);
+    Route::get('/produk/kumpulan/{produk}', [ProdukController::class, 'kumpulan']);
+});
+
+
+
+
 
 // cms
 Route::get('/c/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 Route::get('/c/news', [NewsController::class, 'index'])->middleware('auth');
-Route::get('/c/produk', [ProdukController::class, 'index'])->middleware('auth');
+Route::get('/c/produk/kumpulan', [ProdukController::class, 'index_kumpulan'])->middleware('auth');
+Route::get('/c/produk/individu', [ProdukController::class, 'index_individu'])->middleware('auth');
 Route::post('/upload', [NewsController::class, 'upload']);
 Route::get('/c/news/checkSlug', [NewsController::class, 'checkSlug'])->middleware('auth');
 Route::get('/c/about/checkSlug', [AboutController::class, 'checkSlug'])->middleware('auth');

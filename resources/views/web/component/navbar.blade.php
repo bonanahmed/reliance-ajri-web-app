@@ -9,13 +9,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="nav-item mx-1">
-                    <a class="nav-link active" aria-current="page" href="/">Beranda</a>
+                    <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page" href="/">Beranda</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a class="nav-link" href="/about">Tentang Kami</a>
+                    <a class="nav-link {{ Request::is('about') ? 'active' : '' }}" href="/about">Tentang Kami</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a class="nav-link" href="#produk">Produk</a>
+                    <a class="nav-link {{ Request::is('produk/kumpulan') ? 'active' : '' }}" href="/produk/kumpulan">Produk</a>
                 </li>
                 <li class="nav-item mx-3">
                     <a class="nav-link" href="#mitra">Mitra</a>
@@ -27,7 +27,7 @@
                     <a class="nav-link" href="#">Gallery</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a class="nav-link" href="/news">Berita</a>
+                    <a class="nav-link {{ Request::is('news') ? 'active' : '' }}" href="/news">Berita</a>
                 </li>
             </ul>
             <form class="d-flex">

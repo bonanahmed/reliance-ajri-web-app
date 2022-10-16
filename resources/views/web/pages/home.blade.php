@@ -1,5 +1,5 @@
 @extends('web.component.main')
-@include('web.component.jumbotron1')
+@include('web.component.jumbotron')
 @section('container')
 <section id="mitra">
     <div class="row">
@@ -140,14 +140,14 @@
                 <div class="text-center">
                     <img class="img-fluid" src="{{ asset('assets/img/umbrella.png') }}" alt="...">
                     <h5>Individu</h5>
-                    <button type="button" class="btn btn-outline-primary">Cek Detail Sekarang</button>
+                    <a href="/produk/individu" class="btn btn-outline-primary">Cek Detail Sekarang</a>
                 </div>
             </div>
             <div class="col-md-4 mb-5">
                 <div class="text-center">
                     <img class="img-fluid" src="{{ asset('assets/img/umbrella-rain.png') }}" alt="...">
                     <h5>Kumpulan</h5>
-                    <button type="button" class="btn btn-outline-primary">Cek Detail Sekarang</button>
+                    <a href="/produk/kumpulan" class="btn btn-outline-primary">Cek Detail Sekarang</a>
                 </div>
             </div>
             <div class="col-md-4 mb-5">

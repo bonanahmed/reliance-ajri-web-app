@@ -1,5 +1,5 @@
 @extends('web.component.main')
-@include('web.component.jumbotron')
+@include('web.component.title_jumbotron')
 @section('container')
 <section id="konten" class="m-5">
     <div class="container">
@@ -7,7 +7,7 @@
             <div class="col-md-4">
                 <div class="list-group">
                     @foreach($list as $item)
-                    <a href="/about/{{ $item->slug }}#konten" class="list-group-item list-group-item-action {{ Request::is('about/'.$item->slug) ? 'active' : '' }}">
+                    <a href="/produk/kumpulan/{{ $item->slug }}#konten" class="list-group-item list-group-item-action {{ Request::is('about/'.$item->slug) ? 'active' : '' }}">
                         {{ $item->title }}
                     </a>
                     @endforeach
@@ -21,8 +21,8 @@
                 </div>
             </div>
             <div class="col-md-8">
-                <h1 class="text-center mb-5">{{ $about->title }}</h1>
-                {!! $about->body !!}
+                <h1 class="text-center mb-5">{{ $produk->title }}</h1>
+                {!! $produk->body !!}
             </div>
         </div>
     </div>

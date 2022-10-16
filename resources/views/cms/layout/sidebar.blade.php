@@ -49,9 +49,14 @@
                 </a>
             </li>
 
-            <li class="sidebar-item {{ Request::is('c/produk') ? 'active' : '' }}">
-                <a class="sidebar-link" href="/c/produk">
-                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Produk</span>
+            <li class="sidebar-item {{ Request::is('c/produk/individu') ? 'active' : '' }}">
+                <a class="sidebar-link" href="/c/produk/individu">
+                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Produk Individu</span>
+                </a>
+            </li>
+            <li class="sidebar-item {{ Request::is('c/produk/kumpulan') ? 'active' : '' }}">
+                <a class="sidebar-link" href="/c/produk/kumpulan">
+                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Produk Kumpulan</span>
                 </a>
             </li>
 

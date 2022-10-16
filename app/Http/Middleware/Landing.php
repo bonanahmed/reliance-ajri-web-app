@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Variabel;
 use Closure;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,21 @@ class Landing
      */
     public function handle(Request $request, Closure $next)
     {
-        $request->merge(['account' => 'string param']);
+        $variabel = Variabel::all();
+        $object = new \stdClass;
+        foreach ($variabel as $key => $value) {
+            $request->merge([$value->var => (object)[
+                'value' => $value->value,
+                'content' => $value->content,
+                'image' => $value->image
+            ]]);
+            $object->{$value->var} = (object)[
+                'value' => $value->value,
+                'content' => $value->content,
+                'image' => $value->image
+            ];
+        }
+        $request->merge(['variabel' => $object]);
         return $next($request);
     }
 }

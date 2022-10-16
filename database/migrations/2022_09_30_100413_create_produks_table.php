@@ -18,6 +18,7 @@ class CreateProduksTable extends Migration
             $table->integer('order')->nullable();
             $table->string('title');
             $table->string('slug');
+            $table->string('type')->default('kumpulan');
             $table->text('body');
             $table->string('image')->nullable();
             $table->boolean('published')->default(false);

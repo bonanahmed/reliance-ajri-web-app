@@ -14,6 +14,12 @@ class ProdukSeeder extends Seeder
      */
     public function run()
     {
+        Produk::create([
+            'title' => 'individu',
+            'slug' => 'individu',
+            'body' => 'individu',
+            'type' => 'individu'
+        ]);
         Produk::factory(10)->create();
     }
 }

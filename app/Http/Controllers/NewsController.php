@@ -134,10 +134,13 @@ class NewsController extends Controller
         }
     }
 
-    public function news()
+    public function news(Request $request)
     {
         return view('web.pages.news', [
-            'news' => News::orderBy('id', 'desc')->paginate(12)
+            'news' => News::orderBy('id', 'desc')->paginate(12),
+            'head_title' => $request->news_title->value ?? 'news_title',
+            'head_sub_title' => $request->news_sub_title->value ?? 'news_sub_title',
+            'btn_simulasi' => $request->btn_simulasi->value ?? 'btn_simulasi',
         ]);
     }
 
