@@ -196,6 +196,7 @@
                     <div class="card-body">
                         <p class="mb-2"><b>Kategori</b> <span class="text-muted">{{ date('d M Y', strtotime($item->created_at)); }}</span></p>
                         <p class="card-text">{{ $item->title }}</p>
+                        <a href="/news/{{ $item->slug }}" class="stretched-link"></a>
                     </div>
                 </div>
             </div>
