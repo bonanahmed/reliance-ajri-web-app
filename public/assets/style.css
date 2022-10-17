@@ -736,7 +736,7 @@ footer {
   .ck-content .page-break {
       padding: 0;
   }
-  /* ckeditor5-page-break/theme/pagebreak.css */
+  /* ckeditor5-page-break/theme/pagebreak.css --*/
   .ck-content .page-break::after {
       display: none;
   }

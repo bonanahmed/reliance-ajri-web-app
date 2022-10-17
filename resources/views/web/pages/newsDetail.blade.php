@@ -8,7 +8,9 @@
                 @if($news->image)
                 <img class="img-fluid rounded-2" src="{{ asset('storage/'.$news->image) }}" alt="">
                 @endif
-                <p>{!! $news->body !!}</p>
+                <div class="ck-content px-3">
+                    {!! $news->body !!}
+                </div>
             </div>
         </div>
     </div>
