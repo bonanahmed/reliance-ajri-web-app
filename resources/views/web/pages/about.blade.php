@@ -22,6 +22,11 @@
             </div>
             <div class="col-md-8">
                 <h1 class="text-center mb-5">{{ $about->title }}</h1>
+                <div class="text-center">
+                    @if($about->image)
+                    <img class="img-fluid mb-5" src="{{ asset('storage/'.$about->image) }}" alt="{{ $about->title }}">
+                    @endif
+                </div>
                 {!! $about->body !!}
             </div>
         </div>
