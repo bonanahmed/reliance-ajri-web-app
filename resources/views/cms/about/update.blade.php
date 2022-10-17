@@ -44,13 +44,14 @@
                 </div>
                 <div class="mb-3">
                     <label for="title" class="form-label">Body</label>
-                    <input id="body" type="hidden" name="body" value="{{ old('body',$about->body) }}">
+                    <textarea class="form-control" id="editor" name="body">{{ $about->body }}</textarea>
+                    <!-- <input id="body" type="hidden" name="body" value="{{ old('body',$about->body) }}"> -->
                     @error('body')
                     <p class="text-danger">
                         {{ $message }}
                     </p>
                     @enderror
-                    <trix-editor input="body"></trix-editor>
+                    <!-- <trix-editor input="body"></trix-editor> -->
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

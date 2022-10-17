@@ -27,7 +27,9 @@
                     <img class="img-fluid mb-5" src="{{ asset('storage/'.$about->image) }}" alt="{{ $about->title }}">
                     @endif
                 </div>
-                {!! $about->body !!}
+                <div class="ck-content px-3">
+                    {!! $about->body !!}
+                </div>
             </div>
         </div>
     </div>

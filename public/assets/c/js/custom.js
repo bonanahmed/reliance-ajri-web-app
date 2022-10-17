@@ -94,7 +94,7 @@ ClassicEditor
                 // picture-like image styling into one drop-down.
                 name: 'imageStyle:pictures',
                 items: ['imageStyle:inline', 'imageStyle:side', 'imageStyle:alignLeft'],
-                defaultItem: 'imageStyle:inline'
+                defaultItem: 'imageStyle:alignLeft'
             }],
         }
     })
