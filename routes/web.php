@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\CKEditorController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategoriController;
@@ -50,6 +51,7 @@ Route::get('/c/news', [NewsController::class, 'index'])->middleware('auth');
 Route::get('/c/produk/kumpulan', [ProdukController::class, 'index_kumpulan'])->middleware('auth');
 Route::get('/c/produk/individu', [ProdukController::class, 'index_individu'])->middleware('auth');
 Route::post('/upload', [NewsController::class, 'upload']);
+Route::post('editor/image_upload', [CKEditorController::class, 'upload'])->name('ckeditor_upload');
 Route::get('/c/news/checkSlug', [NewsController::class, 'checkSlug'])->middleware('auth');
 Route::get('/c/about/checkSlug', [AboutController::class, 'checkSlug'])->middleware('auth');
 Route::get('/c/produk/checkSlug', [ProdukController::class, 'checkSlug'])->middleware('auth');

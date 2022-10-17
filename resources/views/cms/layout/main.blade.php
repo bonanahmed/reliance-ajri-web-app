@@ -24,6 +24,7 @@
     <link href={{asset('assets/c/css/trix.css')}} rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ asset('assets/ckeditor/ckeditor.js') }}"></script>
     <script type="text/javascript" src="{{asset('assets/c/js/trix.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/c/js/attachments.js')}}"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -69,6 +70,9 @@
         </div>
     </div>
 
+    <script>
+        var CKeditorUploadURL = "{{ route('ckeditor_upload', ['_token' => csrf_token() ]) }}"
+    </script>
     <script src="{{ asset('assets/c/js/app.js') }}"></script>
     <script src="{{ asset('assets/c/js/custom.js') }}"></script>
 
