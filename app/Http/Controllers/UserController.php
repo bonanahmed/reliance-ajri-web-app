@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -13,7 +14,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        return view('cms.user.index', [
+            'users' => User::where('role', 'admin')->paginate('10')
+        ]);
     }
 
     /**
@@ -23,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('cms.user.create');
     }
 
     /**
@@ -34,7 +37,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+
+        $validatedData['role'] = 'admin';
+        User::create($validatedData);
+        return redirect('c/user')->with('success', $request->email . ' has been created');
     }
 
     /**
@@ -54,9 +64,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return view('cms.user.update', [
+            'user' => $user
+        ]);
     }
 
     /**
@@ -66,9 +78,17 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required'
+        ]);
+
+        if ($request->password) {
+            $validatedData['password'] = $request->password;
+        }
+        User::where('id', $user->id)->update($validatedData);
+        return redirect('/c/user')->with('success', $user->email . ' has been updated');
     }
 
     /**
@@ -77,8 +97,33 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        User::destroy($user->id);
+        return redirect('/c/user')->with('success', $user->email . ' has been deleted');
+    }
+
+    public function profile(User $user)
+    {
+        return view('cms.user.profile', [
+            'user' => $user
+        ]);
+    }
+
+    public function updateProfile(Request $request, User $user)
+    {
+        $rules = [
+            'email' => 'required|email',
+            'name' => 'required'
+        ];
+
+        $validatedData = $request->validate($rules);
+
+        if ($request->password) {
+            $validatedData['password'] = $request->password;
+        }
+
+        User::where('id', $user->id)->update($validatedData);
+        return redirect('/c/user/profile')->with('success', 'Data has been updated');
     }
 }

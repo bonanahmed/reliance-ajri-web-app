@@ -10,6 +10,7 @@ use App\Http\Controllers\MitraController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\VariabelController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -42,27 +43,37 @@ Route::middleware(['landing'])->group(function () {
 });
 
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/c/dashboard', [DashboardController::class, 'index']);
+    Route::get('/c/news', [NewsController::class, 'index']);
+    Route::get('/c/produk/kumpulan', [ProdukController::class, 'index_kumpulan']);
+    Route::get('/c/produk/individu/top', [ProdukController::class, 'index_top_individu']);
+    Route::get('/c/produk/individu/bot', [ProdukController::class, 'index_bottom_individu']);
+    Route::post('/c/produk/individu/top', [ProdukController::class, 'save_top_individu']);
+    Route::get('/c/news/checkSlug', [NewsController::class, 'checkSlug']);
+    Route::get('/c/about/checkSlug', [AboutController::class, 'checkSlug']);
+    Route::get('/c/produk/checkSlug', [ProdukController::class, 'checkSlug']);
+    Route::get('/c/user/profile', [UserController::class, 'profile']);
+    Route::put('/c/user/profile', [UserController::class, 'updateProfile']);
 
+    Route::resource('/c/user', UserController::class);
+    Route::resource('/c/news', NewsController::class);
+    Route::resource('/c/kategori', KategoriController::class);
+    Route::resource('/c/mitra', MitraController::class);
+    Route::resource('/c/about', AboutController::class);
+    Route::resource('/c/produk', ProdukController::class);
+});
 
 
 // cms
-Route::get('/c/dashboard', [DashboardController::class, 'index'])->middleware('auth');
-Route::get('/c/news', [NewsController::class, 'index'])->middleware('auth');
-Route::get('/c/produk/kumpulan', [ProdukController::class, 'index_kumpulan'])->middleware('auth');
-Route::get('/c/produk/individu', [ProdukController::class, 'index_individu'])->middleware('auth');
+
 Route::post('/upload', [NewsController::class, 'upload']);
 Route::post('editor/image_upload', [CKEditorController::class, 'upload'])->name('ckeditor_upload');
-Route::get('/c/news/checkSlug', [NewsController::class, 'checkSlug'])->middleware('auth');
-Route::get('/c/about/checkSlug', [AboutController::class, 'checkSlug'])->middleware('auth');
-Route::get('/c/produk/checkSlug', [ProdukController::class, 'checkSlug'])->middleware('auth');
+
 Route::get('/c/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/c/login', [LoginController::class, 'authenticate']);
 Route::get('/c/register', [RegisterController::class, 'index']);
 Route::post('/c/logout', [LoginController::class, 'logout']);
 
-Route::resource('/c/news', NewsController::class)->middleware('auth');
-Route::resource('/c/kategori', KategoriController::class)->middleware('auth');
-Route::resource('/c/mitra', MitraController::class)->middleware('auth');
-Route::resource('/c/about', AboutController::class)->middleware('auth');
-Route::resource('/c/produk', ProdukController::class)->middleware('auth');
+
 Route::resource('/c/variabel', VariabelController::class)->middleware('super');

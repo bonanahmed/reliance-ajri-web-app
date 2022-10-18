@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produk;
+use App\Models\Variabel;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Storage;
@@ -21,11 +22,52 @@ class ProdukController extends Controller
         ]);
     }
 
-    public function index_individu()
+    public function index_top_individu()
     {
-        return view('cms.produk.indexIndividu', [
-            'produk' => Produk::where('type', 'individu')->orderBy('id', 'desc')->paginate(10)
+        $variabel = Variabel::all();
+        $object = new \stdClass;
+        foreach ($variabel as $key => $value) {
+            $object->{$value->var} = (object)[
+                'value' => $value->value,
+                'content' => $value->content,
+                'image' => $value->image
+            ];
+        }
+        return view('cms.produk.indexIndividuTop', [
+            'variabel' => $object
         ]);
+    }
+
+    public function index_bottom_individu()
+    {
+        $variabel = Variabel::all();
+        $object = new \stdClass;
+        foreach ($variabel as $key => $value) {
+            $object->{$value->var} = (object)[
+                'value' => $value->value,
+                'content' => $value->content,
+                'image' => $value->image
+            ];
+        }
+        return view('cms.produk.indexIndividuBottom', [
+            'variabel' => $object
+        ]);
+    }
+
+    public function save_top_individu(Request $request)
+    {
+        $validatedData = $request->validate([
+            'value' => 'required',
+            'content' => 'required',
+            'image' => 'image|file|max:1024',
+        ]);
+        if ($request->file('image')) {
+            $validatedData['image'] = $request->file('image')->store('produk-image');
+        }
+        Variabel::updateOrCreate([
+            'var' => 'produk_individu_sec1'
+        ], $validatedData);
+        return redirect('/c/produk/individu/top')->with('success', 'Data has been updated');
     }
 
     /**
@@ -118,10 +160,9 @@ class ProdukController extends Controller
         $variabel = $request->variabel;
         return view('web.pages.produkIndividu', [
             'title' => 'Produk Individu',
-            'produk' => Produk::where('type', 'individu')->first(),
             'head_title' => $variabel->produk_title->value ?? 'produk_title',
             'head_sub_title' => $variabel->produk_sub_title->value ?? 'produk_sub_title',
-            'btn_simulasi' => $variabel->btn_simulasi->value ?? 'btn_simulasi',
+            'var' => $variabel
         ]);
     }
 
@@ -136,4 +177,28 @@ class ProdukController extends Controller
             'list' => Produk::where('type', 'kumpulan')->get()
         ]);
     }
+
+
+
+    // public function get_individu(Request $request)
+    // {
+    //     $variabel = Variabel::where('var', 'produk_title_sec1')
+    //         ->orWhere('var', 'produk_desc_sec1')
+    //         ->orWhere('var', 'produk_image_sec1')
+    //         ->orWhere('var', 'produk_title_sec2')
+    //         ->orWhere('var', 'produk_desc_sec2');
+
+    //     $object = new \stdClass;
+    //     foreach ($variabel as $key => $value) {
+    //         $object->{$value->var} = (object)[
+    //             'value' => $value->value,
+    //             'content' => $value->content,
+    //             'image' => $value->image
+    //         ];
+    //     }
+    //     dd($object);
+    //     return view('cms.produk.individu', [
+    //         'variabel' => $object
+    //     ]);
+    // }
 }

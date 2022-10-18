@@ -27,7 +27,7 @@
 
             <li class="sidebar-item {{ Request::is('c/kategori') ? 'active' : '' }}">
                 <a class="sidebar-link" href="/c/kategori">
-                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Kategori</span>
+                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Kategori News</span>
                 </a>
             </li>
 
@@ -49,9 +49,14 @@
                 </a>
             </li>
 
-            <li class="sidebar-item {{ Request::is('c/produk/individu') ? 'active' : '' }}">
-                <a class="sidebar-link" href="/c/produk/individu">
-                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Produk Individu</span>
+            <li class="sidebar-item {{ Request::is('c/produk/individu/top') ? 'active' : '' }}">
+                <a class="sidebar-link" href="/c/produk/individu/top">
+                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Produk Section Top</span>
+                </a>
+            </li>
+            <li class="sidebar-item {{ Request::is('c/produk/individu/bot') ? 'active' : '' }}">
+                <a class="sidebar-link" href="/c/produk/individu/bot">
+                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Produk Section Bottom</span>
                 </a>
             </li>
             <li class="sidebar-item {{ Request::is('c/produk/kumpulan') ? 'active' : '' }}">
