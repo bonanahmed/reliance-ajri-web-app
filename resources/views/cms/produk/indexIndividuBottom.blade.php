@@ -3,33 +3,49 @@
 
 <main class="content">
     <div class="container-fluid p-0">
-
-        <h1 class="h3 mb-3">Create Produk</h1>
+        <div class="row">
+            <div class="col-12 d-flex">
+                <div class="card flex-fill">
+                    @if(session()->has('success'))
+                    <div class="row p-3 rounded" style="background-color:#cbf5d9 ;">
+                        {{ session('success') }}
+                    </div>
+                    @endif
+                    <!-- <div class="row p-3 rounded" style="background-color:#f5cbd0 ;">
+                    A simple primary alert—check it out!
+                </div> -->
+                </div>
+            </div>
+        </div>
+        <h1 class="h3 mb-3">Produk Bottom Content</h1>
 
         <div class="col-lg-8">
-            <form action="/c/produk/individu" method="post" enctype="multipart/form-data">
+            <form action="/c/produk/individu/bottom" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
-                    <label for="title" class="form-label">Title Section Top</label>
-                    <input name="produk_title_sec1" value="{{ old('produk_title_sec1',$variabel->produk_title_sec1->value ?? '')}}" type="text" class="form-control @error('produk_title_sec1') is-invalid @enderror" id="produk_title_sec1" aria-describedby="produk_title_sec1">
-                    @error('produk_title_sec1')
+                    <label for="value" class="form-label">Title Section Bottom</label>
+                    <input name="value" value="{{ old('value',$variabel->produk_individu_sec2->value ?? '')}}" type="text" class="form-control @error('value') is-invalid @enderror" id="value" aria-describedby="value">
+                    @error('value')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="title" class="form-label">Description Section Top</label>
-                    <input id="produk_desc_sec1" type="hidden" name="produk_desc_sec1" value="{{ old('produk_desc_sec1',$variabel->produk_desc_sec1->content ?? '') }}">
-                    @error('produk_desc_sec1')
+                    <label for="content" class="form-label">Description Section Bottom</label>
+                    <input id="content" type="hidden" name="content" value="{{ old('content',$variabel->produk_individu_sec2->content ?? '') }}">
+                    @error('content')
                     <p class="text-danger">
                         {{ $message }}
                     </p>
                     @enderror
-                    <trix-editor input="produk_desc_sec1"></trix-editor>
+                    <trix-editor input="content"></trix-editor>
                 </div>
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="image" class="form-label">Image</label>
+                    @if(isset($variabel->produk_individu_sec1->image))
+                    <img src="{{ asset('storage/'.$variabel->produk_individu_sec1->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                    @endif
                     <img class="img-preview img-fluid mb-3 col-sm-5">
                     <input name="image" id="image" class="form-control @error('image') is-invalid @enderror" type="file" onchange="previewImage()">
                     @error('image')
@@ -37,26 +53,7 @@
                         {{ $message }}
                     </div>
                     @enderror
-                </div>
-                <div class="mb-3">
-                    <label for="title" class="form-label">Title Section Bottom</label>
-                    <input name="produk_title_sec2" value="{{ old('produk_title_sec2')}}" type="text" class="form-control @error('produk_title_sec2') is-invalid @enderror" id="produk_title_sec2" aria-describedby="produk_title_sec2">
-                    @error('produk_title_sec2')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                    @enderror
-                </div>
-                <div class="mb-3">
-                    <label for="title" class="form-label">Description Section Bottom</label>
-                    <input id="produk_desc_sec2" type="hidden" name="produk_desc_sec2" value="{{ old('produk_desc_sec2') }}">
-                    @error('produk_desc_sec2')
-                    <p class="text-danger">
-                        {{ $message }}
-                    </p>
-                    @enderror
-                    <trix-editor input="produk_desc_sec2"></trix-editor>
-                </div>
+                </div> -->
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

@@ -70,6 +70,21 @@ class ProdukController extends Controller
         return redirect('/c/produk/individu/top')->with('success', 'Data has been updated');
     }
 
+    public function save_bottom_individu(Request $request)
+    {
+        $validatedData = $request->validate([
+            'value' => 'required',
+            'content' => 'required',
+        ]);
+        // if ($request->file('image')) {
+        //     $validatedData['image'] = $request->file('image')->store('produk-image');
+        // }
+        Variabel::updateOrCreate([
+            'var' => 'produk_individu_sec2'
+        ], $validatedData);
+        return redirect('/c/produk/individu/bot')->with('success', 'Data has been updated');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

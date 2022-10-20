@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CKEditorController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LoginController;
@@ -50,6 +51,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/c/produk/individu/top', [ProdukController::class, 'index_top_individu']);
     Route::get('/c/produk/individu/bot', [ProdukController::class, 'index_bottom_individu']);
     Route::post('/c/produk/individu/top', [ProdukController::class, 'save_top_individu']);
+    Route::post('/c/produk/individu/bottom', [ProdukController::class, 'save_bottom_individu']);
     Route::get('/c/news/checkSlug', [NewsController::class, 'checkSlug']);
     Route::get('/c/about/checkSlug', [AboutController::class, 'checkSlug']);
     Route::get('/c/produk/checkSlug', [ProdukController::class, 'checkSlug']);
@@ -62,6 +64,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/c/mitra', MitraController::class);
     Route::resource('/c/about', AboutController::class);
     Route::resource('/c/produk', ProdukController::class);
+    Route::resource('/c/galeri', GaleriController::class);
 });
 
 
