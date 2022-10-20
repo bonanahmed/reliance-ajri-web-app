@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Galeri;
+use App\Models\Image;
 use Illuminate\Http\Request;
 
 class GaleriController extends Controller
@@ -41,15 +42,25 @@ class GaleriController extends Controller
             'title' => 'required'
         ]);
 
+        $galeri = Galeri::create($validatedData);
+
         if ($request->file('image')) {
             $files = $request->file('image');
+            $imageData = [];
             foreach ($files as $file) {
                 $filename = $file->getClientOriginalName();
                 $extension = $file->getClientOriginalExtension();
                 $picture = uniqid() . '.' . $extension;
                 $destinationPath = public_path() . '/storage/galeri';
-                $file->move($destinationPath, $picture);
+                $imgurl = $file->store('galeri-image');
+                // $imgurl = $file->move($destinationPath, $picture);
+                array_push($imageData, [
+                    'galeri_id' => $galeri->id,
+                    'image' => $imgurl,
+                    'created_at' => date("Y-m-d H:i:s")
+                ]);
             }
+            Image::insert($imageData);
             // $validatedData['image'] = $request->file('image')->store('news-image');
         }
 
