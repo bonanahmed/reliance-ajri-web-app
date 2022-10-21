@@ -769,3 +769,7 @@ footer {
 .img-wraps:hover .closes {
   opacity: 1;
 }
+
+a{
+  text-decoration:none;  
+}

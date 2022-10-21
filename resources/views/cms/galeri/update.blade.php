@@ -11,9 +11,6 @@
                         {{ session('success') }}
                     </div>
                     @endif
-                    <!-- <div class="row p-3 rounded" style="background-color:#f5cbd0 ;">
-                    A simple primary alert—check it out!
-                </div> -->
                 </div>
             </div>
         </div>
@@ -28,6 +25,15 @@
                         <label for="title" class="form-label">Title</label>
                         <input name="title" value="{{ old('title',$galeri->title)}}" type="text" class="form-control @error('title') is-invalid @enderror" id="title" aria-describedby="title">
                         @error('title')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label for="slug" class="form-label">Slug</label>
+                        <input value="{{ old('slug',$galeri->slug)}}" name="slug" type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" aria-describedby="slug">
+                        @error('slug')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
@@ -60,7 +66,8 @@
             <div class="row">
                 @foreach($galeri->images as $image)
                 <div class="col-md-2">
-                    <div class="image-area"><a href="{{ asset('storage/'.$image->image) }}" target="_blank">
+                    <div class="image-area">
+                        <a href="{{ asset('storage/'.$image->image) }}" target="_blank">
                             <img src="{{ asset('storage/'.$image->image) }}" class="img-thumbnail" alt="Preview">
                         </a>
                         <form action="/c/image/{{$image->id}}/delete" class="d-inline" method="post">
@@ -78,6 +85,12 @@
     </div>
 </main>
 <script>
+    const title = document.querySelector('#title')
+    const slug = document.querySelector('#slug')
+    title.addEventListener('change', function() {
+        fetch('/c/galeri/checkSlug?title=' + title.value).then(resp => resp.json()).then(data => slug.value = data.slug)
+    })
+
     function previewImage() {
         const image = document.querySelector('#image');
         const imgPreview = document.querySelector('.img-preview');

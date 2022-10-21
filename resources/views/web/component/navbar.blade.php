@@ -24,7 +24,7 @@
                     <a class="nav-link" href="#">Klaim</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a class="nav-link" href="#">Gallery</a>
+                    <a class="nav-link {{ Request::is('galeri') ? 'active' : '' }}" href="/galeri">Gallery</a>
                 </li>
                 <li class="nav-item mx-3">
                     <a class="nav-link {{ Request::is('news') ? 'active' : '' }}" href="/news">Berita</a>

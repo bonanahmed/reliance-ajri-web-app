@@ -19,6 +19,15 @@
                     @enderror
                 </div>
                 <div class="mb-3">
+                    <label for="slug" class="form-label">Slug</label>
+                    <input value="{{ old('slug')}}" name="slug" type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" aria-describedby="slug">
+                    @error('slug')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+                <div class="mb-3">
                     <label for="description" class="form-label">description</label>
                     <input id="description" type="hidden" name="description" value="{{ old('description') }}">
                     @error('description')
@@ -64,6 +73,12 @@
     </div>
 </main>
 <script>
+    const title = document.querySelector('#title')
+    const slug = document.querySelector('#slug')
+    title.addEventListener('change', function() {
+        fetch('/c/galeri/checkSlug?title=' + title.value).then(resp => resp.json()).then(data => slug.value = data.slug)
+    })
+
     function previewImage() {
         const image = document.querySelector('#image');
         const imgPreview = document.querySelector('.img-preview');

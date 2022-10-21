@@ -38,6 +38,9 @@ Route::middleware(['landing'])->group(function () {
     Route::get('/news', [NewsController::class, 'news']);
     Route::get('/news/{news}', [NewsController::class, 'newsDetail']);
 
+    Route::get('/galeri', [GaleriController::class, 'galeri']);
+    Route::get('/galeri/{galeri}', [GaleriController::class, 'galeriDetail']);
+
     Route::get('/produk/individu', [ProdukController::class, 'individu']);
     Route::get('/produk/kumpulan', [ProdukController::class, 'kumpulan']);
     Route::get('/produk/kumpulan/{produk}', [ProdukController::class, 'kumpulan']);
@@ -45,6 +48,7 @@ Route::middleware(['landing'])->group(function () {
 
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/c', [DashboardController::class, 'index']);
     Route::get('/c/dashboard', [DashboardController::class, 'index']);
     Route::get('/c/news', [NewsController::class, 'index']);
     Route::get('/c/produk/kumpulan', [ProdukController::class, 'index_kumpulan']);
@@ -55,6 +59,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/c/news/checkSlug', [NewsController::class, 'checkSlug']);
     Route::get('/c/about/checkSlug', [AboutController::class, 'checkSlug']);
     Route::get('/c/produk/checkSlug', [ProdukController::class, 'checkSlug']);
+    Route::get('/c/galeri/checkSlug', [GaleriController::class, 'checkSlug']);
     Route::get('/c/user/profile', [UserController::class, 'profile']);
     Route::put('/c/user/profile', [UserController::class, 'updateProfile']);
     Route::delete('/c/image/{image}/delete', [GaleriController::class, 'imageDestroy']);

@@ -6,6 +6,8 @@ use App\Models\Galeri;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Cviebrock\EloquentSluggable\Services\SlugService;
+
 
 class GaleriController extends Controller
 {
@@ -41,9 +43,10 @@ class GaleriController extends Controller
     {
         $validatedData = $request->validate([
             'title' => 'required',
-            'description' => ''
+            'description' => '',
+            'slug' => 'required',
         ]);
-
+        $validatedData['created_by'] = auth()->user()->id;
         $galeri = Galeri::create($validatedData);
 
         if ($request->file('image')) {
@@ -146,5 +149,33 @@ class GaleriController extends Controller
         }
         Image::destroy($image->id);
         return redirect("/c/galeri/$image->galeri_id/edit")->with('success', 'Image has been deleted');
+    }
+
+    public function galeri(Request $request)
+    {
+        $variabel = $request->variabel;
+        return view('web.pages.galeri', [
+            'title' => 'Galeri',
+            'head_title' => $variabel->galeri_title->value ?? 'galeri_title',
+            'head_sub_title' => $variabel->galeri_sub_title->value ?? 'galeri_sub_title',
+            'galeri' => Galeri::orderBy('id', 'desc')->paginate(10)
+        ]);
+    }
+
+    public function galeriDetail(Request $request, Galeri $galeri)
+    {
+        $variabel = $request->variabel;
+        return view('web.pages.galeriDetail', [
+            'title' => 'Galeri',
+            'head_title' => $variabel->galeri_title->value ?? 'galeri_title',
+            'head_sub_title' => $variabel->galeri_sub_title->value ?? 'galeri_sub_title',
+            'galeri' => $galeri
+        ]);
+    }
+
+    public function checkSlug(Request $request)
+    {
+        $slug = SlugService::createSlug(Galeri::class, 'slug', $request->title);
+        return response()->json(['slug' => $slug]);
     }
 }

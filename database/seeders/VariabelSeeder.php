@@ -74,6 +74,18 @@ class VariabelSeeder extends Seeder
                 'value' => 'Reliance Endowment',
                 'content' => '<div>Reliance Endowment merupakan Program Asuransi Jiwa Berjangka yang memberikan perlindungan kepada Tertanggung atas kerugian finansial dimasa yang akan datang karena adanya risiko meninggal dunia dan pengelolaan dana tabungan.</div>',
                 'image' => 'produk-image/ntyGHKQQ5vojyQAco4BiDTuqKgKdiYHHF2CWjpR9.png',
+            ],
+            [
+                'var' => 'galeri_title',
+                'value' => 'Galeri',
+                'content' => null,
+                'image' => null
+            ],
+            [
+                'var' => 'galeri_sub_title',
+                'value' => 'Tetap Update disetiap aktivitas kita',
+                'content' => null,
+                'image' => null
             ]
         ]);
     }
