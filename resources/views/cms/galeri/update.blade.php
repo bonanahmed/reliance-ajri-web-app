@@ -34,6 +34,16 @@
                         @enderror
                     </div>
                     <div class="mb-3">
+                        <label for="description" class="form-label">description</label>
+                        <input id="description" type="hidden" name="description" value="{{ old('description',$galeri->description) }}">
+                        @error('description')
+                        <p class="text-danger">
+                            {{ $message }}
+                        </p>
+                        @enderror
+                        <trix-editor input="description"></trix-editor>
+                    </div>
+                    <div class="mb-3">
                         <label for="image" class="form-label">image</label>
                         <input name="image[]" type="file" class="form-control @error('image') is-invalid @enderror" id="image" aria-describedby="image" multiple="true">
                         @error('image')
@@ -49,19 +59,9 @@
         <div class="row">
             @foreach($galeri->images as $image)
             <div class="col-md-2">
-                <!-- <img src="{{ asset('storage/'.$image->image) }}" class="img-thumbnail" style="margin:5px;width: 200px; /* You can set the dimensions to whatever you want */
-    height: 200px;
-    object-fit: contain;" alt=""> -->
-                <div class="image-area">
-                    <!-- <img src="{{ asset('storage/'.$image->image) }}" class="img-thumbnail" alt="Preview">
-                    <a class="remove-image" href="#" style="display: inline;">&#215;</a> -->
-
-                    <a href="{{ asset('storage/'.$image->image) }}" target="_blank">
+                <div class="image-area"><a href="{{ asset('storage/'.$image->image) }}" target="_blank">
                         <img src="{{ asset('storage/'.$image->image) }}" class="img-thumbnail" alt="Preview">
                     </a>
-                    <!-- <img src="{{ asset('storage/'.$image->image) }}" class="img-thumbnail" alt="Preview"> -->
-
-
                     <form action="/c/image/{{$image->id}}/delete" class="d-inline" method="post">
                         @method('delete')
                         @csrf

@@ -40,7 +40,8 @@ class GaleriController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'title' => 'required'
+            'title' => 'required',
+            'description' => ''
         ]);
 
         $galeri = Galeri::create($validatedData);
@@ -96,7 +97,8 @@ class GaleriController extends Controller
     public function update(Request $request, Galeri $galeri)
     {
         $validatedData = $request->validate([
-            'title' => 'required'
+            'title' => 'required',
+            'description' => ''
         ]);
 
         if ($request->file('image')) {

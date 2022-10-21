@@ -22,7 +22,6 @@
 
     <link href={{ asset('assets/c/css/app.css') }} rel="stylesheet">
     <link href={{ asset('assets/c/css/trix.css') }} rel="stylesheet">
-    <link href={{ asset('assets/c/css/trix.css') }} rel="stylesheet">
     <link href={{ asset('assets/c/css/custom.css') }} rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -30,6 +29,12 @@
     <script type="text/javascript" src="{{asset('assets/c/js/trix.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/c/js/attachments.js')}}"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        trix-toolbar [data-trix-button-group="file-tools"] {
+            display: none
+        }
+    </style>
+
 </head>
 
 <body>

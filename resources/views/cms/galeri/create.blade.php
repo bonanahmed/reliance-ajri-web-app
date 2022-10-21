@@ -19,6 +19,16 @@
                     @enderror
                 </div>
                 <div class="mb-3">
+                    <label for="description" class="form-label">description</label>
+                    <input id="description" type="hidden" name="description" value="{{ old('description') }}">
+                    @error('description')
+                    <p class="text-danger">
+                        {{ $message }}
+                    </p>
+                    @enderror
+                    <trix-editor input="description"></trix-editor>
+                </div>
+                <div class="mb-3">
                     <label for="image" class="form-label">image</label>
                     <input name="image[]" type="file" class="form-control @error('image') is-invalid @enderror" id="image" aria-describedby="image" multiple="true">
                     @error('image')
