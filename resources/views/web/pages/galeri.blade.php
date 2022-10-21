@@ -6,9 +6,9 @@
         <div class="row">
             @foreach($galeri as $item)
             <div class="col-md-4 mb-5">
-                <div class="card">
+                <div class="card border-0">
                     @if($item->images)
-                    <img style="height:200px;object-fit: contain;border-radius:10px;" src="{{ asset('storage/'.$item->images->first()->image) }}" class="card-img-top img-fluid" alt="{{ $item->title }}">
+                    <img style="height:200px;object-fit: cover;border-radius:10px;" src="{{ asset('storage/'.$item->images->first()->image) }}" class="card-img-top img-fluid" alt="{{ $item->title }}">
                     @endif
 
                     <div class="card-body">
