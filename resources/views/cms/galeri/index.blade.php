@@ -35,9 +35,8 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Name</th>
+                                <th>Title</th>
                                 <th class="d-none d-xl-table-cell">Created At</th>
-                                <th>Status</th>
                                 <th class="d-none d-md-table-cell">Action</th>
                             </tr>
                         </thead>
@@ -45,13 +44,9 @@
                             @foreach($galeri as $item)
                             <tr>
                                 <td>{{ $galeri->firstItem() + $loop->index }}</td>
-                                <td class="d-none d-xl-table-cell">{{ $item->var }}</td>
+                                <td class="d-none d-xl-table-cell">{{ $item->title }}</td>
                                 <td class="d-none d-xl-table-cell">{{ $item->created_at }}</td>
-                                <td><span class="badge bg-success">Publish</span></td>
                                 <td class="d-none d-md-table-cell">
-                                    <a href="/c/galeri/{{$item->id}}" class="badge bg-primary">
-                                        <span data-feather="eye"></span>
-                                    </a>
                                     <a href="/c/galeri/{{$item->id}}/edit" class="badge bg-success">
                                         <span data-feather="edit-2"></span>
                                     </a>

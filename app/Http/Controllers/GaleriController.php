@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Galeri;
 use App\Models\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class GaleriController extends Controller
 {
@@ -48,12 +49,7 @@ class GaleriController extends Controller
             $files = $request->file('image');
             $imageData = [];
             foreach ($files as $file) {
-                $filename = $file->getClientOriginalName();
-                $extension = $file->getClientOriginalExtension();
-                $picture = uniqid() . '.' . $extension;
-                $destinationPath = public_path() . '/storage/galeri';
                 $imgurl = $file->store('galeri-image');
-                // $imgurl = $file->move($destinationPath, $picture);
                 array_push($imageData, [
                     'galeri_id' => $galeri->id,
                     'image' => $imgurl,
@@ -61,7 +57,6 @@ class GaleriController extends Controller
                 ]);
             }
             Image::insert($imageData);
-            // $validatedData['image'] = $request->file('image')->store('news-image');
         }
 
         return redirect('/c/galeri')->with('success', 'Image has been saved');
@@ -84,9 +79,11 @@ class GaleriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Galeri $galeri)
     {
-        //
+        return view('cms.galeri.update', [
+            'galeri' => $galeri
+        ]);
     }
 
     /**
@@ -96,9 +93,30 @@ class GaleriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Galeri $galeri)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required'
+        ]);
+
+        if ($request->file('image')) {
+            $files = $request->file('image');
+            $imageData = [];
+            foreach ($files as $file) {
+                $imgurl = $file->store('galeri-image');
+                array_push($imageData, [
+                    'galeri_id' => $galeri->id,
+                    'image' => $imgurl,
+                    'created_at' => date("Y-m-d H:i:s")
+                ]);
+            }
+            Image::insert($imageData);
+        }
+
+
+        Galeri::where('id', $galeri->id)
+            ->update($validatedData);
+        return redirect("/c/galeri/$galeri->id/edit")->with('success', 'Data has been updated');
     }
 
     /**
@@ -107,8 +125,24 @@ class GaleriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Galeri $galeri)
     {
-        //
+        if ($galeri->images) {
+            foreach (json_decode($galeri->images) as $item) {
+                Storage::delete($item->image);
+            }
+        }
+        Image::where('galeri_id', $galeri->id)->delete();
+        Galeri::destroy($galeri->id);
+        return redirect('/c/galeri')->with('success', 'Data has been deleted');
+    }
+
+    public function imageDestroy(Image $image)
+    {
+        if ($image->image) {
+            Storage::delete($image->image);
+        }
+        Image::destroy($image->id);
+        return redirect("/c/galeri/$image->galeri_id/edit")->with('success', 'Image has been deleted');
     }
 }

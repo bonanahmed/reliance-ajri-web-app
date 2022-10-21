@@ -64,6 +64,11 @@
                     <i class="align-middle" data-feather="database"></i> <span class="align-middle">Produk Kumpulan</span>
                 </a>
             </li>
+            <li class="sidebar-item {{ Request::is('c/galeri') ? 'active' : '' }}">
+                <a class="sidebar-link" href="/c/galeri">
+                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Galeri</span>
+                </a>
+            </li>
 
             <!-- 
             <li class="sidebar-item">

@@ -20,8 +20,10 @@
 
     <title>AdminKit Demo - Bootstrap 5 Admin Template</title>
 
-    <link href={{asset('assets/c/css/app.css')}} rel="stylesheet">
-    <link href={{asset('assets/c/css/trix.css')}} rel="stylesheet">
+    <link href={{ asset('assets/c/css/app.css') }} rel="stylesheet">
+    <link href={{ asset('assets/c/css/trix.css') }} rel="stylesheet">
+    <link href={{ asset('assets/c/css/trix.css') }} rel="stylesheet">
+    <link href={{ asset('assets/c/css/custom.css') }} rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('assets/ckeditor/ckeditor.js') }}"></script>
