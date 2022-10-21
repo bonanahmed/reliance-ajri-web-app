@@ -17,7 +17,7 @@ class GaleriController extends Controller
     public function index()
     {
         return view('cms.galeri.index', [
-            'galeri' => Galeri::paginate(10)
+            'galeri' => Galeri::orderBy('id', 'desc')->paginate(10)
         ]);
     }
 

@@ -56,21 +56,23 @@
                 </form>
             </div>
         </div>
-        <div class="row">
-            @foreach($galeri->images as $image)
-            <div class="col-md-2">
-                <div class="image-area"><a href="{{ asset('storage/'.$image->image) }}" target="_blank">
-                        <img src="{{ asset('storage/'.$image->image) }}" class="img-thumbnail" alt="Preview">
-                    </a>
-                    <form action="/c/image/{{$image->id}}/delete" class="d-inline" method="post">
-                        @method('delete')
-                        @csrf
-                        <a class="remove-image button-image-remove" href="javascript:;" style="display: inline;">&#215;</a>
-                    </form>
-                </div>
+        <div class="container">
+            <div class="row">
+                @foreach($galeri->images as $image)
+                <div class="col-md-2">
+                    <div class="image-area"><a href="{{ asset('storage/'.$image->image) }}" target="_blank">
+                            <img src="{{ asset('storage/'.$image->image) }}" class="img-thumbnail" alt="Preview">
+                        </a>
+                        <form action="/c/image/{{$image->id}}/delete" class="d-inline" method="post">
+                            @method('delete')
+                            @csrf
+                            <a class="remove-image button-image-remove" href="javascript:;" style="display: inline;">&#215;</a>
+                        </form>
+                    </div>
 
+                </div>
+                @endforeach
             </div>
-            @endforeach
         </div>
 
     </div>
