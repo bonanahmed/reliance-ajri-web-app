@@ -18,7 +18,7 @@
 
         <div class="row mb-5">
             <div class="col-lg-8">
-                <form action="/c/galeri/{{ $galeri->id }}" method="post" enctype="multipart/form-data">
+                <form action="/c/galeri/{{ $galeri->slug }}" method="post" enctype="multipart/form-data">
                     @method('put')
                     @csrf
                     <div class="mb-3">

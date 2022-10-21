@@ -121,7 +121,7 @@ class GaleriController extends Controller
 
         Galeri::where('id', $galeri->id)
             ->update($validatedData);
-        return redirect("/c/galeri/$galeri->id/edit")->with('success', 'Data has been updated');
+        return redirect("/c/galeri/$galeri->slug/edit")->with('success', 'Data has been updated');
     }
 
     /**

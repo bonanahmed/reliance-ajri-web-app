@@ -47,10 +47,10 @@
                                 <td class="d-none d-xl-table-cell">{{ $item->title }}</td>
                                 <td class="d-none d-xl-table-cell">{{ $item->created_at }}</td>
                                 <td class="d-none d-md-table-cell">
-                                    <a href="/c/galeri/{{$item->id}}/edit" class="badge bg-success">
+                                    <a href="/c/galeri/{{$item->slug}}/edit" class="badge bg-success">
                                         <span data-feather="edit-2"></span>
                                     </a>
-                                    <form action="/c/galeri/{{$item->id}}" class="d-inline" method="post">
+                                    <form action="/c/galeri/{{$item->slug}}" class="d-inline" method="post">
                                         @method('delete')
                                         @csrf
                                         <button class="badge bg-danger border-0 button-submit"><span data-feather="trash-2"></span></button>
