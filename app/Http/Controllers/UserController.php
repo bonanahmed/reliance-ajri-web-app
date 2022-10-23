@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -15,7 +17,7 @@ class UserController extends Controller
     public function index()
     {
         return view('cms.user.index', [
-            'users' => User::where('role', 'admin')->paginate('10')
+            'users' => User::where('role', 'admin')->orderBy('id', 'desc')->paginate('10')
         ]);
     }
 
@@ -38,8 +40,9 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
+            'name' => 'required',
             'email' => 'required|email',
-            'password' => 'required'
+            'password' => 'required|confirmed|min:6',
         ]);
 
         $validatedData['role'] = 'admin';
@@ -80,13 +83,21 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $validatedData = $request->validate([
-            'name' => 'required'
-        ]);
+        $rules = [
+            'name' => 'required',
+            'email' => 'required',
+        ];
+
 
         if ($request->password) {
-            $validatedData['password'] = $request->password;
+            $rules['password'] = 'required|confirmed|min:6';
         }
+
+        $validatedData = $request->validate($rules);
+        if ($request->password) {
+            $validatedData['password'] = Hash::make($request->password);
+        }
+
         User::where('id', $user->id)->update($validatedData);
         return redirect('/c/user')->with('success', $user->email . ' has been updated');
     }
@@ -99,31 +110,49 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        User::destroy($user->id);
+        User::where('id', $user->id)
+            ->where('role', '!=', 'super')->delete();
         return redirect('/c/user')->with('success', $user->email . ' has been deleted');
     }
 
-    public function profile(User $user)
+    public function profile()
     {
         return view('cms.user.profile', [
-            'user' => $user
+            'user' => User::find(auth()->user()->id)
         ]);
     }
 
     public function updateProfile(Request $request, User $user)
     {
-        $rules = [
+        $validatedData = $request->validate([
             'email' => 'required|email',
-            'name' => 'required'
-        ];
+            'name' => 'required',
+        ]);
 
-        $validatedData = $request->validate($rules);
+        User::where('id', auth()->user()->id)->update($validatedData);
+        return back()->with('success', 'Password has been updated');
+    }
 
-        if ($request->password) {
-            $validatedData['password'] = $request->password;
+    public function changePassword()
+    {
+        return view('cms.password.update');
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed|min:6'
+        ]);
+
+        if (!Hash::check($request->old_password, auth()->user()->password)) {
+            return back()->with('error', 'Old password invalid');
         }
 
-        User::where('id', $user->id)->update($validatedData);
-        return redirect('/c/user/profile')->with('success', 'Data has been updated');
+        User::whereId(auth()->user()->id)->update([
+            'password' => Hash::make($request->new_password)
+        ]);
+
+        return back()->with('success', 'Password has been updated');
     }
 }

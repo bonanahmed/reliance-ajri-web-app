@@ -62,6 +62,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/c/galeri/checkSlug', [GaleriController::class, 'checkSlug']);
     Route::get('/c/user/profile', [UserController::class, 'profile']);
     Route::put('/c/user/profile', [UserController::class, 'updateProfile']);
+    Route::get('/c/user/password', [UserController::class, 'changePassword']);
+    Route::put('/c/user/password', [UserController::class, 'updatePassword']);
     Route::delete('/c/image/{image}/delete', [GaleriController::class, 'imageDestroy']);
 
     Route::resource('/c/user', UserController::class);

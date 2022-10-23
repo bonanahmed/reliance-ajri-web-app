@@ -14,6 +14,11 @@
                     <i class="align-middle" data-feather="database"></i> <span class="align-middle">Variabel</span>
                 </a>
             </li>
+            <li class="sidebar-item {{ Request::is('c/user') ? 'active' : '' }}">
+                <a class="sidebar-link" href="/c/user">
+                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Admin Users</span>
+                </a>
+            </li>
             @endcan
             <li class="sidebar-header">
                 Pages
