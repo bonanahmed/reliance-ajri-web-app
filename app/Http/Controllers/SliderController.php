@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Slider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SliderController extends Controller
 {
@@ -40,7 +41,9 @@ class SliderController extends Controller
         $validatedData = $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'image' => 'image|file|max:1024'
+            'image' => 'image|file|max:1024',
+            'button' => '',
+            'buttonLink' => ''
         ]);
 
         if ($request->file('image')) {
@@ -85,6 +88,24 @@ class SliderController extends Controller
      */
     public function update(Request $request, Slider $slider)
     {
+        $validatedData = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'image|file|max:1024',
+            'button' => '',
+            'button_link' => 'url'
+        ]);
+
+        if ($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('slider-image');
+        }
+
+        Slider::where('id', $slider->id)
+            ->update($validatedData);
+        return redirect('/c/slider')->with('success', 'Data has been added');
     }
 
     /**
@@ -93,8 +114,12 @@ class SliderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Slider $slider)
     {
-        //
+        if ($slider->image) {
+            Storage::delete($slider->image);
+        }
+        Slider::destroy($slider->id);
+        return redirect('/c/slider')->with('success', 'Data has been deleted');
     }
 }

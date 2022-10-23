@@ -11,6 +11,7 @@ use App\Http\Controllers\MitraController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\SliderController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VariabelController;
 use Illuminate\Support\Facades\Route;
@@ -73,6 +74,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/c/about', AboutController::class);
     Route::resource('/c/produk', ProdukController::class);
     Route::resource('/c/galeri', GaleriController::class);
+    Route::resource('/c/slider', SliderController::class);
 });
 
 

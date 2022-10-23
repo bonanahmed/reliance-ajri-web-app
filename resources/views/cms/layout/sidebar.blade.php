@@ -30,6 +30,12 @@
                 </a>
             </li>
 
+            <li class="sidebar-item {{ Request::is('c/slider') ? 'active' : '' }}">
+                <a class="sidebar-link" href="/c/slider">
+                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Homepage Slider</span>
+                </a>
+            </li>
+
             <li class="sidebar-item {{ Request::is('c/kategori') ? 'active' : '' }}">
                 <a class="sidebar-link" href="/c/kategori">
                     <i class="align-middle" data-feather="database"></i> <span class="align-middle">Kategori News</span>
