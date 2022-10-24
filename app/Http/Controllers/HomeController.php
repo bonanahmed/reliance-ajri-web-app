@@ -30,9 +30,7 @@ class HomeController extends Controller
             'variabel' => $object,
             'mitras' => $mitra,
             'news' => $news,
-            'slider' => $slider,
-            'about' => $about,
-            'produk' => $produk_kumpulan
+            'slider' => $slider
         ]);
     }
 }
