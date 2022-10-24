@@ -19,13 +19,11 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="slug" class="form-label">Slug</label>
-                    <input value="{{ old('slug')}}" name="slug" type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" aria-describedby="slug">
-                    @error('slug')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                    @enderror
+                    <label for="image" class="form-label">Type</label>
+                    <select class="form-select" aria-label="type" name="type">
+                        <option value="client">Klien</option>
+                        <option value="rekanan">Rekanan</option>
+                    </select>
                 </div>
                 <div class="mb-3">
                     <label for="image" class="form-label">Mitra Logo</label>

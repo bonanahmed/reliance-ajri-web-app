@@ -4,12 +4,12 @@
 <main class="content">
     <div class="container-fluid p-0">
         @if(session()->has('success'))
-        <div class="row p-3 rounded" style="background-color:#cbf5d9 ;">
+        <div class="row p-3 rounded mb-4" style="background-color:#cbf5d9 ;">
             {{ session('success') }}
         </div>
         @endif
         @if(session()->has('error'))
-        <div class="row p-3 rounded" style="background-color:#f09eac ;">
+        <div class="row p-3 rounded mb-4" style="background-color:#f09eac ;">
             {{ session('error') }}
         </div>
         @endif
@@ -37,7 +37,7 @@
                     </div>
                     @enderror
                 </div>
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="old_password" class="form-label">Old Password</label>
                     <input name="password" type="password" class="form-control @error('old_password') is-invalid @enderror" id="old_password" aria-describedby="old_password">
                     @error('old_password')
@@ -63,7 +63,7 @@
                         {{ $message }}
                     </div>
                     @enderror
-                </div>
+                </div> -->
                 <button type="submit" class="btn btn-primary">Update Profile</button>
             </form>
         </div>
