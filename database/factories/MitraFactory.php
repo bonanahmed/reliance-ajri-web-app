@@ -14,10 +14,11 @@ class MitraFactory extends Factory
      */
     public function definition()
     {
+        $data = ['client', 'rekanan'];
         return [
             'name' => $this->faker->company(),
-            'slug' => $this->faker->slug(),
             'description' => $this->faker->paragraph(),
+            'type' => $data[rand(0, 1)]
         ];
     }
 }

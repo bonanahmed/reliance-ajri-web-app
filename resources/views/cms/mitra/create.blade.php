@@ -37,6 +37,14 @@
                     </div>
                     @enderror
                 </div>
+                <div class="form-group">
+                    <div class='input-group date' id='datetimepicker'>
+                        <input name="join_date" type='text' class="form-control" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
                     <input id="description" type="hidden" name="description" value="{{ old('description') }}">
@@ -54,6 +62,12 @@
     </div>
 </main>
 <script>
+    $(document).ready(function() {
+        $('#datetimepicker').datepicker({
+            viewMode: 'years'
+        });
+    })
+
     function previewImage() {
         const image = document.querySelector('#image');
         const imgPreview = document.querySelector('.img-preview');

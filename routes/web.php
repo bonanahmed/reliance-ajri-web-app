@@ -45,6 +45,9 @@ Route::middleware(['landing'])->group(function () {
     Route::get('/produk/individu', [ProdukController::class, 'individu']);
     Route::get('/produk/kumpulan', [ProdukController::class, 'kumpulan']);
     Route::get('/produk/kumpulan/{produk}', [ProdukController::class, 'kumpulan']);
+
+    Route::get('/mitra/rekanan', [MitraController::class, 'rekanan']);
+    Route::get('/mitra/klien', [MitraController::class, 'klien']);
 });
 
 

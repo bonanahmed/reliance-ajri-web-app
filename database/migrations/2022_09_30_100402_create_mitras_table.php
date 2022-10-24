@@ -15,12 +15,11 @@ class CreateMitrasTable extends Migration
     {
         Schema::create('mitras', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable(false);
+            $table->string('name');
             $table->string('type')->default('client');
-            $table->string('slug')->nullable(false);
             $table->text('description')->nullable();
             $table->string('image')->nullable();
-            $table->timestamp('tanggal_kerjasama')->nullable();
+            $table->date('tanggal_kerjasama')->nullable();
             $table->integer('created_by')->nullable();
             $table->timestamps();
         });

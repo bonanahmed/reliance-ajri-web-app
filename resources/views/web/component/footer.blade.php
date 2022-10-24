@@ -26,7 +26,7 @@
     </div>
     <div class="row justify-content-center" style="background-color: #29559B;">
         <div class="col-md-4 text-center p-4" style="color:white ;">
-            Copyrights 2022 Reliance Life
+            Copyrights © 2022 Reliance Life
         </div>
     </div>
 </footer>

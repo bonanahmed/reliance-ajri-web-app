@@ -41,13 +41,13 @@ class MitraController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required',
+            'type' => 'required',
             'image' => 'required',
-            'slug' => 'required',
             'description' => 'required'
         ]);
 
         if ($request->file('image')) {
-            $validatedData['image'] = $request->file('image')->store('mitra-logo');
+            $validatedData['image'] = $request->file('image')->store('mitra-image');
         }
 
         $validatedData['created_by'] = auth()->user()->id;
@@ -91,12 +91,13 @@ class MitraController extends Controller
         $rules = [
             'name' => 'required',
             'description' => '',
+            'type' => 'required',
             'image' => 'image|file|max:1024'
         ];
 
-        if ($request->slug != $mitra->slug) {
-            $rules['slug'] = 'required';
-        }
+        // if ($request->slug != $mitra->slug) {
+        //     $rules['slug'] = 'required';
+        // }
 
         $validatedData = $request->validate($rules);
 
@@ -104,7 +105,7 @@ class MitraController extends Controller
             if ($request->oldImage) {
                 Storage::delete($request->oldImage);
             }
-            $validatedData['image'] = $request->file('image')->store('news-image');
+            $validatedData['image'] = $request->file('image')->store('mitra-image');
         }
 
         Mitra::where('id', $mitra->id)
@@ -125,5 +126,26 @@ class MitraController extends Controller
         }
         Mitra::destroy($mitra->id);
         return redirect('/c/mitra')->with('success', 'Mitra has been deleted');
+    }
+
+    public function klien(Request $request)
+    {
+        $variabel = $request->variabel;
+        return view('web.pages.klien', [
+            'head_title' => $variabel->mitra_title->value ?? 'mitra_title',
+            'head_sub_title' => $variabel->mitra_sub_title->value ?? 'mitra_sub_title',
+            'btn_simulasi' => $variabel->btn_simulasi->value ?? 'btn_simulasi',
+            'mitra' => Mitra::where('type', 'client')->paginate(10),
+            'count' => Mitra::where('type', 'client')->count()
+        ]);
+    }
+
+    public function rekanan(Request $request)
+    {
+        $variabel = $request->variabel;
+        return view('web.pages.rekanan', [
+            'mitra' => Mitra::where('type', 'rekanan')->paginate(10),
+            'count' => Mitra::where('type', 'rekanan')->count()
+        ]);
     }
 }

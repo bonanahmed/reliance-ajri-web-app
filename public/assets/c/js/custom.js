@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     $('.button-submit').on('click', function (e) {
         var form = $(this).parents('form')
         e.preventDefault();

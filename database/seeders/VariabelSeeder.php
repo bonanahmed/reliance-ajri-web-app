@@ -112,6 +112,20 @@ class VariabelSeeder extends Seeder
                 'content' => null,
                 'image' => null,
                 'created_by' => 1,
+            ],
+            [
+                'var' => 'mitra_title',
+                'value' => 'Mitra Kami',
+                'content' => null,
+                'image' => null,
+                'created_by' => 1
+            ],
+            [
+                'var' => 'mitra_sub_title',
+                'value' => 'Telah banyak Mitra yang sudah bekerja sama dengan kami',
+                'content' => null,
+                'image' => null,
+                'created_by' => 1
             ]
         ]);
     }

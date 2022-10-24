@@ -118,14 +118,14 @@
     <div class="row justify-content-around">
         <div class="col text-center">
             <img class="img-fluid" src="{{ asset('assets/img/shield.png') }}" alt="">
-            <p>Cek Status Premi</p>
-            <p>Ingin cek status klaim Anda?</p>
+            <p style="font-size: 20px;font-weight: 500;">Cek Status Premi</p>
+            <p style="color:#737373;font-size: 16;">Ingin cek status klaim Anda?</p>
             <button type="button" class="btn btn-outline-primary">Cek Status Premi Sekarang</button>
         </div>
         <div class="col text-center">
             <img class="img-fluid" src="{{ asset('assets/img/papers.png') }}" alt="">
-            <p>Cek Status Premi</p>
-            <p>Ingin cek status klaim Anda?</p>
+            <p style="font-size: 20px;font-weight: 500;">Ajukan Premi</p>
+            <p style="color:#737373;font-size: 16;">Telah menjadi Nasabah kami?</p>
             <button type="button" class="btn btn-outline-primary">Ajukan Sekarang</button>
         </div>
     </div>
@@ -136,7 +136,7 @@
     <div class="container">
         <div class="row">
             <div class="col text-center">
-                <h4>Pilihan Produk Terbaik Kami</h4>
+                <p style="font-size: 32px;font-weight: 500;"><span style="color: #737373;">Pilihan</span> <span style="color: #29559B;">Produk Terbaik</span> <span style="color: #737373;">Kami</span></p>
                 <p class="text-muted" style="font-size:12px ;">Asuransi jiwa murni hingga 5miliar tanpa cek medis</p>
             </div>
         </div>
@@ -184,7 +184,8 @@
     <div class="container">
         <div class="row mb-5">
             <div class="col text-center">
-                <h5>Info Daily Reliance</h5>
+                <p style="font-weight: 500;
+font-size: 32px;">Info Daily Reliance</p>
             </div>
         </div>
         <div class="row">

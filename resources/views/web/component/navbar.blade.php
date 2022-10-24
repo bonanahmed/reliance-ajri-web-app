@@ -12,13 +12,13 @@
                     <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page" href="/">Beranda</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a class="nav-link {{ Request::is('about') ? 'active' : '' }}" href="/about/{{ Request::get('about') ? Request::get('about')->slug : '' }}">Tentang Kami</a>
+                    <a class="nav-link {{ Request::is('about/*') ? 'active' : '' }}" href="/about/{{ Request::get('about') ? Request::get('about')->slug : '' }}">Tentang Kami</a>
                 </li>
                 <li class="nav-item mx-3">
                     <a class="nav-link {{ Request::is('produk/kumpulan') ? 'active' : '' }}" href="/produk/kumpulan/{{ Request::get('produk') ? Request::get('produk')->slug : '' }}">Produk</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a class="nav-link" href="#mitra">Mitra</a>
+                    <a class="nav-link {{ Request::is('mitra/*') ? 'active' : '' }}" href="/mitra/klien">Mitra</a>
                 </li>
                 <li class="nav-item mx-3">
                     <a class="nav-link" href="#">Klaim</a>
