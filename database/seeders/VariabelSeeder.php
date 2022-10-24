@@ -94,13 +94,13 @@ class VariabelSeeder extends Seeder
                 'image' => null,
                 'created_by' => 1,
             ],
-            [
-                'var' => 'home_section_1_button',
-                'value' => 'Lihat Selengkapnya',
-                'content' => null,
-                'image' => null,
-                'created_by' => 1,
-            ]
+            // [
+            //     'var' => 'home_section_1_button',
+            //     'value' => 'Lihat Selengkapnya',
+            //     'content' => null,
+            //     'image' => null,
+            //     'created_by' => 1,
+            // ]
         ]);
     }
 }
