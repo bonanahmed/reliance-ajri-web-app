@@ -1,4 +1,4 @@
-@extends('web.component.main',['about' => $about,'produk' => $produk])
+@extends('web.component.main')
 @include('web.component.jumbotron')
 @section('container')
 <section id="mitra">
