@@ -5,7 +5,13 @@
     <div class="container-fluid p-0">
 
         <h1 class="h3 mb-3">Create Content</h1>
-
+        <div class="card flex-fill">
+            @if(session()->has('error'))
+            <div class="row p-3 rounded" style="background-color:#f7b4b0 ;">
+                {{ session('error') }}
+            </div>
+            @endif
+        </div>
         <div class="col-lg-8">
             <form action="/c/slider" method="post" enctype="multipart/form-data">
                 @csrf

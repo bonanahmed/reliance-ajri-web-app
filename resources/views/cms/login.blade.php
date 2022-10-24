@@ -68,17 +68,7 @@
                                         <div class="mb-3">
                                             <label class="form-label">Password</label>
                                             <input class="form-control form-control-lg" type="password" name="password" placeholder="Enter your password" required />
-                                            <small>
-                                                <a href="index.html">Forgot password?</a>
-                                            </small>
-                                        </div>
-                                        <div>
-                                            <label class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="remember-me" name="remember-me" checked>
-                                                <span class="form-check-label">
-                                                    Remember me next time
-                                                </span>
-                                            </label>
+
                                         </div>
                                         <div class="text-center mt-3">
                                             <!-- <a href="index.html" class="btn btn-lg btn-primary">Sign in</a> -->

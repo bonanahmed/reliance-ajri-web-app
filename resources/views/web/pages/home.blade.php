@@ -1,4 +1,4 @@
-@extends('web.component.main')
+@extends('web.component.main',['about' => $about,'produk' => $produk])
 @include('web.component.jumbotron')
 @section('container')
 <section id="mitra">
@@ -27,20 +27,21 @@
         <p><small class="text-muted"> jiwa murni hingga 5Miliar tanpa cek medis</small></p>
     </div>
     <div class="tab-steps py-5" style="background-image:url('https://i.pinimg.com/474x/6f/76/97/6f769766a1ebea9f1b9c92281df8c518--white-patterns-random-things.jpg')">
-        <div class="tab-steps-item">
+        @foreach($slider as $item)
+        <div class="tab-steps-item {{ $loop->index+1 > 1 ? 'd-none' : '' }}">
             <div class="row">
                 <div class="col text-center">
-                    <img style="border-radius: 1rem;" src="https://via.placeholder.com/500x200" alt="">
+                    <img style="border-radius: 1rem;height:250px;object-fit: contain" src="{{ asset('storage/'.$item->image) }}" alt="">
                 </div>
                 <div class="col">
                     <div class="row justify-content-end">
                         <div class="card" style="width: 40rem;border-radius:1rem;background-color: #FFFFFF7F;">
                             <div class="card-body">
-                                <h5 class="card-title">4. Reliance Group Term Life</h5>
-                                <p class="text-dark" style="width: 25rem"><small> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum corrupti vero ratione laboriosam enim? Deleniti est nam voluptate porro, ipsam facilis alias placeat eum dolore praesentium quidem odio adipisci fuga!</small></p>
-                                <button type="button" class="btn btn-primary btn-sm p-2" style="border-radius: 10px; background-color: #31386b;">
-                                    Cek Flexi Life Sekarang
-                                </button>
+                                <h5 class="card-title">{{ ($loop->index+1).'. '.$item->title }}</h5>
+                                <p class="text-dark" style="width: 25rem"><small> {!! $item->description !!}</small></p>
+                                <a href="{{ $item->button_link ?? '#' }}" class="btn btn-primary btn-sm p-2" style="border-radius: 10px; background-color: #31386b;">
+                                    {{ $item->button }}
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -48,7 +49,8 @@
             </div>
 
         </div>
-        <div class="tab-steps-item d-none">
+        @endforeach
+        <!-- <div class="tab-steps-item d-none">
             <div class="tab-steps--blocks">
                 <span class="tab-steps--number">2</span>
                 <span class="tab-steps--desease">copie-colle</span>
@@ -71,16 +73,19 @@
                 <div class="tab-steps--number">5</div>
                 <div class="tab-steps--desease">Générer</div>
             </div>
-        </div>
+        </div> -->
         <!-- progress tracker -->
         <div class="flex-row text-center">
             <div class="flex-col-xs-12">
                 <ul class="tab-steps--list">
-                    <li class="active" data-step="1"></li>
+                    @foreach($slider as $item)
+                    <li class="{{ $loop->index+1 > 1 ? '' : 'active' }}" data-step="{{ $loop->index + 1 }}"></li>
+                    <!-- <li class="active" data-step="1"></li>
                     <li data-step="2"></li>
                     <li data-step="3"></li>
                     <li data-step="4"></li>
-                    <li data-step="5"></li>
+                    <li data-step="5"></li> -->
+                    @endforeach
                 </ul>
                 <p class="fw-bolder">Reliance Group Term Life</p>
             </div>
@@ -92,9 +97,9 @@
 
 <section style="background-image: url('{{ asset('assets/img/family-portrait.png') }}');background-size: cover;background-repeat: no-repeat;">
     <div class="row" style="padding:25px 60px 0px ;">
-        <div class="col-md-6">
-            <h1 class="display-4">Cukup Bayar Sesuai Risikomu</h1>
-            <p class="w-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non nulla fugiat nesciunt. Ipsam ducimus officiis explicabo reiciendis dolorem nam, deleniti tempore similique quidem. Pariatur voluptatem, ullam quae esse placeat sed.Lorem ipsum dolor sit amet consectetur adipisicing elit. Non nulla fugiat nesciunt. Ipsam ducimus officiis explicabo reiciendis dolorem nam, deleniti tempore similique quidem. Pariatur voluptatem, ullam quae esse placeat sed.</p>
+        <div class="col-md-6" style="padding-bottom: 300px;">
+            <h1 class="display-4">{{ $variabel->home_section_1->value ?? 'home_section_1[value]' }}</h1>
+            <p class="w-50">{!! $variabel->home_section_1->content ?? 'home_section_1[content]' !!}</p>
             <button type="button" class="btn btn-primary btn-sm py-3 px-4" style="border-radius: 10px;border:none; background-color: #31386b;">
                 Lihat Selengkapnya
             </button>

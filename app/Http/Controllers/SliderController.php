@@ -38,12 +38,16 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
+        $count = Slider::count();
+        if ($count >= 9) {
+            return redirect('/c/slider')->with('error', 'Data has reached the maximum limit');
+        }
         $validatedData = $request->validate([
             'title' => 'required',
             'description' => 'required',
             'image' => 'image|file|max:1024',
             'button' => '',
-            'buttonLink' => ''
+            'button_link' => ''
         ]);
 
         if ($request->file('image')) {
@@ -93,7 +97,7 @@ class SliderController extends Controller
             'description' => 'required',
             'image' => 'image|file|max:1024',
             'button' => '',
-            'button_link' => 'url'
+            'button_link' => ''
         ]);
 
         if ($request->file('image')) {

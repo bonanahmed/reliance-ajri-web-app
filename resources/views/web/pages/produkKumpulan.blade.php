@@ -7,7 +7,7 @@
             <div class="col-md-4">
                 <div class="list-group">
                     @foreach($list as $item)
-                    <a href="/produk/kumpulan/{{ $item->slug }}#konten" class="list-group-item list-group-item-action {{ Request::is('about/'.$item->slug) ? 'active' : '' }}">
+                    <a href="/produk/kumpulan/{{ $item->slug }}#konten" class="list-group-item list-group-item-action {{ Request::is('produk/kumpulan/'.$item->slug) ? 'active' : '' }}">
                         {{ $item->title }}
                     </a>
                     @endforeach

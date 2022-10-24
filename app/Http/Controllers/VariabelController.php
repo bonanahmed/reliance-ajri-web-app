@@ -16,7 +16,7 @@ class VariabelController extends Controller
     public function index()
     {
         return view('cms.variabel.index', [
-            'variabel' => Variabel::paginate(10)
+            'variabel' => Variabel::orderBy('id', 'desc')->paginate(10)
         ]);
     }
 
@@ -84,6 +84,7 @@ class VariabelController extends Controller
     public function update(Request $request, Variabel $variabel)
     {
         $validatedData = $request->validate([
+            'var' => 'required',
             'value' => '',
             'image' => 'image|file|max:1024',
             'content' => ''

@@ -15,6 +15,11 @@
                         {{ session('success') }}
                     </div>
                     @endif
+                    @if(session()->has('error'))
+                    <div class="row p-3 rounded" style="background-color:#f7b4b0 ;">
+                        {{ session('error') }}
+                    </div>
+                    @endif
                     <!-- <div class="row p-3 rounded" style="background-color:#f5cbd0 ;">
                     A simple primary alert—check it out!
                 </div> -->
