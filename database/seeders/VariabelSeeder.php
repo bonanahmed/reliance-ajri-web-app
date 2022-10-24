@@ -87,13 +87,13 @@ class VariabelSeeder extends Seeder
                 'content' => null,
                 'image' => null
             ],
-            [
-                'var' => 'home_section_1',
-                'value' => 'Cukup Bayar Sesuai Resiko',
-                'content' => '<div>PT Asuransi Jiwa Reliance Indonesia (AJRI) merupakan perusahaan yang berada dalam payung dari group PT Reliance Capital Management dengan visi untuk menjadi sebuah institusi keuangan kelas dunia yang menyediakan solusi keuangan dengan komprehensif bagi seluruh nasabahnya</div>',
-                'image' => null,
-                'created_by' => 1,
-            ],
+            // [
+            //     'var' => 'home_section_1',
+            //     'value' => 'Cukup Bayar Sesuai Resiko',
+            //     'content' => '<div>PT Asuransi Jiwa Reliance Indonesia (AJRI) merupakan perusahaan yang berada dalam payung dari group PT Reliance Capital Management dengan visi untuk menjadi sebuah institusi keuangan kelas dunia yang menyediakan solusi keuangan dengan komprehensif bagi seluruh nasabahnya</div>',
+            //     'image' => null,
+            //     'created_by' => 1,
+            // ],
             // [
             //     'var' => 'home_section_1_button',
             //     'value' => 'Lihat Selengkapnya',
