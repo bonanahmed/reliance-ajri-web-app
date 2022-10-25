@@ -31,6 +31,9 @@
                 <div class="mb-3">
                     <label for="image" class="form-label">Variabel Image</label>
                     <input type="hidden" name="oldImage" value="{{ $variabel->image }}">
+                    @if($variabel->image)
+                    <img src="{{ asset('storage/'.$variabel->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                    @endif
                     <img class="img-preview img-fluid mb-3 col-sm-5">
                     <input name="image" id="image" class="form-control @error('image') is-invalid @enderror" type="file" onchange="previewImage()">
                     @error('image')

@@ -49,9 +49,7 @@
                                 <td class="d-none d-xl-table-cell">{{ $item->created_at }}</td>
                                 <td><span class="badge bg-success">Publish</span></td>
                                 <td class="d-none d-md-table-cell">
-                                    <a href="/c/variabel/{{$item->id}}" class="badge bg-primary">
-                                        <span data-feather="eye"></span>
-                                    </a>
+
                                     <a href="/c/variabel/{{$item->id}}/edit" class="badge bg-success">
                                         <span data-feather="edit-2"></span>
                                     </a>

@@ -140,6 +140,13 @@ class VariabelSeeder extends Seeder
                 'content' => '<p>Sebagai peningkatan layanan kepada pemegang polis, PT Asuransi Jiwa Reliance Indonesia memberikan kecepatan, kemudahan dan kenyamanan dalam proses klaim. Pelaporan klaim anda akan kami respon dalam waktu 3 jam untuk kami periksa kelengkapan dokumen yang dibutuhkan. Selambat-lambatnya dalam 14 (empat belas) hari kerja kami akan memberikan keputusan klaim setelah dokumen lengkap diterima.</p>',
                 'image' => 'prosedur-klaim-image/otODKwtX30VmpX5FYuQ1yYpBOgkr24af3D6XX12Z.png',
                 'created_by' => 1
+            ],
+            [
+                'var' => 'navbar_logo',
+                'value' => null,
+                'content' => null,
+                'image' => 'var-image/B21i2Q39F1nGVuXitqrEFmrSphGBtFIX1nWox2Si.png',
+                'created_by' => 1
             ]
         ]);
     }

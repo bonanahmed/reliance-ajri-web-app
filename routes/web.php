@@ -52,7 +52,7 @@ Route::middleware(['landing'])->group(function () {
     Route::get('/mitra/klien', [MitraController::class, 'klien']);
 
     Route::get('/klaim/faq', [KlaimController::class, 'faq']);
-    Route::post('/klaim/faq', [KlaimController::class, 'faq_save']);
+    // Route::get('/klaim/faq', [KlaimController::class, 'faq_save']);
 });
 
 

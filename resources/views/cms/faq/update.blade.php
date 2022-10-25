@@ -32,17 +32,6 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="content" class="form-label">Body</label>
-                    <textarea class="form-control" id="editor" name="content">{!! $variabel->faq->content ?? '' !!}</textarea>
-                    <!-- <input id="content" type="hidden" name="content" value="{{ old('content',$variabel->faq->content ?? '') }}"> -->
-                    @error('content')
-                    <p class="text-danger">
-                        {{ $message }}
-                    </p>
-                    @enderror
-                    <!-- <trix-editor input="content"></trix-editor> -->
-                </div>
-                <div class="mb-3">
                     <label for="image" class="form-label">Image</label>
                     @if(isset($variabel->faq->image))
                     <img src="{{ asset('storage/'.$variabel->faq->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
@@ -55,6 +44,18 @@
                     </div>
                     @enderror
                 </div>
+                <div class="mb-3">
+                    <label for="content" class="form-label">Body</label>
+                    <textarea class="form-control" id="editor" name="content">{!! $variabel->faq->content ?? '' !!}</textarea>
+                    <!-- <input id="content" type="hidden" name="content" value="{{ old('content',$variabel->faq->content ?? '') }}"> -->
+                    @error('content')
+                    <p class="text-danger">
+                        {{ $message }}
+                    </p>
+                    @enderror
+                    <!-- <trix-editor input="content"></trix-editor> -->
+                </div>
+
                 <button type="submit" class="btn btn-primary">Save</button>
             </form>
         </div>

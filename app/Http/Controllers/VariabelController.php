@@ -41,9 +41,13 @@ class VariabelController extends Controller
         $validatedData = $request->validate([
             'var' => 'required',
             'value' => '',
-            'image' => '',
+            'image' => 'image|file|max:1024',
             'content' => ''
         ]);
+
+        if ($request->file('image')) {
+            $validatedData['image'] = $request->file('image')->store('var-image');
+        }
 
         $validatedData['created_by'] = auth()->user()->id;
         Variabel::create($validatedData);

@@ -7,7 +7,7 @@
             </div>
             <div class="col-md-4">
                 <h5>Sitemap</h5>
-                <div class="row row-cols-2">
+                <div class="row row-cols-2 mb-4">
                     <div class="col mt-3">Beranda</div>
                     <div class="col mt-3">Klaim</div>
                     <div class="col mt-3">Tentang Kami</div>
@@ -24,9 +24,10 @@
         </div>
 
     </div>
-    <div class="row justify-content-center" style="background-color: #29559B;">
+    <div class="row justify-content-center g-0" style="background-color: #29559B;">
         <div class="col-md-4 text-center p-4" style="color:white ;">
             Copyrights © 2022 Reliance Life
         </div>
     </div>
+
 </footer>
