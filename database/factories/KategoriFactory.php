@@ -13,8 +13,15 @@ class KategoriFactory extends Factory
      */
     public function definition()
     {
+        $arr = [
+            '',
+            'Update',
+            'Kuliner',
+            'Info',
+            'Kesehatan'
+        ];
         return [
-            'title' => $this->faker->word(),
+            'title' => $arr[rand(1, 4)],
             'description' => $this->faker->paragraph(2),
             'created_by' => 1
         ];

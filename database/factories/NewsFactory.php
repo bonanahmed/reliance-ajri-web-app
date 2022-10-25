@@ -16,7 +16,7 @@ class NewsFactory extends Factory
         return [
             'title' => $this->faker->words(3, true),
             'slug' => $this->faker->slug(3, false),
-            'kategori_id' => $this->faker->randomDigitNotNull(),
+            'kategori_id' => rand(1, 4),
             'created_by' => 1,
             'excerpt' => $this->faker->paragraph(),
             'body' => $this->faker->paragraph(10, true),

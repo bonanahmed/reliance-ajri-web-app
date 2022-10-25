@@ -126,6 +126,20 @@ class VariabelSeeder extends Seeder
                 'content' => null,
                 'image' => null,
                 'created_by' => 1
+            ],
+            [
+                'var' => 'faq',
+                'value' => 'Proses Pembayaran Klaim',
+                'content' => '<p>Dokumen Formulir Pengajuan Klaim harus berdasarkan klaim yang diajukan, jika klaim tersebut disebabkan meninggal karena sakit atau karena kecelakaan, melampirkan semua formulir atau dokumen asli yang diminta sesuai dengan sebab meninggalnya tersebut.</p>',
+                'image' => 'faq-image/m9bbf8CjJ8rTsQJpDQP7Lcf6t66k7J5YQyAfXiUn.png',
+                'created_by' => 1
+            ],
+            [
+                'var' => 'prosedur_klaim',
+                'value' => 'Prosedur dan Syarat Pengajuan Manfaat Asuransi Jiwa PT Asuransi Jiwa Reliance Indonesia',
+                'content' => '<p>Sebagai peningkatan layanan kepada pemegang polis, PT Asuransi Jiwa Reliance Indonesia memberikan kecepatan, kemudahan dan kenyamanan dalam proses klaim. Pelaporan klaim anda akan kami respon dalam waktu 3 jam untuk kami periksa kelengkapan dokumen yang dibutuhkan. Selambat-lambatnya dalam 14 (empat belas) hari kerja kami akan memberikan keputusan klaim setelah dokumen lengkap diterima.</p>',
+                'image' => 'prosedur-klaim-image/otODKwtX30VmpX5FYuQ1yYpBOgkr24af3D6XX12Z.png',
+                'created_by' => 1
             ]
         ]);
     }
