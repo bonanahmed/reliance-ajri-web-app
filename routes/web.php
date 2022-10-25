@@ -3,9 +3,11 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CKEditorController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FAQController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\KlaimController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MitraController;
 use App\Http\Controllers\RegisterController;
@@ -48,6 +50,9 @@ Route::middleware(['landing'])->group(function () {
 
     Route::get('/mitra/rekanan', [MitraController::class, 'rekanan']);
     Route::get('/mitra/klien', [MitraController::class, 'klien']);
+
+    Route::get('/klaim/faq', [KlaimController::class, 'faq']);
+    Route::post('/klaim/faq', [KlaimController::class, 'faq_save']);
 });
 
 
@@ -69,6 +74,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/c/user/password', [UserController::class, 'changePassword']);
     Route::put('/c/user/password', [UserController::class, 'updatePassword']);
     Route::delete('/c/image/{image}/delete', [GaleriController::class, 'imageDestroy']);
+
+    Route::get('/c/faq', [KlaimController::class, 'faq']);
+    Route::post('/c/faq', [KlaimController::class, 'faq_save']);
+
+    Route::get('/c/prosedur', [KlaimController::class, 'prosedur']);
+    Route::post('/c/prosedur', [KlaimController::class, 'prosedur_save']);
 
     Route::resource('/c/user', UserController::class);
     Route::resource('/c/news', NewsController::class);

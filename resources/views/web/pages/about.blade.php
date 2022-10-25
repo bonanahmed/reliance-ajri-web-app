@@ -1,6 +1,12 @@
 @extends('web.component.main')
 @include('web.component.jumbotron')
 @section('container')
+<style>
+    .list-group-item.active {
+        background: linear-gradient(106deg, rgba(41, 85, 155, 0.5) 10.89%, #29559B 100%);
+
+    }
+</style>
 <section id="konten" class="m-5">
     <div class="container">
         <div class="row">
@@ -11,13 +17,6 @@
                         {{ $item->title }}
                     </a>
                     @endforeach
-                    <!-- <a type="button" class="list-group-item list-group-item-action active">
-                            Cras justo odio
-                        </a>
-                        <a type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-                        <a type="button" class="list-group-item list-group-item-action">Morbi leo risus</a>
-                        <a type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-                        <a type="button" class="list-group-item list-group-item-action" disabled>Vestibulum at eros</a> -->
                 </div>
             </div>
             <div class="col-md-8">

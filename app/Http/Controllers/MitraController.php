@@ -144,6 +144,9 @@ class MitraController extends Controller
     {
         $variabel = $request->variabel;
         return view('web.pages.rekanan', [
+            'head_title' => $variabel->mitra_title->value ?? 'mitra_title',
+            'head_sub_title' => $variabel->mitra_sub_title->value ?? 'mitra_sub_title',
+            'btn_simulasi' => $variabel->btn_simulasi->value ?? 'btn_simulasi',
             'mitra' => Mitra::where('type', 'rekanan')->paginate(10),
             'count' => Mitra::where('type', 'rekanan')->count()
         ]);

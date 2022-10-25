@@ -37,8 +37,8 @@
                 </a>
             </li>
 
-            <li class="sidebar-item {{ Request::is('c/galeri') ? 'active' : '' }}">
-                <a class="sidebar-link" href="/c/galeri">
+            <li class="sidebar-item {{ Request::is('c/faq') ? 'active' : '' }}">
+                <a class="sidebar-link" href="/c/faq">
                     <i class="align-middle" data-feather="database"></i> <span class="align-middle">FAQ</span>
                 </a>
             </li>
@@ -74,7 +74,7 @@
                 </a>
             </li>
             <li class="sidebar-item {{ Request::is('c/produk/individu/top') ? 'active' : '' }}">
-                <a class="sidebar-link" href="/c/produk/individu/top">
+                <a class="sidebar-link" href="/c/prosedur">
                     <i class="align-middle" data-feather="database"></i> <span class="align-middle">Prosedur Klaim</span>
                 </a>
             </li>
