@@ -1,5 +1,6 @@
 @extends('web.component.main')
 @section('container')
+@section('title',$news->title)
 <section id="konten" class="m-5">
     <div class="container">
         <div class="row">

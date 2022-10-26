@@ -1,4 +1,5 @@
 @extends('web.component.main')
+@section('title', 'Galeri '.$galeri->title)
 @section('container')
 <style>
     .img-thumbnail-cust {

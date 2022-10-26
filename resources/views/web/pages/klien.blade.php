@@ -1,5 +1,6 @@
 @extends('web.component.main')
 @include('web.component.title_jumbotron')
+@section('title','Mitra')
 @section('container')
 <style>
     table tr td,

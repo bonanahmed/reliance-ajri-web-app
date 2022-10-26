@@ -1,5 +1,6 @@
 @extends('web.component.main')
 @include('web.component.title_jumbotron')
+@section('title','Produk Individu')
 @section('container')
 <section id="konten" class="m-5">
     <div class="container">

@@ -1,5 +1,6 @@
 @extends('web.component.main')
 @include('web.component.jumbotron')
+@section('title','Asuransi Jiwa dan Tabungan')
 @section('container')
 <section id="mitra">
     <div class="row">

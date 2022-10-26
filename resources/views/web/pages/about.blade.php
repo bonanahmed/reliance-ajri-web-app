@@ -1,5 +1,6 @@
 @extends('web.component.main')
 @include('web.component.jumbotron')
+@section('title', $about->title)
 @section('container')
 <style>
     .list-group-item.active {
