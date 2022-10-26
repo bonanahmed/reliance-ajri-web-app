@@ -142,12 +142,35 @@ class VariabelSeeder extends Seeder
                 'created_by' => 1
             ],
             [
+                'var' => 'info_klaim',
+                'value' => 'Info Klaim',
+                'content' => '<p>Kami berkomitmen untuk memberikan pelayanan terbaik.
+
+                Jika Anda memiliki pertanyaan seputar klaim, silahkan hubungi kami melalui surat elektronik ke claim@reliance-life.com atau dengan mengisi form dibawah ini :</p>',
+                'image' => null,
+                'created_by' => 1
+            ],
+            [
                 'var' => 'navbar_logo',
                 'value' => null,
                 'content' => null,
-                'image' => 'var-image/B21i2Q39F1nGVuXitqrEFmrSphGBtFIX1nWox2Si.png',
+                'image' => 'var-image/LSmAXv5RV5uaeMD2pSZcPOEhggTmADd00BC2MkLJ.png',
                 'created_by' => 1
-            ]
+            ],
+            [
+                'var' => 'menu_klaim_title',
+                'value' => 'Menu Klaim',
+                'content' => null,
+                'image' => null,
+                'created_by' => 1
+            ],
+            [
+                'var' => 'menu_klaim_sub_title',
+                'value' => 'Prosedur dan Syarat Pengajuan Manfaat Asuransi Jiwa Reliance',
+                'content' => null,
+                'image' => null,
+                'created_by' => 1
+            ],
         ]);
     }
 }

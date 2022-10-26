@@ -72,4 +72,37 @@ class KlaimController extends Controller
         ], $validatedData);
         return back()->with('success', 'Data has been updated');
     }
+
+    public function prosedur_view(Request $request)
+    {
+        $variabel = $request->variabel;
+        return view('web.pages.prosedur', [
+            'variabel' => $variabel,
+            'head_title' => $variabel->menu_klaim_title->value ?? 'menu_klaim_title',
+            'head_sub_title' => $variabel->menu_klaim_sub_title->value ?? 'menu_klaim_sub_title',
+            'btn_simulasi' => $variabel->btn_simulasi->value ?? 'btn_simulasi',
+        ]);
+    }
+
+    public function faq_view(Request $request)
+    {
+        $variabel = $request->variabel;
+        return view('web.pages.faq', [
+            'variabel' => $variabel,
+            'head_title' => $variabel->menu_klaim_title->value ?? 'menu_klaim_title',
+            'head_sub_title' => $variabel->menu_klaim_sub_title->value ?? 'menu_klaim_sub_title',
+            'btn_simulasi' => $variabel->btn_simulasi->value ?? 'btn_simulasi',
+        ]);
+    }
+
+    public function info_view(Request $request)
+    {
+        $variabel = $request->variabel;
+        return view('web.pages.info', [
+            'variabel' => $variabel,
+            'head_title' => $variabel->menu_klaim_title->value ?? 'menu_klaim_title',
+            'head_sub_title' => $variabel->menu_klaim_sub_title->value ?? 'menu_klaim_sub_title',
+            'btn_simulasi' => $variabel->btn_simulasi->value ?? 'btn_simulasi',
+        ]);
+    }
 }

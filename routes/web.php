@@ -51,8 +51,9 @@ Route::middleware(['landing'])->group(function () {
     Route::get('/mitra/rekanan', [MitraController::class, 'rekanan']);
     Route::get('/mitra/klien', [MitraController::class, 'klien']);
 
-    Route::get('/klaim/faq', [KlaimController::class, 'faq']);
-    // Route::get('/klaim/faq', [KlaimController::class, 'faq_save']);
+    Route::get('/klaim/prosedur', [KlaimController::class, 'prosedur_view']);
+    Route::get('/klaim/faq', [KlaimController::class, 'faq_view']);
+    Route::get('/klaim/info', [KlaimController::class, 'info_view']);
 });
 
 
