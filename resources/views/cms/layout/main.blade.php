@@ -87,6 +87,22 @@
 
     <script>
         var CKeditorUploadURL = "{{ route('ckeditor_upload', ['_token' => csrf_token() ]) }}"
+        ClassicEditor
+            .create(document.querySelector('#editor'), {
+                extraPlugins: [MyCustomUploadAdapterPlugin],
+                image: {
+                    toolbar: ['toggleImageCaption', 'imageTextAlternative', {
+                        // Grouping the buttons for the regular
+                        // picture-like image styling into one drop-down.
+                        name: 'imageStyle:pictures',
+                        items: ['imageStyle:inline', 'imageStyle:side', 'imageStyle:alignLeft'],
+                        defaultItem: 'imageStyle:alignLeft'
+                    }],
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            });
     </script>
     @yield('script')
 </body>

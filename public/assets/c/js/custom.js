@@ -117,19 +117,3 @@ function MyCustomUploadAdapterPlugin(editor) {
     };
 }
 
-// ClassicEditor
-//     .create(document.querySelector('#editor'), {
-//         extraPlugins: [MyCustomUploadAdapterPlugin],
-//         image: {
-//             toolbar: ['toggleImageCaption', 'imageTextAlternative', {
-//                 // Grouping the buttons for the regular
-//                 // picture-like image styling into one drop-down.
-//                 name: 'imageStyle:pictures',
-//                 items: ['imageStyle:inline', 'imageStyle:side', 'imageStyle:alignLeft'],
-//                 defaultItem: 'imageStyle:alignLeft'
-//             }],
-//         }
-//     })
-//     .catch(error => {
-//         console.error(error);
-//     });
