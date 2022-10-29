@@ -52,35 +52,6 @@
 @section('script')
 <script>
     $(document).ready(function() {
-        // function confirmation() {
-        //     Swal.fire({
-        //         title: 'Doaaaa you want to delete this item?',
-        //         showCancelButton: true,
-        //         confirmButtonText: 'Delete',
-        //     }).then((result) => {
-        //         /* Read more about isConfirmed, isDenied below */
-        //         if (result.isConfirmed) {
-        //             return true
-        //             // form.submit()
-        //             // Swal.fire('Saved!', '', 'success')
-        //         }
-        //     })
-        // }
-        // $('#myTable').DataTable().on('click', '.button-submit', function(e) {
-        //     var form = $(this).parents('form')
-        //     e.preventDefault();
-        //     Swal.fire({
-        //         title: 'Do you want to delete this item?',
-        //         showCancelButton: true,
-        //         confirmButtonText: 'Delete',
-        //     }).then((result) => {
-        //         /* Read more about isConfirmed, isDenied below */
-        //         if (result.isConfirmed) {
-        //             form.submit()
-        //             // Swal.fire('Saved!', '', 'success')
-        //         }
-        //     })
-        // })
         var table = $('#myTable').DataTable({
             processing: true,
             serverSide: true,
@@ -115,33 +86,7 @@
                 feather.replace()
             }
         });
-        // table.on('order.dt search.dt', function() {
-        //     let i = 1;
 
-        //     table.cells(null, 0, {
-        //         search: 'applied',
-        //         order: 'applied'
-        //     }).every(function(cell) {
-        //         this.data(i++);
-        //     });
-        // }).draw();
-
-        // $('#myTable tbody').on('click', 'button', function() {
-        //     e.preventDefault();
-        //     var form = $(this).parents('form')
-
-        //     Swal.fire({
-        //         title: 'Do you want to delete this item?',
-        //         showCancelButton: true,
-        //         confirmButtonText: 'Delete',
-        //     }).then((result) => {
-        //         /* Read more about isConfirmed, isDenied below */
-        //         if (result.isConfirmed) {
-        //             form.submit()
-        //             // Swal.fire('Saved!', '', 'success')
-        //         }
-        //     })
-        // })
         $('#myTable').on('click', 'button', function(e) {
             e.preventDefault();
             var form = $(this).parents('form')
@@ -158,6 +103,14 @@
                 }
             })
         });
+
+        $.fn.dataTable.ext.errMode = 'none';
+
+        $('#myTable')
+            .on('error.dt', function(e, settings, techNote, message) {
+                window.location.reload()
+            })
+            .DataTable();
     });
 </script>
 @endsection
