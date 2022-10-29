@@ -57,7 +57,7 @@
             serverSide: true,
             responsive: true,
             "autoWidth": false,
-            ajax: "{!! route('news') !!}",
+            ajax: "{!! route('news.index') !!}",
             order: [
                 [1, 'asc']
             ],

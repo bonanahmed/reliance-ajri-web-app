@@ -92,7 +92,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/c/slider', SliderController::class);
 
     // datatables
-    Route::get('/datatables/news', [NewsController::class, 'getIndex'])->name('news');
+    Route::get('/datatables/news', [NewsController::class, 'getIndex']);
 });
 
 

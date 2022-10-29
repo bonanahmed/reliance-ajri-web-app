@@ -36,6 +36,26 @@ class NewsController extends Controller
     }
     public function index(Request $request)
     {
+        if ($request->ajax()) {
+            return DataTables::of(News::query())
+                ->addColumn('action', function ($news) {
+                    $action = '<a href="news/' . $news->slug . '" class="badge bg-primary" style="margin-right: 4.5px;"><span data-feather="eye"></span></a>';
+                    $action .= '<a href="news/' . $news->slug . '/edit" class="badge bg-success"><span data-feather="edit-2"></span></a>';
+                    $action .= '<form action="/c/news/' . $news->slug . '" class="d-inline" method="post">
+                ' . method_field("delete") . '
+                ' . csrf_field() . '
+                <button class="badge bg-danger border-0"><span data-feather="trash-2"></span></button>
+            </form>';
+                    return $action;
+                })
+                ->addIndexColumn()
+                ->editColumn('created_at', function ($data) {
+                    $formatedDate = Carbon::createFromFormat('Y-m-d H:i:s', $data->created_at);
+                    return $formatedDate;
+                })
+                ->rawColumns(['action'])
+                ->make();
+        }
         return view('cms.news.index');
     }
 
