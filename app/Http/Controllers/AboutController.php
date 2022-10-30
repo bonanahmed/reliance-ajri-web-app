@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\About;
 use App\Models\File;
 use App\Models\Variabel;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Storage;
+use Yajra\DataTables\DataTables;
 
 class AboutController extends Controller
 {
@@ -16,11 +18,29 @@ class AboutController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('cms.about.index', [
-            'about' => About::orderBy('id', 'desc')->paginate(10)
-        ]);
+        if ($request->ajax()) {
+            return DataTables::of(About::query())
+                ->addColumn('action', function ($about) {
+                    $action = '<a href="about/' . $about->slug . '" class="badge bg-primary" style="margin-right: 4.5px;"><span data-feather="eye"></span></a>';
+                    $action .= '<a href="about/' . $about->slug . '/edit" class="badge bg-success"><span data-feather="edit-2"></span></a>';
+                    $action .= '<form action="/c/about/' . $about->slug . '" class="d-inline" method="post">
+                ' . method_field("delete") . '
+                ' . csrf_field() . '
+                <button class="badge bg-danger border-0"><span data-feather="trash-2"></span></button>
+            </form>';
+                    return $action;
+                })
+                ->addIndexColumn()
+                ->editColumn('created_at', function ($data) {
+                    $formatedDate = Carbon::createFromFormat('Y-m-d H:i:s', $data->created_at);
+                    return $formatedDate;
+                })
+                ->rawColumns(['action'])
+                ->make();
+        }
+        return view('cms.about.index');
     }
 
     /**
