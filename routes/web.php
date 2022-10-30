@@ -90,10 +90,15 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/c/produk', ProdukController::class);
     Route::resource('/c/galeri', GaleriController::class);
     Route::resource('/c/slider', SliderController::class);
+
+    // datatables
+    Route::get('/datatables/news', [NewsController::class, 'getIndex']);
 });
 
 
 // cms
+
+
 
 Route::post('/upload', [NewsController::class, 'upload']);
 Route::post('editor/image_upload', [CKEditorController::class, 'upload'])->name('ckeditor_upload');

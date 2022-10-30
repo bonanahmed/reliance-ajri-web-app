@@ -16,6 +16,7 @@
     <link rel="canonical" href="https://demo-basic.adminkit.io/" />
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css" />
 
 
     <title>Reliance Admin Panel</title>
@@ -78,13 +79,32 @@
         </div>
     </div>
 
-    <script>
-        var CKeditorUploadURL = "{{ route('ckeditor_upload', ['_token' => csrf_token() ]) }}"
-    </script>
+
     <script src="{{ asset('assets/c/js/app.js') }}"></script>
     <script src="{{ asset('assets/c/js/custom.js') }}"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
 
 
+    <script>
+        var CKeditorUploadURL = "{{ route('ckeditor_upload', ['_token' => csrf_token() ]) }}"
+        ClassicEditor
+            .create(document.querySelector('#editor'), {
+                extraPlugins: [MyCustomUploadAdapterPlugin],
+                image: {
+                    toolbar: ['toggleImageCaption', 'imageTextAlternative', {
+                        // Grouping the buttons for the regular
+                        // picture-like image styling into one drop-down.
+                        name: 'imageStyle:pictures',
+                        items: ['imageStyle:inline', 'imageStyle:side', 'imageStyle:alignLeft'],
+                        defaultItem: 'imageStyle:alignLeft'
+                    }],
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    @yield('script')
 </body>
 
 </html>

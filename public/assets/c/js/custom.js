@@ -16,6 +16,21 @@ $(document).ready(function () {
         })
     })
 
+    function confirmation() {
+        Swal.fire({
+            title: 'Do you want to delete this item?',
+            showCancelButton: true,
+            confirmButtonText: 'Delete',
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                return true
+                // form.submit()
+                // Swal.fire('Saved!', '', 'success')
+            }
+        })
+    }
+
     $('.button-image-remove').on('click', function (e) {
         var form = $(this).parents('form')
         e.preventDefault();
@@ -102,19 +117,3 @@ function MyCustomUploadAdapterPlugin(editor) {
     };
 }
 
-ClassicEditor
-    .create(document.querySelector('#editor'), {
-        extraPlugins: [MyCustomUploadAdapterPlugin],
-        image: {
-            toolbar: ['toggleImageCaption', 'imageTextAlternative', {
-                // Grouping the buttons for the regular
-                // picture-like image styling into one drop-down.
-                name: 'imageStyle:pictures',
-                items: ['imageStyle:inline', 'imageStyle:side', 'imageStyle:alignLeft'],
-                defaultItem: 'imageStyle:alignLeft'
-            }],
-        }
-    })
-    .catch(error => {
-        console.error(error);
-    });
