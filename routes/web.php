@@ -61,7 +61,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/c', [DashboardController::class, 'index']);
     Route::get('/c/dashboard', [DashboardController::class, 'index']);
     Route::get('/c/news', [NewsController::class, 'index']);
-    Route::get('/c/produk/kumpulan', [ProdukController::class, 'index_kumpulan']);
+    Route::get('/c/produk/kumpulan', [ProdukController::class, 'index_kumpulan'])->name('index_kumpulan');
     Route::get('/c/produk/individu/top', [ProdukController::class, 'index_top_individu']);
     Route::get('/c/produk/individu/bot', [ProdukController::class, 'index_bottom_individu']);
     Route::post('/c/produk/individu/top', [ProdukController::class, 'save_top_individu']);

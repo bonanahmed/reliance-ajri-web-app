@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Produk;
 use App\Models\Variabel;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Storage;
+use Yajra\DataTables\Facades\DataTables;
 
 class ProdukController extends Controller
 {
@@ -15,11 +17,29 @@ class ProdukController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index_kumpulan()
+    public function index_kumpulan(Request $request)
     {
-        return view('cms.produk.index', [
-            'produk' => Produk::where('type', 'kumpulan')->orderBy('id', 'desc')->paginate(10)
-        ]);
+        if ($request->ajax()) {
+            return DataTables::of(Produk::where('type', 'kumpulan'))
+                ->addColumn('action', function ($produk) {
+                    $action = '<a href="produk/' . $produk->slug . '" class="badge bg-primary" style="margin-right: 4.5px;"><span data-feather="eye"></span></a>';
+                    $action .= '<a href="produk/' . $produk->slug . '/edit" class="badge bg-success"><span data-feather="edit-2"></span></a>';
+                    $action .= '<form action="/c/produk/' . $produk->slug . '" class="d-inline" method="post">
+                ' . method_field("delete") . '
+                ' . csrf_field() . '
+                <button class="badge bg-danger border-0"><span data-feather="trash-2"></span></button>
+            </form>';
+                    return $action;
+                })
+                ->addIndexColumn()
+                ->editColumn('created_at', function ($data) {
+                    $formatedDate = Carbon::createFromFormat('Y-m-d H:i:s', $data->created_at);
+                    return $formatedDate;
+                })
+                ->rawColumns(['action'])
+                ->make();
+        }
+        return view('cms.produk.index');
     }
 
     public function index_top_individu()
