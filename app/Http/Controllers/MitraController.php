@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Mitra;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
+use Yajra\DataTables\Facades\DataTables;
 
 class MitraController extends Controller
 {
@@ -14,11 +16,28 @@ class MitraController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('cms.mitra.index', [
-            'mitra' => Mitra::orderBy('id', 'desc')->paginate(10)
-        ]);
+        if ($request->ajax()) {
+            return DataTables::of(Mitra::query())
+                ->addColumn('action', function ($mitra) {
+                    $action = '<a href="mitra/' . $mitra->id . '/edit" class="badge bg-success"><span data-feather="edit-2"></span></a>';
+                    $action .= '<form action="/c/mitra/' . $mitra->id . '" class="d-inline" method="post">
+                ' . method_field("delete") . '
+                ' . csrf_field() . '
+                <button class="badge bg-danger border-0"><span data-feather="trash-2"></span></button>
+            </form>';
+                    return $action;
+                })
+                ->addIndexColumn()
+                ->editColumn('created_at', function ($data) {
+                    $formatedDate = Carbon::createFromFormat('Y-m-d H:i:s', $data->created_at);
+                    return $formatedDate;
+                })
+                ->rawColumns(['action'])
+                ->make();
+        }
+        return view('cms.mitra.index');
     }
 
     /**
