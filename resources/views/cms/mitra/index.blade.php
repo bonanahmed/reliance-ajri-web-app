@@ -36,6 +36,7 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Name</th>
+                                    <th>Type</th>
                                     <th class="d-none d-xl-table-cell">Created At</th>
                                     <th class="d-none d-md-table-cell">Action</th>
                                 </tr>
@@ -72,6 +73,10 @@
                 {
                     data: 'name',
                     name: 'name'
+                },
+                {
+                    data: 'type',
+                    name: 'type'
                 },
                 {
                     data: 'created_at',
@@ -111,8 +116,7 @@
 
         $('#myTable')
             .on('error.dt', function(e, settings, techNote, message) {
-                // window.location.reload()
-                console.log(message)
+                window.location.reload()
             })
             .DataTable();
     });
