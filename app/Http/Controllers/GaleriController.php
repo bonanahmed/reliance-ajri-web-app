@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Galeri;
 use App\Models\Image;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Services\SlugService;
-
+use Yajra\DataTables\Facades\DataTables;
 
 class GaleriController extends Controller
 {
@@ -16,11 +17,28 @@ class GaleriController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('cms.galeri.index', [
-            'galeri' => Galeri::orderBy('id', 'desc')->paginate(10)
-        ]);
+        if ($request->ajax()) {
+            return DataTables::of(Galeri::query())
+                ->addColumn('action', function ($galeri) {
+                    $action = '<a href="galeri/' . $galeri->slug . '/edit" class="badge bg-success"><span data-feather="edit-2"></span></a>';
+                    $action .= '<form action="/c/galeri/' . $galeri->slug . '" class="d-inline" method="post">
+                ' . method_field("delete") . '
+                ' . csrf_field() . '
+                <button class="badge bg-danger border-0"><span data-feather="trash-2"></span></button>
+            </form>';
+                    return $action;
+                })
+                ->addIndexColumn()
+                ->editColumn('created_at', function ($data) {
+                    $formatedDate = Carbon::createFromFormat('Y-m-d H:i:s', $data->created_at);
+                    return $formatedDate;
+                })
+                ->rawColumns(['action'])
+                ->make();
+        }
+        return view('cms.galeri.index');
     }
 
     /**
@@ -148,7 +166,7 @@ class GaleriController extends Controller
             Storage::delete($image->image);
         }
         Image::destroy($image->id);
-        return redirect("/c/galeri/$image->galeri_id/edit")->with('success', 'Image has been deleted');
+        return back()->with('success', 'Image has been deleted');
     }
 
     public function galeri(Request $request)
