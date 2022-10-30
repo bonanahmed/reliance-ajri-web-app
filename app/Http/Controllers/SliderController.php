@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Slider;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Yajra\DataTables\Facades\DataTables;
 
 class SliderController extends Controller
 {
@@ -13,11 +15,28 @@ class SliderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('cms.slider.index', [
-            'slider' => Slider::paginate(10)
-        ]);
+        if ($request->ajax()) {
+            return DataTables::of(Slider::query())
+                ->addColumn('action', function ($slider) {
+                    $action = '<a href="slider/' . $slider->id . '/edit" class="badge bg-success"><span data-feather="edit-2"></span></a>';
+                    $action .= '<form action="/c/slider/' . $slider->id . '" class="d-inline" method="post">
+                ' . method_field("delete") . '
+                ' . csrf_field() . '
+                <button class="badge bg-danger border-0"><span data-feather="trash-2"></span></button>
+            </form>';
+                    return $action;
+                })
+                ->addIndexColumn()
+                ->editColumn('created_at', function ($data) {
+                    $formatedDate = Carbon::createFromFormat('Y-m-d H:i:s', $data->created_at);
+                    return $formatedDate;
+                })
+                ->rawColumns(['action'])
+                ->make();
+        }
+        return view('cms.slider.index');
     }
 
     /**
