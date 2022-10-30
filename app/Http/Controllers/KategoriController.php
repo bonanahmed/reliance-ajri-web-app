@@ -19,8 +19,7 @@ class KategoriController extends Controller
         if ($request->ajax()) {
             return DataTables::of(Kategori::query())
                 ->addColumn('action', function ($kategori) {
-                    $action = '<a href="kategori/' . $kategori->id . '" class="badge bg-primary" style="margin-right: 4.5px;"><span data-feather="eye"></span></a>';
-                    $action .= '<a href="kategori/' . $kategori->id . '/edit" class="badge bg-success"><span data-feather="edit-2"></span></a>';
+                    $action = '<a href="kategori/' . $kategori->id . '/edit" class="badge bg-success"><span data-feather="edit-2"></span></a>';
                     $action .= '<form action="/c/kategori/' . $kategori->id . '" class="d-inline" method="post">
                 ' . method_field("delete") . '
                 ' . csrf_field() . '
