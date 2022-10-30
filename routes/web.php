@@ -74,7 +74,9 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/c/user/profile', [UserController::class, 'updateProfile']);
     Route::get('/c/user/password', [UserController::class, 'changePassword']);
     Route::put('/c/user/password', [UserController::class, 'updatePassword']);
+
     Route::delete('/c/image/{image}/delete', [GaleriController::class, 'imageDestroy']);
+    Route::delete('/c/file/{file}/delete', [AboutController::class, 'fileDestroy']);
 
     Route::get('/c/faq', [KlaimController::class, 'faq']);
     Route::post('/c/faq', [KlaimController::class, 'faq_save']);

@@ -48,6 +48,15 @@
                     @enderror
                     <!-- <trix-editor input="body"></trix-editor> -->
                 </div>
+                <div class="mb-3">
+                    <label for="file" class="form-label">Attachment</label>
+                    <input name="file[]" type="file" class="form-control @error('file') is-invalid @enderror" id="file" aria-describedby="file" multiple="true">
+                    @error('file')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

@@ -3,7 +3,17 @@
 
 <main class="content">
     <div class="container-fluid p-0">
-
+        <div class="row">
+            <div class="col-12 d-flex">
+                <div class="card flex-fill">
+                    @if(session()->has('success'))
+                    <div class="row p-3 rounded" style="background-color:#cbf5d9 ;">
+                        {{ session('success') }}
+                    </div>
+                    @endif
+                </div>
+            </div>
+        </div>
         <h1 class="h3 mb-3">Edit Item About</h1>
 
         <div class="col-lg-8">
@@ -53,10 +63,44 @@
                     @enderror
                     <!-- <trix-editor input="body"></trix-editor> -->
                 </div>
+                <div class="mb-3">
+                    <label for="file" class="form-label">Attachment</label>
+                    <input name="file[]" type="file" class="form-control @error('file') is-invalid @enderror" id="file" aria-describedby="file" multiple="true">
+                    @error('file')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
-
+        @if($about->files->count() > 0)
+        <div class="container">
+            <div class="row">
+                <table class="table">
+                    <thead>
+                        <th>Filename</th>
+                        <th>Action</th>
+                    </thead>
+                    <tbody>
+                        @foreach($about->files as $file)
+                        <tr>
+                            <td><a href="{{ asset('storage/'.$file->file) }}" target="_blank">{{ $file->filename }}</a></td>
+                            <td>
+                                <form action="/c/file/{{$file->id}}/delete" class="d-inline" method="post">
+                                    @method('delete')
+                                    @csrf
+                                    <button class="badge bg-danger border-0 button-submit"><span data-feather="trash-2"></span></button>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        @endif
     </div>
 </main>
 <script>

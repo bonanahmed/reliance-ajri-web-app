@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\File;
 use App\Models\Variabel;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
@@ -44,15 +45,32 @@ class AboutController extends Controller
             'title' => 'required',
             'slug' => 'required',
             'image' => 'image|file|max:1024',
-            'body' => 'required'
+            'body' => 'required',
+            'file' => 'file|max:2024',
         ]);
 
         if ($request->file('image')) {
             $validatedData['image'] = $request->file('image')->store('about-image');
         }
 
+
+
         $validatedData['created_by'] = auth()->user()->id;
-        About::create($validatedData);
+        $about = About::create($validatedData);
+
+        if ($request->file('file')) {
+            $files = $request->file('file');
+            $filedata = [];
+            foreach ($files as $file) {
+                $fileurl = $file->store('attachment');
+                array_push($filedata, [
+                    'about_id' => $about->id,
+                    'file' => $fileurl,
+                    'created_at' => date("Y-m-d H:i:s")
+                ]);
+            }
+            File::insert($filedata);
+        }
         return redirect('/c/about')->with('success', 'Data has been added!');
     }
 
@@ -94,7 +112,7 @@ class AboutController extends Controller
         $rules = [
             'title' => 'required',
             'body' => 'required',
-            'image' => 'image|file|max:1024'
+            'image' => 'image|file|max:1024',
         ];
 
         if ($request->slug != $about->slug) {
@@ -111,6 +129,24 @@ class AboutController extends Controller
 
         About::where('id', $about->id)
             ->update($validatedData);
+
+        if ($request->file('file')) {
+            $files = $request->file('file');
+            $filedata = [];
+            foreach ($files as $file) {
+                $fileurl = $file->storeAs(
+                    'attachment',
+                    $file->getClientOriginalName()
+                );
+                array_push($filedata, [
+                    'about_id' => $about->id,
+                    'file' => $fileurl,
+                    'filename' => $file->getClientOriginalName(),
+                    'created_at' => date("Y-m-d H:i:s")
+                ]);
+            }
+            File::insert($filedata);
+        }
         return redirect('/c/about')->with('success', 'Data has been updated');
     }
 
@@ -153,5 +189,14 @@ class AboutController extends Controller
             'list' => About::all(),
             'about' => $about
         ]);
+    }
+
+    public function fileDestroy(File $file)
+    {
+        if ($file->file) {
+            Storage::delete($file->file);
+        }
+        File::destroy($file->id);
+        return back()->with('success', 'Attachment has been deleted');
     }
 }
