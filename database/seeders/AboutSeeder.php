@@ -58,7 +58,7 @@ Pelaksanaan sistem manajemen strategi yang handal, sehingga mampu merumuskan Vis
             [
                 'title' => 'Laporan Keuangan',
                 'slug' => 'laporan-keuangan',
-                'body' => '<div><a href="http://google.com">Download Laporan Keuangan 2016</a><br>Download Laporan Keuangan 2017<br>Download Laporan Keuangan 2018<br>Download Laporan Keuangan 2019<br>Download Laporan Keuangan 2020<br>Download Laporan Keuangan 2022<br>Download Laporan Keuangan 2023</div>',
+                'body' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque rem sit, eveniet officia hic nam? Placeat qui reiciendis illum culpa magni rem minima debitis recusandae veritatis iure, autem ipsum aperiam!',
                 'image' => null
             ],
             [

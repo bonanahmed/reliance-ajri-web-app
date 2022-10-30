@@ -30,8 +30,29 @@
                 <div class="ck-content px-3">
                     {!! $about->body !!}
                 </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        @if($about->files->count() > 0)
+                        <div class="container">
+                            <div class="row">
+                                <table class="table table-borderless">
+                                    <tbody>
+                                        @foreach($about->files as $file)
+                                        <tr>
+                                            <td><a href="{{ asset('storage/'.$file->file) }}" target="_blank">{{ $file->filename }}</a></td>
+
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        @endif
+                    </div>
+                </div>
             </div>
         </div>
+
     </div>
 </section>
 @endsection
