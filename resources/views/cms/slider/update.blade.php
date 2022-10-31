@@ -27,7 +27,7 @@
                         {{ $message }}
                     </p>
                     @enderror
-                    <trix-editor input="description"></trix-editor>
+                    <trix-editor input="description" class="trix-background"></trix-editor>
                 </div>
 
                 <div class="mb-3">

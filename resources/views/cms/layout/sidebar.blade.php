@@ -31,44 +31,44 @@
                 </a>
             </li>
 
-            <li class="sidebar-item {{ Request::is('c/about') ? 'active' : '' }}">
+            <li class="sidebar-item {{ Request::is('c/about*') ? 'active' : '' }}">
                 <a class="sidebar-link" href="/c/about">
                     <i class="align-middle" data-feather="database"></i> <span class="align-middle">About Us</span>
                 </a>
             </li>
 
-            <li class="sidebar-item {{ Request::is('c/faq') ? 'active' : '' }}">
+            <li class="sidebar-item {{ Request::is('c/faq*') ? 'active' : '' }}">
                 <a class="sidebar-link" href="/c/faq">
                     <i class="align-middle" data-feather="database"></i> <span class="align-middle">FAQ</span>
                 </a>
             </li>
 
-            <li class="sidebar-item {{ Request::is('c/galeri') ? 'active' : '' }}">
+            <li class="sidebar-item {{ Request::is('c/galeri*') ? 'active' : '' }}">
                 <a class="sidebar-link" href="/c/galeri">
                     <i class="align-middle" data-feather="database"></i> <span class="align-middle">Galeri</span>
                 </a>
             </li>
 
 
-            <li class="sidebar-item {{ Request::is('c/slider') ? 'active' : '' }}">
+            <li class="sidebar-item {{ Request::is('c/slider*') ? 'active' : '' }}">
                 <a class="sidebar-link" href="/c/slider">
                     <i class="align-middle" data-feather="database"></i> <span class="align-middle">Homepage Slider</span>
                 </a>
             </li>
 
-            <li class="sidebar-item {{ Request::is('c/kategori') ? 'active' : '' }}">
+            <li class="sidebar-item {{ Request::is('c/kategori*') ? 'active' : '' }}">
                 <a class="sidebar-link" href="/c/kategori">
                     <i class="align-middle" data-feather="database"></i> <span class="align-middle">Kategori News</span>
                 </a>
             </li>
 
-            <li class="sidebar-item {{ Request::is('c/mitra') ? 'active' : '' }}">
+            <li class="sidebar-item {{ Request::is('c/mitra*') ? 'active' : '' }}">
                 <a class="sidebar-link" href="/c/mitra">
                     <i class="align-middle" data-feather="database"></i> <span class="align-middle">Mitra</span>
                 </a>
             </li>
 
-            <li class="sidebar-item {{ Request::is('c/news') ? 'active' : '' }}">
+            <li class="sidebar-item {{ Request::is('c/news*') ? 'active' : '' }}">
                 <a class="sidebar-link" href="/c/news">
                     <i class="align-middle" data-feather="database"></i> <span class="align-middle">News</span>
                 </a>
