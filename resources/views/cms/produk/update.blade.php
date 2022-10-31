@@ -3,16 +3,26 @@
 
 <main class="content">
     <div class="container-fluid p-0">
-
+        <div class="row">
+            <div class="col-12 d-flex">
+                <div class="card flex-fill">
+                    @if(session()->has('success'))
+                    <div class="row p-3 rounded" style="background-color:#cbf5d9 ;">
+                        {{ session('success') }}
+                    </div>
+                    @endif
+                </div>
+            </div>
+        </div>
         <h1 class="h3 mb-3">Edit Item About</h1>
 
         <div class="col-lg-8">
-            <form action="/c/about/{{ $about->slug }}" method="post" enctype="multipart/form-data">
+            <form action="/c/produk/{{ $produk->slug }}" method="post" enctype="multipart/form-data">
                 @method('put')
                 @csrf
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
-                    <input name="title" value="{{ old('title',$about->title)}}" type="text" class="form-control @error('title') is-invalid @enderror" id="title" aria-describedby="title">
+                    <input name="title" value="{{ old('title',$produk->title)}}" type="text" class="form-control @error('title') is-invalid @enderror" id="title" aria-describedby="title">
                     @error('title')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -21,7 +31,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="slug" class="form-label">Slug</label>
-                    <input value="{{ old('slug',$about->slug)}}" name="slug" type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" aria-describedby="slug">
+                    <input value="{{ old('slug',$produk->slug)}}" name="slug" type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" aria-describedby="slug">
                     @error('slug')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -30,9 +40,9 @@
                 </div>
                 <div class="mb-3">
                     <label for="image" class="form-label">Image</label>
-                    <input type="hidden" name="oldImage" value="{{ $about->image }}">
-                    @if($about->image)
-                    <img src="{{ asset('storage/'.$about->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                    <input type="hidden" name="oldImage" value="{{ $produk->image }}">
+                    @if($produk->image)
+                    <img src="{{ asset('storage/'.$produk->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
                     @endif
                     <img class="img-preview img-fluid mb-3 col-sm-5">
                     <input name="image" id="image" class="form-control @error('image') is-invalid @enderror" type="file" onchange="previewImage()">
@@ -44,7 +54,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="title" class="form-label">Body</label>
-                    <input id="body" type="hidden" name="body" value="{{ old('body',$about->body) }}">
+                    <input id="body" type="hidden" name="body" value="{{ old('body',$produk->body) }}">
                     @error('body')
                     <p class="text-danger">
                         {{ $message }}

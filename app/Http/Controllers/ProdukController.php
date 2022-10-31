@@ -17,13 +17,17 @@ class ProdukController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function index()
+    {
+        return redirect('/c/produk/kumpulan');
+    }
     public function index_kumpulan(Request $request)
     {
         if ($request->ajax()) {
             return DataTables::of(Produk::where('type', 'kumpulan'))
                 ->addColumn('action', function ($produk) {
-                    $action = '<a href="produk/' . $produk->slug . '" class="badge bg-primary" style="margin-right: 4.5px;"><span data-feather="eye"></span></a>';
-                    $action .= '<a href="produk/' . $produk->slug . '/edit" class="badge bg-success"><span data-feather="edit-2"></span></a>';
+                    $action = '<a href="/c/produk/' . $produk->slug . '" class="badge bg-primary" style="margin-right: 4.5px;"><span data-feather="eye"></span></a>';
+                    $action .= '<a href="/c/produk/' . $produk->slug . '/edit" class="badge bg-success"><span data-feather="edit-2"></span></a>';
                     $action .= '<form action="/c/produk/' . $produk->slug . '" class="d-inline" method="post">
                 ' . method_field("delete") . '
                 ' . csrf_field() . '
@@ -156,9 +160,11 @@ class ProdukController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Produk $produk)
     {
-        //
+        return view('cms.produk.update', [
+            'produk' => $produk
+        ]);
     }
 
     /**
@@ -168,9 +174,30 @@ class ProdukController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Produk $produk)
     {
-        //
+        $rules = [
+            'title' => 'required',
+            'body' => 'required',
+            'image' => 'image|file|max:1024'
+        ];
+
+        if ($request->slug != $produk->slug) {
+            $rules['slug'] = 'required';
+        }
+
+        $validatedData = $request->validate($rules);
+
+        if ($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('produk-image');
+        }
+
+        Produk::where('id', $produk->id)
+            ->update($validatedData);
+        return redirect('/c/produk/kumpulan')->with('success', 'Data has been updated');
     }
 
     /**

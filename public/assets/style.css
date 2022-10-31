@@ -1,5 +1,5 @@
 body {
-  overflow-x: hidden;
+  overflow-x: hidden; 
 }
 
 .jumbotron {
@@ -97,7 +97,7 @@ section {
   
   /******************/
   /**** TAB STEPS *****/
-  /******************/    
+  /********************/    
   
   .tab-steps {
     position: relative;
