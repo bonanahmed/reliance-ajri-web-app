@@ -45,7 +45,7 @@
                         {{ $message }}
                     </p>
                     @enderror
-                    <trix-editor input="content"></trix-editor>
+                    <trix-editor input="content" class="trix-background"></trix-editor>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
