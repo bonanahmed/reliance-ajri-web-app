@@ -27,39 +27,19 @@
                     <div class="card-header">
                         <a href="/c/user/create" class="btn btn-primary m-2">Add User</a>
                     </div>
-                    <table class="table table-hover my-0">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Email</th>
-                                <th class="d-none d-xl-table-cell">Created At</th>
-                                <th class="d-none d-md-table-cell">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($users as $user)
-                            <tr>
-                                <td>{{ $users->firstItem() + $loop->index }}</td>
-                                <td class="d-none d-xl-table-cell">{{ $user->email }}</td>
-                                <td class="d-none d-xl-table-cell">{{ $user->created_at }}</td>
-
-                                <td class="d-none d-md-table-cell">
-                                    <a href="/c/user/{{$user->id}}/edit" class="badge bg-success">
-                                        <span data-feather="edit-2"></span>
-                                    </a>
-                                    <form action="/c/user/{{$user->id}}" class="d-inline" method="post">
-                                        @method('delete')
-                                        @csrf
-                                        <button class="badge bg-danger border-0 button-submit"><span data-feather="trash-2"></span></button>
-                                    </form>
-                                </td>
-                            </tr>
-                            @endforeach
-
-                        </tbody>
-                    </table>
-                    <div class="d-flex justify-content-center mt-3">
-                        {{ $users->links() }}
+                    <div class="card-body">
+                        <table id="myTable" class="display" style="width: 100%;margin-top:15px">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Email</th>
+                                    <th class="d-none d-xl-table-cell">Created At</th>
+                                    <th class="d-none d-md-table-cell">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -68,4 +48,69 @@
     </div>
 </main>
 
+@endsection
+@section('script')
+<script>
+    $(document).ready(function() {
+        var table = $('#myTable').DataTable({
+            processing: true,
+            serverSide: true,
+            responsive: true,
+            "autoWidth": false,
+            ajax: "{!! route('user.index') !!}",
+            order: [
+                [1, 'asc']
+            ],
+            columns: [{
+                    data: 'DT_RowIndex',
+                    orderable: false,
+                    searchable: false
+                },
+                {
+                    data: 'email',
+                    name: 'email'
+                },
+                {
+                    data: 'created_at',
+                    name: 'created_at'
+                },
+                {
+                    data: 'action',
+                    name: 'action',
+                    className: "d-none d-md-table-cell",
+                    orderable: false,
+                    searchable: false
+                }
+            ],
+            drawCallback: function(settings) {
+                feather.replace()
+            }
+        });
+
+        $('#myTable').on('click', 'button', function(e) {
+            e.preventDefault();
+            var form = $(this).parents('form')
+            Swal.fire({
+                title: 'Do you want to delete this item?',
+                showCancelButton: true,
+                confirmButtonText: 'Delete',
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    // return true
+                    form.submit()
+                    // Swal.fire('Saved!', '', 'success')
+                }
+            })
+        });
+
+        $.fn.dataTable.ext.errMode = 'none';
+
+        $('#myTable')
+            .on('error.dt', function(e, settings, techNote, message) {
+                window.location.reload()
+            })
+            .DataTable();
+    });
+</script>
 @endsection
