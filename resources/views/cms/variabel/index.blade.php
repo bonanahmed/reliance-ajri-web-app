@@ -38,7 +38,6 @@
                                     <th>#</th>
                                     <th>Name</th>
                                     <th class="d-none d-xl-table-cell">Created At</th>
-                                    <th>Status</th>
                                     <th class="d-none d-md-table-cell">Action</th>
                                 </tr>
                             </thead>
