@@ -26,8 +26,8 @@ class ProdukController extends Controller
         if ($request->ajax()) {
             return DataTables::of(Produk::where('type', 'kumpulan'))
                 ->addColumn('action', function ($produk) {
-                    $action = '<a href="/c/produk/' . $produk->slug . '" class="badge bg-primary" style="margin-right: 4.5px;"><span data-feather="eye"></span></a>';
-                    $action .= '<a href="/c/produk/' . $produk->slug . '/edit" class="badge bg-success"><span data-feather="edit-2"></span></a>';
+                    // $action = '<a href="/c/produk/' . $produk->slug . '" class="badge bg-primary" style="margin-right: 4.5px;"><span data-feather="eye"></span></a>';
+                    $action = '<a href="/c/produk/' . $produk->slug . '/edit" class="badge bg-success"><span data-feather="edit-2"></span></a>';
                     $action .= '<form action="/c/produk/' . $produk->slug . '" class="d-inline" method="post">
                 ' . method_field("delete") . '
                 ' . csrf_field() . '
