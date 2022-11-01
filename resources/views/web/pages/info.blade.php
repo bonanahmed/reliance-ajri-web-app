@@ -22,6 +22,31 @@
                 <p class="mt-5">
                     {!! $variabel->info_klaim->content ?? 'info_klaim[content]' !!}
                 </p>
+                <form class="row g-3">
+                    <div class="col-md-6">
+                        <label for="name" class="form-label">Nama</label>
+                        <input type="text" class="form-control" id="name" placeholder="Masukan Nama">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Masukan Email">
+                    </div>
+                    <div class="col-12">
+                        <label for="subjek" class="form-label">Subjek</label>
+                        <input type="text" class="form-control" id="subjek" placeholder="Masukan Subjek">
+                    </div>
+                    <div class="col-12">
+                        <label for="pesan" class="form-label">Pesan Kamu</label>
+                        <textarea placeholder="Masukan Pesan Kamu" class="form-control" id="pesan" name="pesan" rows="3"></textarea>
+                    </div>
+                    <div class="col-lg-3">
+                        <label for="captcha" class="form-label">Captcha</label>
+                        <input type="text" class="form-control" id="captcha" placeholder="Masukan Captcha">
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-danger">Kirim</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

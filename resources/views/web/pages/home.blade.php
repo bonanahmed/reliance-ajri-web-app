@@ -22,10 +22,10 @@
     </div>
 </section>
 
-<section class="d-flex flex-column my-5 mt-5" style="background-image:url('https://i.pinimg.com/474x/6f/76/97/6f769766a1ebea9f1b9c92281df8c518--white-patterns-random-things.jpg')">
+<section class="d-flex flex-column my-5 mt-5 section-slider">
     <div class="container">
         <div class="text-center mb-5">
-            <p class="h4" style="color:#043055"><b>Big Coverage Insurance Made Easy For You</b></p>
+            <p class="h4" style="color:#043055;"><b>Big Coverage Insurance Made Easy For You</b></p>
             <p><small class="text-muted"> jiwa murni hingga 5Miliar tanpa cek medis</small></p>
         </div>
         <div class="tab-steps py-5">

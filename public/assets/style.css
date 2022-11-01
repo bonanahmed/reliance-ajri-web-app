@@ -8,10 +8,22 @@ padding-left: 2rem;
 padding-right: 2rem;
 padding-bottom: 3rem;
 background-color: rgb(172, 175, 175);
+background-image: url("/assets/img/batik.png");
+background-repeat: no-repeat;
+background-position: center;
 }
 
 section {
   padding-top: 5rem;
+}
+
+.section-slider{
+  background-color: rgb(243, 246, 246);
+  background-image: url("/assets/img/batik3.png");
+  background-size: contain;
+background-repeat: no-repeat;
+background-origin: content-box;
+background-position: center;
 }
 
 
