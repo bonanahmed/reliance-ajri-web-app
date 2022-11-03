@@ -19,7 +19,7 @@
                 @if(isset($variabel->prosedur_klaim->image))
                 <img class="img-fluid text-center" src="{{ asset('storage/'.$variabel->prosedur_klaim->image) }}" alt="$variabel->prosedur_klaim->value">
                 @endif
-                <div class="mt-5">
+                <div class="ck-content mt-5">
                     {!! $variabel->prosedur_klaim->content ?? 'prosedur_klaim[content]' !!}
                 </div>
             </div>

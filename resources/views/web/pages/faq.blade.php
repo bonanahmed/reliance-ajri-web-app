@@ -19,7 +19,9 @@
                 @if(isset($variabel->faq->image))
                 <img class="img-fluid" src="{{ asset('storage/'.$variabel->faq->image) }}" alt="$variabel->faq->value">
                 @endif
-                {!! $variabel->faq->content ?? 'faq[content]' !!}
+                <div class="ck-content px-3">
+                    {!! $variabel->faq->content ?? 'faq[content]' !!}
+                </div>
             </div>
         </div>
     </div>

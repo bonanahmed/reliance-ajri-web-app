@@ -39,7 +39,7 @@
                         {{ $message }}
                     </p>
                     @enderror
-                    <trix-editor input="content"></trix-editor>
+                    <trix-editor input="content" class="trix-background"></trix-editor>
                 </div>
                 <div class="mb-3">
                     <label for="image" class="form-label">Image</label>

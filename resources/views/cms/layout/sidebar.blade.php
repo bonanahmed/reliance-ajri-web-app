@@ -73,7 +73,7 @@
                     <i class="align-middle" data-feather="database"></i> <span class="align-middle">News</span>
                 </a>
             </li>
-            <li class="sidebar-item {{ Request::is('c/produk/individu/top') ? 'active' : '' }}">
+            <li class="sidebar-item {{ Request::is('c/prosedur') ? 'active' : '' }}">
                 <a class="sidebar-link" href="/c/prosedur">
                     <i class="align-middle" data-feather="database"></i> <span class="align-middle">Prosedur Klaim</span>
                 </a>
