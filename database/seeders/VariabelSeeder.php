@@ -194,6 +194,22 @@ class VariabelSeeder extends Seeder
                 'created_by' => 1,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
+            [
+                'var' => 'simulasi_title',
+                'value' => 'Simulasi Reliance',
+                'content' => null,
+                'image' => null,
+                'created_by' => 1,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ],
+            [
+                'var' => 'simulasi_sub_title',
+                'value' => 'Solusi terpercaya untuk anda menjalani hidup',
+                'content' => null,
+                'image' => null,
+                'created_by' => 1,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ],
         ]);
     }
 }

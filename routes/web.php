@@ -13,6 +13,7 @@ use App\Http\Controllers\MitraController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\SimulasiController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VariabelController;
@@ -54,6 +55,8 @@ Route::middleware(['landing'])->group(function () {
     Route::get('/klaim/prosedur', [KlaimController::class, 'prosedur_view']);
     Route::get('/klaim/faq', [KlaimController::class, 'faq_view']);
     Route::get('/klaim/info', [KlaimController::class, 'info_view']);
+
+    Route::get('/simulasi/produk', [SimulasiController::class, 'pilih_produk']);
 });
 
 
@@ -99,16 +102,10 @@ Route::middleware(['auth'])->group(function () {
 
 
 // cms
-
-
-
 Route::post('/upload', [NewsController::class, 'upload']);
 Route::post('editor/image_upload', [CKEditorController::class, 'upload'])->name('ckeditor_upload');
-
 Route::get('/c/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/c/login', [LoginController::class, 'authenticate']);
 Route::get('/c/register', [RegisterController::class, 'index']);
 Route::post('/c/logout', [LoginController::class, 'logout']);
-
-
 Route::resource('/c/variabel', VariabelController::class)->middleware('super');

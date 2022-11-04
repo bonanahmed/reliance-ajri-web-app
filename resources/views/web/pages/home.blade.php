@@ -145,7 +145,7 @@
                 <div class="text-center">
                     <img class="img-fluid" src="{{ asset('assets/img/form-simulator.png') }}" alt="...">
                     <h5>Form Simulasi</h5>
-                    <button type="button" class="btn btn-outline-primary">Cek Form Simulasi Sekarang</button>
+                    <a href="/simulasi/produk" class="btn btn-outline-primary">Cek Form Simulasi Sekarang</a>
                 </div>
             </div>
             <div class="col-md-4 mb-5">

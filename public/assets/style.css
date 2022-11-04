@@ -789,3 +789,19 @@ footer {
 a{
   text-decoration:none;  
 }
+
+.btn-blue{
+  background-color: #29559B;
+  color: #FFF;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.transparent-card{
+  background: rgba(255, 255, 255, 0.8);
+box-shadow: 34px 34px 65px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(2.0px);
+/* Note: backdrop-filter has minimal browser support */
+padding: 25px;
+border-radius: 25px;
+}
