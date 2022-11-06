@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Variabel;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\URL;
 
 class VariabelSeeder extends Seeder
 {
@@ -51,6 +52,14 @@ class VariabelSeeder extends Seeder
             [
                 'var' => 'btn_simulasi',
                 'value' => 'Cek Simulasi Sekarang',
+                'content' => null,
+                'image' => null,
+                'created_by' => 1,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ],
+            [
+                'var' => 'link_simulasi',
+                'value' => URL::to('/simulasi/produk'),
                 'content' => null,
                 'image' => null,
                 'created_by' => 1,

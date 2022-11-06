@@ -57,6 +57,9 @@ Route::middleware(['landing'])->group(function () {
     Route::get('/klaim/info', [KlaimController::class, 'info_view']);
 
     Route::get('/simulasi/produk', [SimulasiController::class, 'pilih_produk']);
+    Route::get('/simulasi/karyawan', [SimulasiController::class, 'karyawan']);
+    Route::get('/simulasi/keluarga', [SimulasiController::class, 'keluarga']);
+    Route::get('/simulasi/umkm', [SimulasiController::class, 'umkm']);
 });
 
 

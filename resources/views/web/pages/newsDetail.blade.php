@@ -2,7 +2,7 @@
 @section('container')
 @section('title',$news->title)
 <section id="konten" class="m-5">
-    <div class="container">
+    <div class="container py-5">
         <div class="row">
             <div class="col-md">
                 <h1>{{ $news->title }}</h1>

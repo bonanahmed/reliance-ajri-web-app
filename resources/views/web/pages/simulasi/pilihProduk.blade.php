@@ -15,20 +15,37 @@
     body {
         background-color: #e5e5e5;
     }
+
+    .btn {
+        color: #e5e5e5;
+        background-color: #29559B;
+        border-radius: 8px;
+    }
+
+    .btn:hover,
+    .btn:focus,
+    .btn:active,
+    .btn.active,
+    .open>.dropdown-toggle.btn {
+        color: #fff;
+        /*set the color you want here*/
+    }
 </style>
 <section id="konten">
-    <div class="container">
-        <div class="row mx-4 pb-4">
+    <div class="container py-5">
+        <div class="row mx-4">
             <div class="col-md-12">
                 <div class="transparent-card">
                     <h1 style="margin-bottom: 3rem;">1. Pilih Produk</h1>
-                    <div class="col-md-6 mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <div class="col-md-5 mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Silahkan Pilih Produk</label>
+                        <select class="form-select mb-3" aria-label="Default select example">
+                            <option selected>Reliance Term Life</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                        <a href="/simulasi/karyawan" class="btn mb-3 py-2 px-4">Lanjut</a>
                     </div>
                 </div>
             </div>

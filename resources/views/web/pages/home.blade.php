@@ -3,7 +3,7 @@
 @section('title','Asuransi Jiwa dan Tabungan')
 @section('container')
 <section id="mitra">
-    <div class="row">
+    <div class="row py-5">
         <div class="col-md-12 text-center">
             <h3 class="display-9">Dipercaya Oleh</h3>
             <p><small class="text-muted">Inilah beberapa dari mereka yang sudah bekerja sama dengan kami. Hubungi kami untuk kerja sama lebih lanjut</small></p>
@@ -23,7 +23,7 @@
 </section>
 
 <section class="d-flex flex-column my-5 mt-5 section-slider">
-    <div class="container">
+    <div class="container py-5">
         <div class="text-center mb-5">
             <p class="h4" style="color:#043055;"><b>Big Coverage Insurance Made Easy For You</b></p>
             <p><small class="text-muted"> jiwa murni hingga 5Miliar tanpa cek medis</small></p>
@@ -112,7 +112,7 @@
 
 
 <section id="produk">
-    <div class="container">
+    <div class="container py-5">
         <div class="row">
             <div class="col text-center">
                 <p style="font-size: 32px;font-weight: 500;"><span style="color: #737373;">Pilihan</span> <span style="color: #29559B;">Produk Terbaik</span> <span style="color: #737373;">Kami</span></p>

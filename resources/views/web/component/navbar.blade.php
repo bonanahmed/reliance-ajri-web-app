@@ -28,10 +28,10 @@
                     <a class="nav-link {{ Request::is('klaim/*') ? 'active' : '' }}" href="/klaim/prosedur">Klaim</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a class="nav-link {{ Request::is('galeri/*') ? 'active' : '' }}" href="/galeri">Gallery</a>
+                    <a class="nav-link {{ Request::is('galeri*') ? 'active' : '' }}" href="/galeri">Gallery</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a class="nav-link {{ Request::is('news/*') ? 'active' : '' }}" href="/news">Berita</a>
+                    <a class="nav-link {{ Request::is('news*') ? 'active' : '' }}" href="/news">Berita</a>
                 </li>
             </ul>
             <form class="d-flex justify-content-center" style="margin-bottom: 0px;margin-right:7px">
