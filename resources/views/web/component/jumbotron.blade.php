@@ -9,7 +9,7 @@
 font-style: normal;
 font-weight: 400;
 font-size: 31px;">{{ Request::get('variabel')->produk_sub_title->value ?? 'produk_sub_title' }}</p>
-                    <button type=" button" class="btn btn-md" style="background-color: #31386b;color:aliceblue">
+                    <button type=" button" class="btn btn-md" style="background-color: #29559B;color:aliceblue">
                         <i class="fa-brands fa-whatsapp"></i> Konsultasi Sekarang
                     </button>
                 </div>

@@ -25,7 +25,7 @@
 <section class="d-flex flex-column my-5 mt-5 section-slider">
     <div class="container py-5">
         <div class="text-center mb-5">
-            <p class="h4" style="color:#043055;"><b>Big Coverage Insurance Made Easy For You</b></p>
+            <p class="h4" style="color:#29559B;"><b>Big Coverage Insurance Made Easy For You</b></p>
             <p><small class="text-muted"> jiwa murni hingga 5Miliar tanpa cek medis</small></p>
         </div>
         <div class="tab-steps py-5">
@@ -39,9 +39,9 @@
                         <div class="row justify-content-end">
                             <div class="card" style="width: 40rem;border-radius:1rem;background-color: #FFFFFF7F;">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ ($loop->index+1).'. '.$item->title }}</h5>
+                                    <h5 class="card-title" style="color:#29559B">{{ ($loop->index+1).'. '.$item->title }}</h5>
                                     <p class="text-dark" style="width: 25rem"><small> {!! $item->description !!}</small></p>
-                                    <a href="{{ $item->button_link ?? '#' }}" class="btn btn-primary btn-sm p-2" style="border-radius: 10px; background-color: #31386b;">
+                                    <a href="{{ $item->button_link ?? '#' }}" class="btn btn-primary btn-sm p-2" style="border-radius: 10px; background-color: #29559B;">
                                         {{ $item->button }}
                                     </a>
                                 </div>
@@ -75,7 +75,7 @@
             <div class="col-md-6" style="padding-bottom: 300px;">
                 <h1 class="display-4">{{ $variabel->home_section_1->value ?? 'home_section_1[value]' }}</h1>
                 <p class="w-50">{!! $variabel->home_section_1->content ?? 'home_section_1[content]' !!}</p>
-                <button type="button" class="btn btn-primary btn-sm py-3 px-4" style="border-radius: 10px;border:none; background-color: #31386b;">
+                <button type="button" class="btn btn-primary btn-sm py-3 px-4" style="border-radius: 10px;border:none; background-color: #29559B;">
                     Lihat Selengkapnya
                 </button>
             </div>
