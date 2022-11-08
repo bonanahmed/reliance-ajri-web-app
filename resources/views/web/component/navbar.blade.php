@@ -11,7 +11,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 navbar-custom">
                 <li class="nav-item mx-1">
                     <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page" href="/">Beranda</a>
                 </li>
@@ -34,16 +34,16 @@
                     <a class="nav-link {{ Request::is('news*') ? 'active' : '' }}" href="/news">Berita</a>
                 </li>
             </ul>
-            <form class="d-flex justify-content-center" style="margin-bottom: 0px;margin-right:7px">
+            <!-- <form class="d-flex justify-content-center" style="margin-bottom: 0px;margin-right:7px">
                 <div class="input-group rounded">
                     <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
                     <span class="input-group-text border-0" id="search-addon">
                         <i class="fas fa-search"></i>
                     </span>
                 </div>
-                <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
 
-            </form>
+            </form> -->
             <button class="btn btn-blue px-3" type="submit">Login/Claim</button>
         </div>
     </div>

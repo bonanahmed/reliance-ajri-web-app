@@ -12,9 +12,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <div class="list-group">
+                <div class="list-group custom-list">
                     @foreach($list as $item)
-                    <a href="/about/{{ $item->slug }}#konten" class="list-group-item list-group-item-action {{ Request::is('about/'.$item->slug) ? 'active' : '' }}">
+                    <a href="/about/{{ $item->slug }}#konten"
+                        class="list-group-item list-group-item-action {{ Request::is('about/'.$item->slug) ? 'active' : '' }}">
                         {{ $item->title }}
                     </a>
                     @endforeach
@@ -39,7 +40,8 @@
                                     <tbody>
                                         @foreach($about->files as $file)
                                         <tr>
-                                            <td><a href="{{ asset('storage/'.$file->file) }}" target="_blank">{{ $file->filename }}</a></td>
+                                            <td><a href="{{ asset('storage/'.$file->file) }}" target="_blank">{{
+                                                    $file->filename }}</a></td>
 
                                         </tr>
                                         @endforeach

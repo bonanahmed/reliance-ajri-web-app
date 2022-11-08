@@ -13,16 +13,19 @@
             </div>
             <div class="col-md">
                 @if($var->produk_individu_sec1->image)
-                <img src="{{ asset('storage/'.$var->produk_individu_sec1->image) }}" class="img-fluid" style="border-radius:10px" alt="">
+                <div class="bg-backg-batik"></div>
+                <img src="{{ asset('storage/'.$var->produk_individu_sec1->image) }}" class="img-fluid"
+                    style="border-radius:10px; position:relative; z-index:2" alt="">
                 @endif
             </div>
         </div>
 
     </div>
     <div class="container">
-        <div class="row mt-5 py-5">
+        <div class="row mt-5">
             <div class="col-md">
-                <div class="col-md-8">
+                <div class="col-md-8" style="position:relative">
+                    <div class="backg-left-batik"></div>
                     <h1>{{ $var->produk_individu_sec2->value ?? 'produk_individu_sec2[value]' }}</h1>
 
                 </div>
@@ -30,8 +33,10 @@
                     {!! $var->produk_individu_sec2->content ?? 'produk_individu_sec2[content]' !!}
                 </p>
             </div>
-            <div class="col-md">
-                <img src="https://via.placeholder.com/350x250" class="img-fluid" alt="">
+            <div class="col-md text-right" style="position:relative">
+                <div class="backg-right-batik"></div>
+                <img src="{{ asset('assets/img/wepik-photo-mode-2022821-1544471.png') }}" class="img-fluid" alt=""
+                    style="position:relative; z-index:2">
             </div>
         </div>
 
@@ -39,6 +44,7 @@
 
 
 </section>
+<section class="wave-bg"></section>
 <!-- <div class="row">
     <div class="col-md-12">
         <img id="wallpaper" src="https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&cs=tinysrgb&h=350" class="mx-auto d-block">

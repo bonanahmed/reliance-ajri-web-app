@@ -17,7 +17,7 @@
     <div class="container py-5">
         <div class="row">
             <div class="col-md-3">
-                <div class="list-group">
+                <div class="list-group custom-list">
 
                     <a href="/mitra/klien" class="list-group-item list-group-item-action {{ Request::is('mitra/klien') ? 'active' : '' }}">Klien</a>
                     <a href="/mitra/rekanan" class="list-group-item list-group-item-action {{ Request::is('mitra/rekanan') ? 'active' : '' }}">Rekanan</a>

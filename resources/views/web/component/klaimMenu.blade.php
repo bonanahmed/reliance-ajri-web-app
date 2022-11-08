@@ -1,4 +1,4 @@
-<div class="list-group">
+<div class="list-group custom-list">
     <a href="/klaim/prosedur/" class="list-group-item list-group-item-action {{ Request::is('klaim/prosedur') ? 'active' : '' }}">
         Prosedur Klaim
     </a>
