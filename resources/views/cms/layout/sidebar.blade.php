@@ -4,7 +4,7 @@
             <span class="align-middle">Reliance</span>
         </a>
 
-        <ul class="sidebar-nav">
+        <ul class="sidebar-nav pb-5">
             @can('super')
             <li class="sidebar-header">
                 Admin Panel
@@ -86,6 +86,16 @@
             <li class="sidebar-item {{ Request::is('c/produk/individu/bot') ? 'active' : '' }}">
                 <a class="sidebar-link" href="/c/produk/individu/bot">
                     <i class="align-middle" data-feather="database"></i> <span class="align-middle">Produk Section Bottom</span>
+                </a>
+            </li>
+            <li class="sidebar-item {{ Request::is('c/produk/individu/table') ? 'active' : '' }}">
+                <a class="sidebar-link" href="/c/produk/individu/table">
+                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Produk Individu Table</span>
+                </a>
+            </li>
+            <li class="sidebar-item {{ Request::is('c/produk/individu/diagram') ? 'active' : '' }}">
+                <a class="sidebar-link" href="/c/produk/individu/diagram">
+                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Produk Individu Diagram</span>
                 </a>
             </li>
             <li class="sidebar-item {{ Request::is('c/produk/kumpulan') ? 'active' : '' }}">

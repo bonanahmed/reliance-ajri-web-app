@@ -241,26 +241,67 @@ class ProdukController extends Controller
     }
 
 
+    public function editDiagram()
+    {
+        $variabel = Variabel::all();
+        $object = new \stdClass;
+        foreach ($variabel as $key => $value) {
+            $object->{$value->var} = (object)[
+                'value' => $value->value,
+                'content' => $value->content,
+                'image' => $value->image
+            ];
+        }
+        return view('cms.produk.produkIndividuDiagram', [
+            'variabel' => $object
+        ]);
+    }
 
-    // public function get_individu(Request $request)
-    // {
-    //     $variabel = Variabel::where('var', 'produk_title_sec1')
-    //         ->orWhere('var', 'produk_desc_sec1')
-    //         ->orWhere('var', 'produk_image_sec1')
-    //         ->orWhere('var', 'produk_title_sec2')
-    //         ->orWhere('var', 'produk_desc_sec2');
+    public function saveDiagram(Request $request)
+    {
+        $validatedData = $request->validate([
+            'value' => 'required',
+            'content' => 'required',
+            'image' => 'image|file|max:1024',
+        ]);
+        if ($request->file('image')) {
+            $validatedData['image'] = $request->file('image')->store('produk-image');
+        }
+        Variabel::updateOrCreate([
+            'var' => 'produk_diagram'
+        ], $validatedData);
+        return back()->with('success', 'Data has been updated');
+    }
 
-    //     $object = new \stdClass;
-    //     foreach ($variabel as $key => $value) {
-    //         $object->{$value->var} = (object)[
-    //             'value' => $value->value,
-    //             'content' => $value->content,
-    //             'image' => $value->image
-    //         ];
-    //     }
-    //     dd($object);
-    //     return view('cms.produk.individu', [
-    //         'variabel' => $object
-    //     ]);
-    // }
+    public function editTable()
+    {
+        $variabel = Variabel::all();
+        $object = new \stdClass;
+        foreach ($variabel as $key => $value) {
+            $object->{$value->var} = (object)[
+                'value' => $value->value,
+                'content' => $value->content,
+                'image' => $value->image
+            ];
+        }
+        return view('cms.produk.produkIndividuTable', [
+            'variabel' => $object
+        ]);
+    }
+
+    public function saveTable(Request $request)
+    {
+        $validatedData = $request->validate([
+            'value' => 'required',
+            'content' => 'required',
+            'image' => 'image|file|max:1024',
+        ]);
+        if ($request->file('image')) {
+            $validatedData['image'] = $request->file('image')->store('produk-image');
+        }
+        Variabel::updateOrCreate([
+            'var' => 'produk_table'
+        ], $validatedData);
+        return back()->with('success', 'Data has been updated');
+    }
 }

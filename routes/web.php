@@ -70,6 +70,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/c/produk/kumpulan', [ProdukController::class, 'index_kumpulan'])->name('index_kumpulan');
     Route::get('/c/produk/individu/top', [ProdukController::class, 'index_top_individu']);
     Route::get('/c/produk/individu/bot', [ProdukController::class, 'index_bottom_individu']);
+    Route::get('/c/produk/individu/table', [ProdukController::class, 'editTable']);
+    Route::get('/c/produk/individu/diagram', [ProdukController::class, 'editDiagram']);
+    Route::post('/c/produk/individu/table', [ProdukController::class, 'saveTable']);
+    Route::post('/c/produk/individu/diagram', [ProdukController::class, 'saveDiagram']);
     Route::post('/c/produk/individu/top', [ProdukController::class, 'save_top_individu']);
     Route::post('/c/produk/individu/bottom', [ProdukController::class, 'save_bottom_individu']);
     Route::get('/c/news/checkSlug', [NewsController::class, 'checkSlug']);
