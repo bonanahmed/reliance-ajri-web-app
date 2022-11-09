@@ -78,7 +78,7 @@
             <div class="col-md">
                 <h1 class="text-center">{{ $var->produk_table->value ?? '' }}</h1>
 
-                @if($var->produk_table->image)
+                @if(isset($var->produk_table->image))
                 <div class="text-center">
                     <img src="{{ asset('storage/'.$var->produk_table->image) }}" class="img-fluid">
                 </div>
