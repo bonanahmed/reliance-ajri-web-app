@@ -14,8 +14,7 @@
             <div class="col-md">
                 @if($var->produk_individu_sec1->image)
                 <div class="bg-backg-batik"></div>
-                <img src="{{ asset('storage/'.$var->produk_individu_sec1->image) }}" class="img-fluid"
-                    style="border-radius:10px; position:relative; z-index:2" alt="">
+                <img src="{{ asset('storage/'.$var->produk_individu_sec1->image) }}" class="img-fluid" style="border-radius:10px; position:relative; z-index:2" alt="">
                 @endif
             </div>
         </div>
@@ -35,8 +34,7 @@
             </div>
             <div class="col-md text-right" style="position:relative">
                 <div class="backg-right-batik"></div>
-                <img src="{{ asset('assets/img/wepik-photo-mode-2022821-1544471.png') }}" class="img-fluid" alt=""
-                    style="position:relative; z-index:2">
+                <img src="{{ asset('assets/img/wepik-photo-mode-2022821-1544471.png') }}" class="img-fluid" alt="" style="position:relative; z-index:2">
             </div>
         </div>
 
@@ -51,5 +49,27 @@
         <img id="tablet" src="https://avatanplus.com/files/resources/original/58fb507e4582f15b95b26d4d.png" class="mx-auto d-block">
     </div>
 </div> -->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md">
+                <h1 class="text-center">{{ $var->produk_diagram->value ?? 'produk_diagram[value]' }}</h1>
+
+                @if($var->produk_diagram->image)
+                <div class="text-center">
+                    <img src="{{ asset('storage/'.$var->produk_diagram->image) }}" class="img-fluid">
+                </div>
+                @endif
+
+                <div class="ck-content">
+                    <p>
+                        {!! $var->produk_diagram->content ?? '' !!}
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
 
 @endsection
