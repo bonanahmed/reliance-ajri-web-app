@@ -53,7 +53,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md">
-                <h1 class="text-center">{{ $var->produk_diagram->value ?? 'produk_diagram[value]' }}</h1>
+                <h1 class="text-center">{{ $var->produk_diagram->value ?? '' }}</h1>
 
                 @if($var->produk_diagram->image)
                 <div class="text-center">
@@ -64,6 +64,29 @@
                 <div class="ck-content">
                     <p>
                         {!! $var->produk_diagram->content ?? '' !!}
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md">
+                <h1 class="text-center">{{ $var->produk_table->value ?? '' }}</h1>
+
+                @if($var->produk_table->image)
+                <div class="text-center">
+                    <img src="{{ asset('storage/'.$var->produk_table->image) }}" class="img-fluid">
+                </div>
+                @endif
+
+                <div class="ck-content">
+                    <p>
+                        {!! $var->produk_table->content ?? '' !!}
                     </p>
                 </div>
 

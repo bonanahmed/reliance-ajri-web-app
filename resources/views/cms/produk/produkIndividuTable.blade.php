@@ -33,13 +33,12 @@
                 </div>
                 <div class="mb-3">
                     <label for="content" class="form-label">Description</label>
-                    <input id="content" type="hidden" name="content" value="{{ old('content',$variabel->produk_table->content ?? '') }}">
+                    <textarea class="form-control" id="editor" name="content">{!! $variabel->produk_table->content ?? '' !!}</textarea>
                     @error('content')
                     <p class="text-danger">
                         {{ $message }}
                     </p>
                     @enderror
-                    <trix-editor input="content" class="trix-background"></trix-editor>
                 </div>
                 <div class="mb-3">
                     <label for="image" class="form-label">Image</label>
