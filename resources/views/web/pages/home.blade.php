@@ -3,13 +3,13 @@
 @section('title','Asuransi Jiwa dan Tabungan')
 @section('container')
 <section id="mitra">
-    <div class="row py-5">
+    <div class="row rpy-5">
         <div class="col-md-12 text-center">
             <h3 class="display-9">Dipercaya Oleh</h3>
             <p><small class="text-muted">Inilah beberapa dari mereka yang sudah bekerja sama dengan kami. Hubungi kami
                     untuk kerja sama lebih lanjut</small></p>
         </div>
-        <div class="col-md-12 your-class my-2 mb-5">
+        <div class="col-md-12 your-class my-2 rmb-5">
             @foreach($mitras as $mitra)
             <div class="mx-2 justify-content-center text-center">
                 @if($mitra->image)
@@ -105,16 +105,16 @@
         <div class="top-section-status">
         <div class="row justify-content-around">
             <div class="col text-center">
-                <img class="img-fluid" src="{{ asset('assets/img/shield.png') }}" alt="">
+                <img class="img-fluid img-resp" src="{{ asset('assets/img/shield.png') }}" alt="">
                 <p style="font-size: 20px;font-weight: 500;">Cek Status Premi</p>
                 <p style="color:#737373;font-size: 16;">Ingin cek status klaim Anda?</p>
-                <button type="button" class="btn btn-outline-primary">Cek Status Premi Sekarang</button>
+                <button type="button" class="btn btn-outline-primary btn-fsize">Cek Status Premi Sekarang</button>
             </div>
             <div class="col text-center">
-                <img class="img-fluid" src="{{ asset('assets/img/papers.png') }}" alt="">
+                <img class="img-fluid img-resp" src="{{ asset('assets/img/papers.png') }}" alt="">
                 <p style="font-size: 20px;font-weight: 500;">Ajukan Premi</p>
                 <p style="color:#737373;font-size: 16;">Telah menjadi Nasabah kami?</p>
-                <button type="button" class="btn btn-outline-primary">Ajukan Sekarang</button>
+                <button type="button" class="btn btn-outline-primary btn-fsize">Ajukan Sekarang</button>
             </div>
         </div>
         </div>
