@@ -55,7 +55,7 @@
             <div class="col-md">
                 <h1 class="text-center">{{ $var->produk_diagram->value ?? '' }}</h1>
 
-                @if($var->produk_diagram->image)
+                @if(isset($var->produk_diagram->image))
                 <div class="text-center">
                     <img src="{{ asset('storage/'.$var->produk_diagram->image) }}" class="img-fluid">
                 </div>
