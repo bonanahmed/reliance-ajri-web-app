@@ -219,6 +219,14 @@ class VariabelSeeder extends Seeder
                 'created_by' => 1,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
+            [
+                'var' => 'whatsapp_url',
+                'value' => 'https://wa.me/62812xxxxxx',
+                'content' => null,
+                'image' => null,
+                'created_by' => 1,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ],
         ]);
     }
 }
