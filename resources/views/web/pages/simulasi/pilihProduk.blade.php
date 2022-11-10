@@ -38,14 +38,15 @@
                 <div class="transparent-card">
                     <h1 style="margin-bottom: 3rem;">1. Pilih Produk</h1>
                     <div class="col-md-5 mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Silahkan Pilih Produk</label>
-                        <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Reliance Term Life</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                        <a href="/simulasi/karyawan" class="btn mb-3 py-2 px-4">Lanjut</a>
+                        <form action="/simulasi/produk" method="get">
+                            <label for="exampleFormControlInput1" class="form-label">Silahkan Pilih Produk</label>
+                            <select name="type" class="form-select mb-3" aria-label="Default select example">
+                                <option value="karyawan" selected>Proteksi Karyawan</option>
+                                <option value="keluarga">Proteksi Keluarga</option>
+                                <option value="umkm">Proteksi UMKM</option>
+                            </select>
+                            <button type="submit" class="btn mb-3 py-2 px-4">Lanjut</button>
+                        </form>
                     </div>
                 </div>
             </div>

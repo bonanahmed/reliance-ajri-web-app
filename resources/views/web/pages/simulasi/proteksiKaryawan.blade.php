@@ -36,8 +36,8 @@
         <div class="row mx-4">
             <div class="col-md-12">
                 <div class="transparent-card">
-                    <h1 style="margin-bottom: 3rem;">2. Pilih Produk</h1>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam blanditiis optio suscipit vel consequatur impedit, dicta unde fuga fugit esse, delectus, sed numquam amet sunt soluta? Harum veniam nihil dolores.</p>
+                    <h1 style="margin-bottom: 3rem;">2. Proteksi Karyawan</h1>
+                    <p>Reliance Proteksi Karyawan merupakan program asuransi jiwa berjangka dengan masa perlindungan per tahun yang memberikan perlindungan maksimal untuk para karyawan. Produk ini cocok bagi Perusahaan untuk meringankan beban para karyawannya ketika terjadi hal yang tidak diinginkan. Bila ada karyawan yang meninggal dunia karena sakit atau kecelakaan akan mendapatkan uang pertanggungan.</p>
                     <div class="col-md-5 mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Silahkan Pilih Produk</label>
                         <select id="produk" class="form-select mb-3" aria-label="Default select example">
@@ -53,8 +53,8 @@
                         <label for="peserta" class="form-label">Premi</label>
                         <input type="text" class="form-control mb-3" id="peserta" placeholder="Total Premi" disabled>
 
-                        <a href="/simulasi/karyawan" class="btn btn-outline-primary mr-1 mb-3 py-2 px-4">Kembali</a>
-                        <a href="/simulasi/karyawan" class="btn btn-darkblue mb-3 py-2 px-4">Lanjut</a>
+                        <a href="/simulasi/produk" class="btn btn-outline-primary mr-1 mb-3 py-2 px-4">Kembali</a>
+                        <a href="/simulasi/karyawan" class="btn btn-darkblue mb-3 py-2 px-4">Submit</a>
                     </div>
                 </div>
             </div>
