@@ -1,6 +1,6 @@
 @extends('web.component.main')
 @include('web.component.title_jumbotron')
-@section('title','Simulasi Pilih Produk')
+@section('title','Simulasi Proteksi Karyawan')
 @section('container')
 <style>
     .list-group-item.active {

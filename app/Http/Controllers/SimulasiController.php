@@ -53,4 +53,14 @@ class SimulasiController extends Controller
             'btn_simulasi' => $variabel->btn_simulasi->value ?? 'btn_simulasi',
         ]);
     }
+
+    public function form_request(Request $request)
+    {
+        $variabel = $request->variabel;
+        return view('web.pages.simulasi.formRequest', [
+            'head_title' => $variabel->form_request_title->value ?? 'form_request_title',
+            'head_sub_title' => $variabel->form_request_sub_title->value ?? 'form_request_sub_title',
+            'btn_simulasi' => $variabel->btn_simulasi->value ?? 'btn_simulasi',
+        ]);
+    }
 }

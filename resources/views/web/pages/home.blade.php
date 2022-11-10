@@ -158,7 +158,7 @@
                 <div class="text-center">
                     <img class="img-fluid" src="{{ asset('assets/img/form-request.png') }}" alt="...">
                     <h5>Form Request</h5>
-                    <button type="button" class="btn btn-outline-primary">Cek Form Request Sekarang</button>
+                    <a href="/form" type="button" class="btn btn-outline-primary">Cek Form Request Sekarang</a>
                 </div>
             </div>
         </div>
