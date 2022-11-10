@@ -8,13 +8,13 @@
             <div class="col-md-4">
                 <h5>Sitemap</h5>
                 <div class="row row-cols-2 mb-4">
-                    <div class="col mt-3">Beranda</div>
-                    <div class="col mt-3">Klaim</div>
-                    <div class="col mt-3">Tentang Kami</div>
-                    <div class="col mt-3">Galeri</div>
-                    <div class="col mt-3">Produk</div>
-                    <div class="col mt-3">Berita</div>
-                    <div class="col mt-3">Mitra</div>
+                    <div class="col mt-3"><a href="/" class="custom-link">Beranda</a></div>
+                    <div class="col mt-3"><a href="/" class="custom-link">Klaim</a></div>
+                    <div class="col mt-3"><a href="/about/{{ Request::get('about') ? Request::get('about')->slug : '' }}" class="custom-link">Tentang Kami</a></div>
+                    <div class="col mt-3"><a href="/" class="custom-link">Galeri</a></div>
+                    <div class="col mt-3"><a href="/produk/kumpulan/{{ Request::get('produk') ? Request::get('produk')->slug : '' }}" class="custom-link">Produk</a></div>
+                    <div class="col mt-3"><a href="/" class="custom-link">Berita</a></div>
+                    <div class="col mt-3"><a href="/" class="custom-link">Mitra</a></div>
                 </div>
             </div>
             <div class="col-md-4">
