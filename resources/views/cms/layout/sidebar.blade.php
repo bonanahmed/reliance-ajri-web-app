@@ -25,12 +25,6 @@
                 Pages
             </li>
 
-            <li class="sidebar-item {{ Request::is('dashboard') ? 'active' : '' }}">
-                <a class="sidebar-link" href="/c">
-                    <i class="align-middle" data-feather="sidebar"></i> <span class="align-middle">Dashboard</span>
-                </a>
-            </li>
-
             <li class="sidebar-item {{ Request::is('c/about*') ? 'active' : '' }}">
                 <a class="sidebar-link" href="/c/about">
                     <i class="align-middle" data-feather="database"></i> <span class="align-middle">About Us</span>

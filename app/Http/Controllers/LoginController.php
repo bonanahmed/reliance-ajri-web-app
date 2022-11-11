@@ -25,7 +25,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credential)) {
             $request->session()->regenerate();
-            return redirect()->intended('/c/dashboard');
+            return redirect()->intended('/c/about');
         }
 
         return back()->with('loginError', 'Email or password not found');
