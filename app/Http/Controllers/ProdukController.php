@@ -304,4 +304,36 @@ class ProdukController extends Controller
         ], $validatedData);
         return back()->with('success', 'Data has been updated');
     }
+
+    public function editSyarat()
+    {
+        $variabel = Variabel::all();
+        $object = new \stdClass;
+        foreach ($variabel as $key => $value) {
+            $object->{$value->var} = (object)[
+                'value' => $value->value,
+                'content' => $value->content,
+                'image' => $value->image
+            ];
+        }
+        return view('cms.produk.produkIndividuSyarat', [
+            'variabel' => $object
+        ]);
+    }
+
+    public function saveSyarat(Request $request)
+    {
+        $validatedData = $request->validate([
+            'value' => 'required',
+            'content' => '',
+            'image' => 'image|file|max:1024',
+        ]);
+        if ($request->file('image')) {
+            $validatedData['image'] = $request->file('image')->store('produk-image');
+        }
+        Variabel::updateOrCreate([
+            'var' => 'produk_syarat'
+        ], $validatedData);
+        return back()->with('success', 'Data has been updated');
+    }
 }

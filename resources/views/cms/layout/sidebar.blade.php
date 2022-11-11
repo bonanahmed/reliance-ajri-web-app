@@ -98,6 +98,11 @@
                     <i class="align-middle" data-feather="database"></i> <span class="align-middle">Produk Individu Diagram</span>
                 </a>
             </li>
+            <li class="sidebar-item {{ Request::is('c/produk/individu/syarat') ? 'active' : '' }}">
+                <a class="sidebar-link" href="/c/produk/individu/syarat">
+                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Syarat Kepesertaan</span>
+                </a>
+            </li>
             <li class="sidebar-item {{ Request::is('c/produk/kumpulan') ? 'active' : '' }}">
                 <a class="sidebar-link" href="/c/produk/kumpulan">
                     <i class="align-middle" data-feather="database"></i> <span class="align-middle">Produk Kumpulan</span>

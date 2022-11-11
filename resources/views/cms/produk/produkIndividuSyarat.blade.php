@@ -17,14 +17,14 @@
                 </div>
             </div>
         </div>
-        <h1 class="h3 mb-3">Produk Individu Diagram</h1>
+        <h1 class="h3 mb-3">Syarat Kepesertaan</h1>
 
         <div class="col-lg-8">
-            <form action="/c/produk/individu/diagram" method="post" enctype="multipart/form-data">
+            <form action="/c/produk/individu/syarat" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label for="value" class="form-label">Title</label>
-                    <input name="value" value="{{ old('value',$variabel->produk_diagram->value ?? '')}}" type="text" class="form-control @error('value') is-invalid @enderror" id="value" aria-describedby="value">
+                    <input name="value" value="{{ old('value',$variabel->produk_syarat->value ?? '')}}" type="text" class="form-control @error('value') is-invalid @enderror" id="value" aria-describedby="value">
                     @error('value')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -34,7 +34,7 @@
                 <div class="mb-3">
                     <label for="content" class="form-label">Description</label>
                     <!-- <input id="content" type="hidden" name="content" value="{{ old('content',$variabel->produk_diagram->content ?? '') }}"> -->
-                    <textarea class="form-control" id="editor" name="content">{!! $variabel->produk_diagram->content ?? '' !!}</textarea>
+                    <textarea class="form-control" id="editor" name="content">{!! $variabel->produk_syarat->content ?? '' !!}</textarea>
                     @error('content')
                     <p class="text-danger">
                         {{ $message }}
@@ -43,8 +43,8 @@
                 </div>
                 <div class="mb-3">
                     <label for="image" class="form-label">Image</label>
-                    @if(isset($variabel->produk_diagram->image))
-                    <img src="{{ asset('storage/'.$variabel->produk_diagram->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                    @if(isset($variabel->produk_syarat->image))
+                    <img src="{{ asset('storage/'.$variabel->produk_syarat->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
                     @endif
                     <img class="img-preview img-fluid mb-3 col-sm-5">
                     <input name="image" id="image" class="form-control @error('image') is-invalid @enderror" type="file" onchange="previewImage()">
