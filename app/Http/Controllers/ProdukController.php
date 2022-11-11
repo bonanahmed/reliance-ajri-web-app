@@ -261,7 +261,7 @@ class ProdukController extends Controller
     {
         $validatedData = $request->validate([
             'value' => 'required',
-            'content' => 'required',
+            'content' => '',
             'image' => 'image|file|max:1024',
         ]);
         if ($request->file('image')) {
@@ -293,7 +293,7 @@ class ProdukController extends Controller
     {
         $validatedData = $request->validate([
             'value' => 'required',
-            'content' => 'required',
+            'content' => '',
             'image' => 'image|file|max:1024',
         ]);
         if ($request->file('image')) {
