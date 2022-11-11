@@ -98,6 +98,9 @@
                         items: ['imageStyle:inline', 'imageStyle:side', 'imageStyle:alignLeft'],
                         defaultItem: 'imageStyle:alignLeft'
                     }],
+                },
+                mediaEmbed: {
+                    previewsInData: true
                 }
             })
             .catch(error => {
