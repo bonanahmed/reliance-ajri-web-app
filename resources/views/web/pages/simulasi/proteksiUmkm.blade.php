@@ -32,11 +32,11 @@
     }
 </style>
 <section id="konten">
-    <div class="container">
+    <div class="container py-5">
         <div class="row mx-4">
             <div class="col-md-12">
                 <div class="transparent-card">
-                    <h1 style="margin-bottom: 3rem;">3. Proteksi UMKM</h1>
+                    <h1 style="margin-bottom: 3rem;">Proteksi UMKM</h1>
                     <p>Reliance Life berkomitmen memperluas akses keuangan di masyarakat dengan menghadirkan asuransi Proteksi UMKM (Usaha Mikro Kecil Menengah) guna memberi solusi bagi penduduk berpenghasilan rendah yang tidak mampu mengelola risiko. Apabila peserta meninggal dunia karena sakit atau kecelakaan akan mendapatkan uang pertanggungan.</p>
                     <div class="col-md-5 mb-3">
                         <label for="plan" class="form-label">Uang Pertanggunan</label>

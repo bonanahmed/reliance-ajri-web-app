@@ -11,7 +11,7 @@
 <section id="konten" class="m-5">
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4 col-xs-12">
                 <div class="list-group custom-list">
                     @foreach($list as $item)
                     <a href="/about/{{ $item->slug }}#konten"
@@ -21,8 +21,8 @@
                     @endforeach
                 </div>
             </div>
-            <div class="col-md-8">
-                <h1 class="text-center mb-5">{{ $about->title }}</h1>
+            <div class="col-md-8 col-xs-12">
+                <h1 class="text-center mb-3 resp-title">{{ $about->title }}</h1>
                 <div class="text-center">
                     @if($about->image)
                     <img class="img-fluid mb-5" src="{{ asset('storage/'.$about->image) }}" alt="{{ $about->title }}">

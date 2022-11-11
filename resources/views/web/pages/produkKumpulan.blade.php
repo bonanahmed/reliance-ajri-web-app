@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="col-md-8">
-                <h1 class="text-center mb-5">{{ $produk->title }}</h1>
+                <h1 class="text-center mb-3 resp-title">{{ $produk->title }}</h1>
                 {!! $produk->body !!}
             </div>
         </div>

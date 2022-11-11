@@ -32,11 +32,11 @@
     }
 </style>
 <section id="konten">
-    <div class="container">
+    <div class="container py-5">
         <div class="row mx-4">
             <div class="col-md-12">
                 <div class="transparent-card">
-                    <h1 style="margin-bottom: 3rem;">2. Proteksi Karyawan</h1>
+                    <h1 style="margin-bottom: 3rem;">Proteksi Karyawan</h1>
                     <p>Reliance Proteksi Karyawan merupakan program asuransi jiwa berjangka dengan masa perlindungan per tahun yang memberikan perlindungan maksimal untuk para karyawan. Produk ini cocok bagi Perusahaan untuk meringankan beban para karyawannya ketika terjadi hal yang tidak diinginkan. Bila ada karyawan yang meninggal dunia karena sakit atau kecelakaan akan mendapatkan uang pertanggungan.</p>
                     <div class="col-md-5 mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Silahkan Pilih Produk</label>

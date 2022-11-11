@@ -40,7 +40,7 @@
                         </div>
                         <img style="width:100%;border-radius: 1rem;height:300px;object-fit: cover; position:relative; z-index:10" src="{{ asset('storage/'.$item->image) }}" alt="">
                     </div>
-                    <div class="col">
+                    <div class="col resp-desc">
                         <div class="row justify-content-end">
                             <div class="card card-right">
                                 <div class="card-body">
@@ -80,8 +80,8 @@
     <div class="container">
         <div class="row" style="padding:25px 60px 0px ;">
             <div class="col-md-6" style="padding-bottom: 300px;">
-                <h1 class="display-4">{{ $variabel->home_section_1->value ?? 'home_section_1[value]' }}</h1>
-                <p class="w-50">{!! $variabel->home_section_1->content ?? 'home_section_1[content]' !!}</p>
+                <h1 class="display-4">{!! $variabel->home_section_1->value ?? 'home_section_1[value]' !!}</h1>
+                <div class="home_section_content">{!! $variabel->home_section_1->content ?? 'home_section_1[content]' !!}</div>
                 <button type="button" class="btn btn-primary btn-sm py-3 px-4" style="border-radius: 10px;border:none; background-color: #29559B;">
                     Lihat Selengkapnya
                 </button>

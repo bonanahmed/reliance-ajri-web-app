@@ -36,7 +36,7 @@
         <div class="row mx-4">
             <div class="col-md-12">
                 <div class="transparent-card">
-                    <h1 style="margin-bottom: 3rem;">1. Pilih Produk</h1>
+                    <h1 style="margin-bottom: 3rem;">Pilih Produk</h1>
                     <div class="col-md-5 mb-3">
                         <form action="/simulasi/produk" method="get">
                             <label for="exampleFormControlInput1" class="form-label">Silahkan Pilih Produk</label>

@@ -36,11 +36,11 @@
     }
 </style>
 <section id="konten">
-    <div class="container">
+    <div class="container py-5">
         <div class="row mx-4">
             <div class="col-md-12">
                 <div class="transparent-card">
-                    <h1 style="margin-bottom: 3rem;">3. Proteksi Keluarga</h1>
+                    <h1 style="margin-bottom: 3rem;">Proteksi Keluarga</h1>
                     <p>Reliance Proteksi Keluarga merupakan program asuransi jiwa berjangka dengan masa perlindungan per tahun yang membantu masyarakat ketika salah satu anggota keluarga meninggal dunia karena sakit atau kecelakaan akan mendapatkan uang pertanggungan.</p>
                     <div class="col-md-5 mb-3">
                         <label for="plan" class="form-label">Silahkan Pilih Plan</label>
