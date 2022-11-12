@@ -65,10 +65,6 @@
                             <label for="alamat" class="form-label">Alamat</label>
                             <input type="text" class="form-control" id="alamat" placeholder="Masukan Alamat">
                         </div>
-                        <div class="col-lg-3">
-                            <label for="captcha" class="form-label">Captcha</label>
-                            <input type="text" class="form-control" id="captcha" placeholder="Masukan Captcha">
-                        </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-danger">Kirim</button>
                         </div>
