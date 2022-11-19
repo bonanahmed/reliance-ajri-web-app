@@ -41,7 +41,7 @@
                         <div class="shadow-custom">
                             <div style="box-shadow: inset 3px 3px 4px rgba(255, 255, 255, 0.25), inset -3px -3px 4px rgba(255, 255, 255, 0.25);filter: drop-shadow(16px 16px 51px rgba(0, 0, 0, 0.2));backdrop-filter: blur(7px);border-radius: 30px;"></div>
                         </div>
-                        <img style="width:100%;border-radius: 1rem;height:300px;object-fit: cover; position:relative; z-index:10" src="{{ asset('storage/'.$item->image) }}" alt="{{$item->image}}" title="{{$item->image}}">
+                        <img style="width:100%;border-radius: 1rem;height:300px;object-fit: cover; position:relative; z-index:10" src="{{ asset('storage/'.$item->image) }}" alt="{{$item->title}}" title="{{$item->title}}">
                     </div>
                     <div class="col resp-desc">
                         <div class="row justify-content-end">
