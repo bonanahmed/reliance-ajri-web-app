@@ -1,5 +1,7 @@
 @extends('web.component.main')
 @section('container')
+@section('description',Str::words(strip_tags(html_entity_decode($news->body ?? '')),15))
+@section('canonical',Request::fullUrl())
 @section('title',$news->title)
 <section id="konten" class="m-5">
     <div class="container py-5">

@@ -1,7 +1,9 @@
 @extends('web.component.main')
-@include('web.component.title_jumbotron')
 @section('title','Berita Terkini')
+@section('description','Berita Terkini Dari Reliance')
+@section('canonical',Request::fullUrl())
 @section('container')
+@include('web.component.title_jumbotron')
 <section id="konten" class="m-5">
     <div class="container">
         <div class="row">
@@ -12,12 +14,12 @@
                     @if($item->image)
                     <img src="{{ asset('storage/'.$item->image) }}" alt="{{ $item->title }}" style="border-radius:16px">
                     @else
-                    <img src="{{ asset('assets/img/info-daily.png') }}" class="card-img-top" alt="{{ $item->title }}"  style="border-radius:16px">
+                    <img src="{{ asset('assets/img/info-daily.png') }}" class="card-img-top" alt="{{ $item->title }}" style="border-radius:16px">
                     @endif
 
                     <div class="card-body">
-                        <p class="mb-2" style="font-size: 14px;color:#262626"><b>{{ $item->kategori->title }}</b> 
-                        <span style="margin-left:22px; color:#737373">{{ date('d M Y', strtotime($item->created_at)); }}</span>
+                        <p class="mb-2" style="font-size: 14px;color:#262626"><b>{{ $item->kategori->title }}</b>
+                            <span style="margin-left:22px; color:#737373">{{ date('d M Y', strtotime($item->created_at)); }}</span>
                         </p>
                         <p style="font-size: 24px; font-weight: 500;" class="card-text">{{ $item->title }}</p>
                         <a href="/news/{{ $item->slug }}" class="stretched-link"></a>

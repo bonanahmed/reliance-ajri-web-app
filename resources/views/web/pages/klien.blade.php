@@ -1,5 +1,6 @@
 @extends('web.component.main')
-@include('web.component.title_jumbotron')
+@section('description','Mitra Kerja Sama')
+@section('canonical',Request::fullUrl())
 @section('title','Mitra')
 @section('container')
 <style>
@@ -13,6 +14,7 @@
 
     }
 </style>
+@include('web.component.title_jumbotron')
 <section id="konten" class="pb-5" style="background-color: #e6e6e6;">
     <div class="container py-5">
         <div class="row">

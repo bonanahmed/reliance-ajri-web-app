@@ -1,6 +1,6 @@
 @extends('web.component.main')
-@include('web.component.title_jumbotron')
 @section('title',$produk->title)
+@section('description',Str::words(strip_tags(html_entity_decode($produk->body ?? '')),15))
 @section('container')
 <style>
     .list-group-item.active {
@@ -8,6 +8,7 @@
 
     }
 </style>
+@include('web.component.title_jumbotron')
 <section id="konten" class="m-5">
     <div class="container">
         <div class="row">

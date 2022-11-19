@@ -1,6 +1,7 @@
 @extends('web.component.main')
-@include('web.component.title_jumbotron')
 @section('title','Mitra')
+@section('description','Rekanan Mitra Reliance')
+@section('canonical',Request::fullUrl())
 @section('container')
 <style>
     table tr td,
@@ -13,6 +14,7 @@
 
     }
 </style>
+@include('web.component.title_jumbotron')
 <section id="konten" class="pb-5" style="background-color: #e6e6e6;">
     <div class="container">
         <div class="row">
