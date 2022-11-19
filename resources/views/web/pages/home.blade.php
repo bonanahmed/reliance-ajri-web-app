@@ -16,7 +16,7 @@
             @foreach($mitras as $mitra)
             <div class="mx-2 justify-content-center text-center">
                 @if($mitra->image)
-                <img style="height: 136px; padding:30px; object-fit: contain; border:none; background:#F2F2F2;" class="img-thumbnail" src="{{ asset('storage/'.$mitra->image) }}" alt="">
+                <img style="height: 136px; padding:30px; object-fit: contain; border:none; background:#F2F2F2;" class="img-thumbnail" src="{{ asset('storage/'.$mitra->image) }}" alt="{{$mitra->name}}" title="{{$mitra->name}}">
                 @else
                 <img style="height: 136px; padding:30px; object-fit: contain ; border:none; background:#F2F2F2;" class="img-thumbnail" src="https://via.placeholder.com/160x56" alt="">
                 @endif
@@ -41,7 +41,7 @@
                         <div class="shadow-custom">
                             <div style="box-shadow: inset 3px 3px 4px rgba(255, 255, 255, 0.25), inset -3px -3px 4px rgba(255, 255, 255, 0.25);filter: drop-shadow(16px 16px 51px rgba(0, 0, 0, 0.2));backdrop-filter: blur(7px);border-radius: 30px;"></div>
                         </div>
-                        <img style="width:100%;border-radius: 1rem;height:300px;object-fit: cover; position:relative; z-index:10" src="{{ asset('storage/'.$item->image) }}" alt="">
+                        <img style="width:100%;border-radius: 1rem;height:300px;object-fit: cover; position:relative; z-index:10" src="{{ asset('storage/'.$item->image) }}" alt="{{$item->image}}" title="{{$item->image}}">
                     </div>
                     <div class="col resp-desc">
                         <div class="row justify-content-end">
@@ -102,13 +102,13 @@
             <div class="top-section-status">
                 <div class="row justify-content-around">
                     <div class="col text-center">
-                        <img class="img-fluid img-resp" src="{{ asset('assets/img/shield.png') }}" alt="">
+                        <img class="img-fluid img-resp" src="{{ asset('assets/img/shield.png') }}" alt="Status Premi" title="Status Premi">
                         <p style="font-size: 20px;font-weight: 500;">Cek Status Premi</p>
                         <p style="color:#737373;font-size: 16;">Ingin cek status klaim Anda?</p>
                         <button type="button" class="btn btn-outline-primary btn-fsize">Cek Status Premi Sekarang</button>
                     </div>
                     <div class="col text-center">
-                        <img class="img-fluid img-resp" src="{{ asset('assets/img/papers.png') }}" alt="">
+                        <img class="img-fluid img-resp" src="{{ asset('assets/img/papers.png') }}" alt="Ajukan Premi" title="Ajukan Premi">
                         <p style="font-size: 20px;font-weight: 500;">Ajukan Premi</p>
                         <p style="color:#737373;font-size: 16;">Telah menjadi Nasabah kami?</p>
                         <button type="button" class="btn btn-outline-primary btn-fsize">Ajukan Sekarang</button>
@@ -131,35 +131,35 @@
         <div class="row justify-content-center">
             <div class="col-md-4 mb-5">
                 <div class="text-center">
-                    <img class="img-fluid" src="{{ asset('assets/img/umbrella.png') }}" alt="...">
+                    <img class="img-fluid" src="{{ asset('assets/img/umbrella.png') }}" alt="Produk Individu" title="Produk Individu">
                     <h5>Individu</h5>
                     <a href="/produk/individu" class="btn btn-outline-primary">Cek Detail Sekarang</a>
                 </div>
             </div>
             <div class="col-md-4 mb-5">
                 <div class="text-center">
-                    <img class="img-fluid" src="{{ asset('assets/img/umbrella-rain.png') }}" alt="...">
+                    <img class="img-fluid" src="{{ asset('assets/img/umbrella-rain.png') }}" alt="Produk Kumpulan" title="Produk Kumpulan">
                     <h5>Kumpulan</h5>
                     <a href="/produk/kumpulan/{{ Request::get('produk') ? Request::get('produk')->slug : '' }}" class="btn btn-outline-primary">Cek Detail Sekarang</a>
                 </div>
             </div>
             <div class="col-md-4 mb-5">
                 <div class="text-center">
-                    <img class="img-fluid" src="{{ asset('assets/img/brosur.png') }}" alt="...">
+                    <img class="img-fluid" src="{{ asset('assets/img/brosur.png') }}" title="Brosur" alt="Brosur">
                     <h5>Brosur</h5>
                     <button type="button" class="btn btn-outline-primary">Cek Detail Sekarang</button>
                 </div>
             </div>
             <div class="col-md-4 mb-5">
                 <div class="text-center">
-                    <img class="img-fluid" src="{{ asset('assets/img/form-simulator.png') }}" alt="...">
+                    <img class="img-fluid" src="{{ asset('assets/img/form-simulator.png') }}" alt="Form Simulasi" title="Form Simulasi">
                     <h5>Form Simulasi</h5>
                     <a href="/simulasi/produk" class="btn btn-outline-primary">Cek Form Simulasi Sekarang</a>
                 </div>
             </div>
             <div class="col-md-4 mb-5">
                 <div class="text-center">
-                    <img class="img-fluid" src="{{ asset('assets/img/form-request.png') }}" alt="...">
+                    <img class="img-fluid" src="{{ asset('assets/img/form-request.png') }}" alt="Form Request" title="Form Request">
                     <h5>Form Request</h5>
                     <a href="/form" type="button" class="btn btn-outline-primary">Cek Form Request Sekarang</a>
                 </div>
@@ -182,17 +182,19 @@ font-size: 32px;">Info Daily Reliance</p>
                 <div class="card border-0">
 
                     @if($item->image)
-                    <img src="{{ asset('storage/'.$item->image) }}" class="card-img-top" alt="{{ $item->title }}">
+                    <img src="{{ asset('storage/'.$item->image) }}" class="card-img-top" alt="{{ $item->title }}" title="{{ $item->title }}">
                     @else
-                    <img src="{{ asset('assets/img/info-daily.png') }}" class="card-img-top" style="border-radius: 10px;" alt="{{ $item->title }}">
+                    <img src="{{ asset('assets/img/info-daily.png') }}" class="card-img-top" style="border-radius: 10px;" title="{{ $item->title }}" alt="{{ $item->title }}">
                     @endif
 
                     <div class="card-body">
                         <p class="mb-2" style="font-size: 14px;color:#262626"><b>{{ $item->kategori->title }}</b>
                             <span style="margin-left:22px; color:#737373">{{ date('d M Y', strtotime($item->created_at)); }}</span>
                         </p>
-                        <p style="font-size: 24px; font-weight: 500;" class="card-text">{{ $item->title }}</p>
-                        <a href="/news/{{ $item->slug }}" class="stretched-link"></a>
+
+                        <a href="/news/{{ $item->slug }}" style="text-decoration: none;" class="stretched-link">
+                            <p style="font-size: 24px; font-weight: 500; color:black" class="card-text">{{ $item->title }}</p>
+                        </a>
                     </div>
                 </div>
             </div>

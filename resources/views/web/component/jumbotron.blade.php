@@ -19,7 +19,7 @@
                 <div class="row">
                     <div class="col" style="position:relative">
                         <div class="bg-right-side mt-5">
-                            <img class="rounded img-fluid" src="{{ asset('assets/img/kuncir.png') }}" alt="">
+                            <img class="rounded img-fluid" src="{{ asset('assets/img/kuncir.png') }}" alt="Batik" title="Batik">
                         </div>
                     </div>
                 </div>

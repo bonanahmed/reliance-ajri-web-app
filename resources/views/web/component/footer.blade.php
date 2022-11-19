@@ -2,7 +2,7 @@
     <div class="container py-5">
         <div class="row">
             <div class="col-md-4">
-                <img src="{{ asset('assets/img/logo-2.png') }}" alt="">
+                <img src="{{ asset('assets/img/logo-2.png') }}" title="Reliance Logo" alt="Reliance Logo">
                 <p>{!! Request::get('variabel')->footer_info->content ?? 'footer_info' !!}</p>
             </div>
             <div class="col-md-4">
