@@ -1,6 +1,7 @@
 @extends('web.component.main')
 @section('title',$produk->title)
 @section('description',Str::words(strip_tags(html_entity_decode($produk->body ?? '')),15))
+@section('canonical',Request::fullUrl())
 @section('container')
 <style>
     .list-group-item.active {

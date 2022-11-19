@@ -1,7 +1,10 @@
 @extends('web.component.main')
-@include('web.component.jumbotron')
 @section('title','Asuransi Jiwa dan Tabungan')
+@section('description',Str::words(strip_tags(html_entity_decode($variabel->footer_info->content ?? '')),15))
+
+@section('canonical',Request::fullUrl())
 @section('container')
+@include('web.component.jumbotron')
 <section id="mitra">
     <div class="row rpy-5">
         <div class="col-md-12 text-center">
