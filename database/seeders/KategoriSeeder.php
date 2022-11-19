@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Kategori;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class KategoriSeeder extends Seeder
 {
@@ -14,6 +15,7 @@ class KategoriSeeder extends Seeder
      */
     public function run()
     {
-        Kategori::factory(4)->create();
+        $sql = file_get_contents(database_path() . '/seeds/kategoris.sql');
+        DB::statement($sql);
     }
 }

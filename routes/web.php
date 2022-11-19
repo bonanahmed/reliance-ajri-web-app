@@ -13,6 +13,7 @@ use App\Http\Controllers\MitraController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\RequestController;
 use App\Http\Controllers\SimulasiController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\UserController;
@@ -61,6 +62,8 @@ Route::middleware(['landing'])->group(function () {
     Route::get('/simulasi/keluarga', [SimulasiController::class, 'keluarga']);
     Route::get('/simulasi/umkm', [SimulasiController::class, 'umkm']);
     Route::get('/form', [SimulasiController::class, 'form_request']);
+
+    Route::post('/request', [RequestController::class, 'store']);
 });
 
 
@@ -96,6 +99,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/c/prosedur', [KlaimController::class, 'prosedur']);
     Route::post('/c/prosedur', [KlaimController::class, 'prosedur_save']);
+
+    Route::get('/request', [RequestController::class, 'index']);
 
     Route::resource('/c/user', UserController::class);
     Route::resource('/c/news', NewsController::class);

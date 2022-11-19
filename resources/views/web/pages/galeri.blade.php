@@ -1,7 +1,10 @@
 @extends('web.component.main')
-@include('web.component.title_jumbotron')
+
 @section('title', 'Galeri')
+@section('description','Reliance Galeri Image')
+@section('canonical',Request::fullUrl())
 @section('container')
+@include('web.component.title_jumbotron')
 <section id="konten" class="m-5">
     <div class="container">
         <div class="row">

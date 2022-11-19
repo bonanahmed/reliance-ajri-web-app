@@ -103,6 +103,16 @@
                 </a>
             </li>
 
+            <li class="sidebar-header">
+                Form Web
+            </li>
+
+            <li class="sidebar-item {{ Request::is('c/request*') ? 'active' : '' }}">
+                <a class="sidebar-link" href="/c/request">
+                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Request</span>
+                </a>
+            </li>
+
 
         </ul>
     </div>

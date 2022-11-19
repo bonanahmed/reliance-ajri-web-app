@@ -1,6 +1,7 @@
 @extends('web.component.main')
-@include('web.component.title_jumbotron')
 @section('title', 'FAQ Klaim')
+@section('description',Str::words(strip_tags(html_entity_decode($variabel->faq->content ?? 'faq[content]')),15))
+@section('canonical',Request::fullUrl())
 @section('container')
 <style>
     .list-group-item.active {
@@ -8,6 +9,7 @@
 
     }
 </style>
+@include('web.component.title_jumbotron')
 <section id="konten" class="m-5">
     <div class="container">
         <div class="row">

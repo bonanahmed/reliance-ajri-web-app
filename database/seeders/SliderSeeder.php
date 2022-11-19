@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Slider;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class SliderSeeder extends Seeder
 {
@@ -14,6 +15,7 @@ class SliderSeeder extends Seeder
      */
     public function run()
     {
-        Slider::factory(8)->create();
+        $sql = file_get_contents(database_path() . '/seeds/sliders.sql');
+        DB::statement($sql);
     }
 }
