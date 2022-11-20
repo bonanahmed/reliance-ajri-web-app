@@ -76,11 +76,10 @@ class RequestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(MemberFormRequest $request)
     {
-        $data = MemberFormRequest::find($id);
         return view('cms.request.show', [
-            'form' => $data
+            'form' => $request
         ]);
     }
 
@@ -113,9 +112,9 @@ class RequestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MemberFormRequest $form)
+    public function destroy(MemberFormRequest $request)
     {
-        MemberFormRequest::destroy($form->id);
-        return back()->with('success', 'Data has been deleted');
+        MemberFormRequest::destroy($request->id);
+        return redirect('c/request')->with('success', 'Data has been deleted');
     }
 }
