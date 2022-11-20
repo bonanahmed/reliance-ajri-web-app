@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Request as ModelsRequest;
+use App\Models\MemberFormRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
@@ -17,7 +17,7 @@ class RequestController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            return DataTables::of(ModelsRequest::query())
+            return DataTables::of(MemberFormRequest::query())
                 ->addColumn('action', function ($req) {
                     $action = '<a href="request/' . $req->id . '" class="badge bg-primary" style="margin-right: 4.5px;"><span data-feather="eye"></span></a>';
                     $action .= '<form action="/c/request/' . $req->id . '" class="d-inline" method="post">
@@ -35,7 +35,7 @@ class RequestController extends Controller
                 ->rawColumns(['action'])
                 ->make();
         }
-        return view('cms.news.index');
+        return view('cms.request.index');
     }
 
     /**
@@ -66,7 +66,7 @@ class RequestController extends Controller
             'address' => 'required',
         ]);
 
-        ModelsRequest::create($validatedData);
+        MemberFormRequest::create($validatedData);
         return back()->with('success', 'Data has been added');
     }
 
@@ -76,10 +76,11 @@ class RequestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(ModelsRequest $modelRequest)
+    public function show($id)
     {
+        $data = MemberFormRequest::find($id);
         return view('cms.request.show', [
-            'form' => $modelRequest
+            'form' => $data
         ]);
     }
 
@@ -112,9 +113,9 @@ class RequestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ModelsRequest $modelRequest)
+    public function destroy(MemberFormRequest $form)
     {
-        ModelsRequest::destroy($modelRequest->id);
+        MemberFormRequest::destroy($form->id);
         return back()->with('success', 'Data has been deleted');
     }
 }

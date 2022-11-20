@@ -9,7 +9,7 @@
                 <a href="/c/request" class="btn btn-success">
                     <span data-feather="arrow-left"></span> List of Requests
                 </a>
-                <form action="/c/news/{{$news->slug}}" class="d-inline" method="post">
+                <form action="/c/request/{{$form->id}}" class="d-inline" method="post">
                     @method('delete')
                     @csrf
                     <button class="btn btn-danger button-submit"><span data-feather="trash-2"></span>Delete</button>
@@ -22,34 +22,31 @@
             <form class="row g-3">
                 <div class="col-md-6">
                     <label for="name" class="form-label">Nama</label>
-                    <input type="text" class="form-control" id="name" placeholder="Masukan Nama">
+                    <input disabled value="{{$form->name}}" type="text" class="form-control" id="name" placeholder="Masukan Nama">
                 </div>
                 <div class="col-md-6">
                     <label for="jenis" class="form-label">Jenis Usaha</label>
-                    <input type="text" class="form-control" id="jenis" placeholder="Masukan Jenis Usaha">
+                    <input disabled value="{{$form->jenis_usaha}}" type="text" class="form-control" id="jenis" placeholder="Masukan Jenis Usaha">
                 </div>
                 <div class="col-md-6">
                     <label for="tl" class="form-label">Tanggal Lahir</label>
-                    <input type="text" class="form-control" id="tl" placeholder="Masukan Tanggal Lahir">
+                    <input disabled value="{{$form->birth_date}}" type="text" class="form-control" id="tl" placeholder="Masukan Tanggal Lahir">
                 </div>
                 <div class="col-md-6">
                     <label for="tlp" class="form-label">Nomor Telepon</label>
-                    <input type="text" class="form-control" id="tlp" placeholder="Masukan Nomor Telepon">
+                    <input disabled value="{{$form->phone}}" type="text" class="form-control" id="tlp" placeholder="Masukan Nomor Telepon">
                 </div>
                 <div class="col-md-6">
                     <label for="company" class="form-label">Nama Perusahaan</label>
-                    <input type="text" class="form-control" id="company" placeholder="Masukan Nama Perusahaan">
+                    <input disabled value="{{$form->company}}" type="text" class="form-control" id="company" placeholder="Masukan Nama Perusahaan">
                 </div>
                 <div class="col-md-6">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="mail" placeholder="Masukan Email">
+                    <input disabled value="{{$form->email}}" type="email" class="form-control" id="mail" placeholder="Masukan Email">
                 </div>
                 <div class="col-md-12">
                     <label for="alamat" class="form-label">Alamat</label>
-                    <input type="text" class="form-control" id="alamat" placeholder="Masukan Alamat">
-                </div>
-                <div class="col-12">
-                    <button type="submit" class="btn btn-danger">Kirim</button>
+                    <input disabled value="{{$form->address}}" type="text" class="form-control" id="alamat" placeholder="Masukan Alamat">
                 </div>
             </form>
         </div>
