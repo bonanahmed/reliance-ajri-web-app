@@ -59,13 +59,12 @@ class RequestController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'jenis_usaha' => 'required',
-            'tgl_lahir' => 'required',
-            'telp' => 'required',
+            'birth_date' => 'required',
+            'phone' => 'required',
             'company' => 'required',
             'email' => 'required|email',
             'address' => 'required',
         ]);
-
 
         ModelsRequest::create($validatedData);
         return back()->with('success', 'Data has been added');

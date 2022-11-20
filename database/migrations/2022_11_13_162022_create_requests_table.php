@@ -16,7 +16,7 @@ class CreateRequestsTable extends Migration
         Schema::create('requests', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('birth_date');
+            $table->date('birth_date');
             $table->string('company');
             $table->text('address');
             $table->string('jenis_usaha');
