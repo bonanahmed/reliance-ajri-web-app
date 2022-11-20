@@ -20,7 +20,6 @@ class RequestController extends Controller
             return DataTables::of(ModelsRequest::query())
                 ->addColumn('action', function ($req) {
                     $action = '<a href="request/' . $req->id . '" class="badge bg-primary" style="margin-right: 4.5px;"><span data-feather="eye"></span></a>';
-                    $action .= '<a href="request/' . $req->id . '/edit" class="badge bg-success"><span data-feather="edit-2"></span></a>';
                     $action .= '<form action="/c/request/' . $req->id . '" class="d-inline" method="post">
                 ' . method_field("delete") . '
                 ' . csrf_field() . '
@@ -67,6 +66,7 @@ class RequestController extends Controller
             'address' => 'required',
         ]);
 
+
         ModelsRequest::create($validatedData);
         return back()->with('success', 'Data has been added');
     }
@@ -77,9 +77,11 @@ class RequestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(ModelsRequest $modelRequest)
     {
-        //
+        return view('cms.request.show', [
+            'form' => $modelRequest
+        ]);
     }
 
     /**
@@ -111,8 +113,9 @@ class RequestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(ModelsRequest $modelRequest)
     {
-        //
+        ModelsRequest::destroy($modelRequest->id);
+        return back()->with('success', 'Data has been deleted');
     }
 }

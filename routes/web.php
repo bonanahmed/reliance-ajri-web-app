@@ -100,7 +100,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/c/prosedur', [KlaimController::class, 'prosedur']);
     Route::post('/c/prosedur', [KlaimController::class, 'prosedur_save']);
 
-    Route::get('/request', [RequestController::class, 'index']);
+    // Route::get('/request', [RequestController::class, 'index']);
 
     Route::resource('/c/user', UserController::class);
     Route::resource('/c/news', NewsController::class);
@@ -110,6 +110,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/c/produk', ProdukController::class);
     Route::resource('/c/galeri', GaleriController::class);
     Route::resource('/c/slider', SliderController::class);
+    Route::resource('/c/request', RequestController::class);
 
     // datatables
     Route::get('/datatables/news', [NewsController::class, 'getIndex']);
