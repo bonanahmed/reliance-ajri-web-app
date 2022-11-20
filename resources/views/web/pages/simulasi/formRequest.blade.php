@@ -1,7 +1,9 @@
 @extends('web.component.main')
-@include('web.component.title_jumbotron')
+@section('description','Reliance Form Request')
+@section('canonical',Request::fullUrl())
 @section('title','Form Request')
 @section('container')
+@include('web.component.title_jumbotron')
 <style>
     .list-group-item.active {
         background: linear-gradient(106deg, rgba(41, 85, 155, 0.5) 10.89%, #29559B 100%);
