@@ -62,7 +62,8 @@ class MitraController extends Controller
             'name' => 'required',
             'type' => 'required',
             'image' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'tanggal_kerjasama' => ''
         ]);
 
         if ($request->file('image')) {
@@ -111,7 +112,8 @@ class MitraController extends Controller
             'name' => 'required',
             'description' => '',
             'type' => 'required',
-            'image' => 'image|file|max:1024'
+            'image' => 'image|file|max:1024',
+            'tanggal_kerjasama' => ''
         ];
 
         // if ($request->slug != $mitra->slug) {

@@ -51,6 +51,15 @@
                     @enderror
                 </div>
                 <div class="mb-3">
+                    <label for="tl" class="form-label">Join Date</label>
+                    <input name="tanggal_kerjasama" value="{{ old('tanggal_kerjasama',$mitra->tanggal_kerjasama)}}" type="date" class="form-control @error('tanggal_kerjasama') is-invalid @enderror" id="tl" placeholder="Masukan Tanggal Lahir">
+                    @error('tanggal_kerjasama')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+                <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
                     <input id="description" type="hidden" name="description" value="{{ old('description',$mitra->description) }}">
                     @error('description')

@@ -35,13 +35,14 @@
                     </div>
                     @enderror
                 </div>
-                <div class="form-group">
-                    <div class='input-group date' id='datetimepicker'>
-                        <input name="join_date" type='text' class="form-control" />
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
+                <div class="mb-3">
+                    <label for="join_date" class="form-label">Join Date</label>
+                    <input name="tanggal_kerjasama" value="{{ old('tanggal_kerjasama')}}" type="date" class="form-control @error('tanggal_kerjasama') is-invalid @enderror" id="join_date" placeholder="Masukan Tanggal Lahir">
+                    @error('tanggal_kerjasama')
+                    <div class="invalid-feedback">
+                        {{ $message }}
                     </div>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
