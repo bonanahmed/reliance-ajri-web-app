@@ -19,6 +19,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css" />
 
 
+
     <title>Reliance Admin Panel</title>
 
     <link href="{{ asset('assets/c/css/app.css') }}" rel="stylesheet">
@@ -83,6 +84,7 @@
     <script src="{{ asset('assets/c/js/app.js') }}"></script>
     <script src="{{ asset('assets/c/js/custom.js') }}"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
+    <script src='https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js'></script>
 
 
     <script>
@@ -106,6 +108,27 @@
             .catch(error => {
                 console.error(error);
             });
+
+        $(function() {
+            $('.multi-tag').on('change', function(event) {
+
+                var $element = $(event.target);
+                var $container = $element.closest('.example');
+
+                if (!$element.data('tagsinput'))
+                    return;
+
+                var val = $element.val();
+                if (val === null)
+                    val = "null";
+                var items = $element.tagsinput('items');
+
+                $('code', $('pre.val', $container)).html(($.isArray(val) ? JSON.stringify(val) : "\"" + val.replace('"', '\\"') + "\""));
+                $('code', $('pre.items', $container)).html(JSON.stringify($element.tagsinput('items')));
+
+
+            }).trigger('change');
+        });
     </script>
     @yield('script')
 </body>

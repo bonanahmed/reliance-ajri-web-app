@@ -67,6 +67,8 @@ class AboutController extends Controller
             'image' => 'image|file|max:1024',
             'body' => 'required',
             'file' => 'file|max:2024',
+            'alt' => '',
+            'meta_keywords' => '',
         ]);
 
         if ($request->file('image')) {
@@ -133,6 +135,8 @@ class AboutController extends Controller
             'title' => 'required',
             'body' => 'required',
             'image' => 'image|file|max:1024',
+            'alt' => '',
+            'meta_keywords' => '',
         ];
 
         if ($request->slug != $about->slug) {

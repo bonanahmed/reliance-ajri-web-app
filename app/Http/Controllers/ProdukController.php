@@ -131,7 +131,9 @@ class ProdukController extends Controller
             'title' => 'required',
             'slug' => 'required',
             'body' => 'required',
-            'image' => 'image|file|max:1024'
+            'image' => 'image|file|max:1024',
+            'alt' => '',
+            'meta_keywords' => '',
         ]);
 
         if ($request->file('image')) {
@@ -179,7 +181,9 @@ class ProdukController extends Controller
         $rules = [
             'title' => 'required',
             'body' => 'required',
-            'image' => 'image|file|max:1024'
+            'image' => 'image|file|max:1024',
+            'alt' => '',
+            'meta_keywords' => '',
         ];
 
         if ($request->slug != $produk->slug) {

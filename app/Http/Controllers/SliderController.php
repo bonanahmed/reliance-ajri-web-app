@@ -66,7 +66,9 @@ class SliderController extends Controller
             'description' => 'required',
             'image' => 'image|file|max:1024',
             'button' => '',
-            'button_link' => ''
+            'button_link' => '',
+            'alt' => '',
+            'meta_keywords' => '',
         ]);
 
         if ($request->file('image')) {
@@ -116,7 +118,9 @@ class SliderController extends Controller
             'description' => 'required',
             'image' => 'image|file|max:1024',
             'button' => '',
-            'button_link' => ''
+            'button_link' => '',
+            'alt' => '',
+            'meta_keywords' => '',
         ]);
 
         if ($request->file('image')) {

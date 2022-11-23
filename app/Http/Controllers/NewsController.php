@@ -89,7 +89,9 @@ class NewsController extends Controller
             'slug' => 'required',
             'body' => 'required',
             'kategori_id' => 'required',
-            'image' => 'image|file|max:1024'
+            'image' => 'image|file|max:1024',
+            'alt' => '',
+            'meta_keywords' => '',
         ]);
 
         if ($request->file('image')) {
@@ -109,7 +111,9 @@ class NewsController extends Controller
             'title' => 'required',
             'body' => 'required',
             'kategori_id' => 'required',
-            'image' => 'image|file|max:1024'
+            'image' => 'image|file|max:1024',
+            'alt' => '',
+            'meta_keywords' => '',
         ];
 
         if ($request->slug != $news->slug) {

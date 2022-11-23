@@ -1,6 +1,8 @@
 @extends('cms.layout.main')
 @section('container')
+<style>
 
+</style>
 <main class="content">
     <div class="container-fluid p-0">
 
@@ -38,6 +40,15 @@
                     @enderror
                 </div>
                 <div class="mb-3">
+                    <label for="alt" class="form-label">Alt Image</label>
+                    <input value="{{ old('alt')}}" name="alt" type="text" class="form-control @error('alt') is-invalid @enderror" id="alt" aria-describedby="alt">
+                    @error('alt')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+                <div class="mb-3">
                     <label for="title" class="form-label">Body</label>
                     <textarea class="form-control" id="editor" name="body"></textarea>
                     <!-- <input id="body" type="hidden" name="body" value="{{ old('body') }}"> -->
@@ -46,7 +57,15 @@
                         {{ $message }}
                     </p>
                     @enderror
-                    <!-- <trix-editor input="body"></trix-editor> -->
+                </div>
+                <div class="mb-3">
+                    <label for="meta_keywords" class="form-label">Keywords</label>
+                    <input data-role="tagsinput" value="{{ old('meta_keywords')}}" name="meta_keywords" type="text" class="form-control @error('meta_keywords') is-invalid @enderror multi-tag" id="meta_keywords" aria-describedby="meta_keywords">
+                    @error('meta_keywords')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="file" class="form-label">Attachment</label>
@@ -70,10 +89,6 @@
         fetch('/c/about/checkSlug?title=' + title.value).then(resp => resp.json()).then(data => slug.value = data.slug)
     })
 
-    // const attachment = new Trix.Attachment({
-    //     content: '<iframe width="560" height="315" src="https://www.youtube.com/embed/_UbDeqPdUek" frameborder="0" allowfullscreen></iframe>'
-    // });
-    // document.querySelector('trix-editor').editor.insertAttachment(attachment);
 
     function previewImage() {
         const image = document.querySelector('#image');
