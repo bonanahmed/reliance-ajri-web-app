@@ -68,7 +68,9 @@ Route::middleware(['landing'])->group(function () {
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/c', [DashboardController::class, 'index']);
+    Route::get('/c', function () {
+        return redirect('/c/about');
+    });
     Route::get('/c/dashboard', [DashboardController::class, 'index']);
     // Route::get('/c/news', [NewsController::class, 'index']);
     Route::get('/c/produk/kumpulan', [ProdukController::class, 'index_kumpulan'])->name('index_kumpulan');
