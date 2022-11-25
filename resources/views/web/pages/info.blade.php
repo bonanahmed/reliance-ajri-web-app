@@ -1,6 +1,7 @@
 @extends('web.component.main')
 @section('title','Info Klaim')
 @section('description',Str::words(strip_tags(html_entity_decode($variabel->info_klaim->content ?? '')),15))
+@section('keywords',$variabel->keyword_klaim_info->value ?? '')
 @section('canonical',Request::fullUrl())
 @section('container')
 <style>

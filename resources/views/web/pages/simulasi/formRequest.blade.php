@@ -1,5 +1,6 @@
 @extends('web.component.main')
-@section('description','Reliance Form Request')
+@section('description',Str::words(strip_tags(html_entity_decode($variabel->description_request->content ?? '')),15))
+@section('keywords',$variabel->keyword_request->value ?? '')
 @section('canonical',Request::fullUrl())
 @section('title','Form Request')
 @section('container')

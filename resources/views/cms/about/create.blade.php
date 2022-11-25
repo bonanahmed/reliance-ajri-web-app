@@ -51,7 +51,6 @@
                 <div class="mb-3">
                     <label for="title" class="form-label">Body</label>
                     <textarea class="form-control" id="editor" name="body"></textarea>
-                    <!-- <input id="body" type="hidden" name="body" value="{{ old('body') }}"> -->
                     @error('body')
                     <p class="text-danger">
                         {{ $message }}

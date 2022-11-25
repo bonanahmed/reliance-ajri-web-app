@@ -1,7 +1,7 @@
 @extends('web.component.main')
 @section('title','Asuransi Jiwa dan Tabungan')
 @section('description',Str::words(strip_tags(html_entity_decode($variabel->footer_info->content ?? '')),15))
-
+@section('keywords',$variabel->keyword_beranda->value ?? '')
 @section('canonical',Request::fullUrl())
 @section('container')
 @include('web.component.jumbotron')

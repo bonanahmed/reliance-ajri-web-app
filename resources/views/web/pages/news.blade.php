@@ -1,6 +1,7 @@
 @extends('web.component.main')
 @section('title','Berita Terkini')
 @section('description','Berita Terkini Dari Reliance')
+@section('keywords',$variabel->keyword_berita->value ?? '')
 @section('canonical',Request::fullUrl())
 @section('container')
 @include('web.component.title_jumbotron')

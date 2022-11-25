@@ -3,6 +3,7 @@
 @section('container')
 @section('description',Str::words(strip_tags(html_entity_decode($var->produk_individu_sec1->content ?? '')),15))
 @section('canonical',Request::fullUrl())
+@section('keywords',$variabel->keyword_individu->value ?? '')
 @include('web.component.title_jumbotron')
 <section id="konten">
     <div class="container">

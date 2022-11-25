@@ -1,5 +1,6 @@
 @extends('web.component.main')
-@section('description','Pilih Produk Simulasi Reliance')
+@section('description',Str::words(strip_tags(html_entity_decode($variabel->description_pilih_produk->content ?? '')),15))
+@section('keywords',$variabel->keyword_pilih_produk->value ?? '')
 @section('canonical',Request::fullUrl())
 @section('title','Simulasi Pilih Produk')
 @section('container')

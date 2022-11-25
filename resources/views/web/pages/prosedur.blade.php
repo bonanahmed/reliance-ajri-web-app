@@ -1,6 +1,7 @@
 @extends('web.component.main')
 @section('title','Prosedur Klaim')
 @section('description',Str::words(strip_tags(html_entity_decode($variabel->prosedur_klaim->content ?? '')),15))
+@section('keywords',$variabel->keyword_klaim_prosedur->value ?? '')
 @section('canonical',Request::fullUrl())
 @section('container')
 <style>

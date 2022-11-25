@@ -1,6 +1,7 @@
 @extends('web.component.main')
 @section('title','Simulasi Proteksi Karyawan')
-@section('description','Reliance Produk Simulasi Karyawan')
+@section('description',Str::words(strip_tags(html_entity_decode($variabel->description_proteksi_karyawan->content ?? '')),15))
+@section('keywords',$variabel->keyword_proteksi_karyawan->value ?? '')
 @section('canonical',Request::fullUrl())
 @section('container')
 @include('web.component.title_jumbotron')

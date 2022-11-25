@@ -1,6 +1,7 @@
 @extends('web.component.main')
 @section('title','Mitra')
-@section('description','Rekanan Mitra Reliance')
+@section('description',Str::words(strip_tags(html_entity_decode($variabel->description_mitra->content ?? '')),15))
+@section('keywords',$variabel->keyword_mitra->value ?? '')
 @section('canonical',Request::fullUrl())
 @section('container')
 <style>

@@ -158,7 +158,8 @@ class MitraController extends Controller
             'head_sub_title' => $variabel->mitra_sub_title->value ?? 'mitra_sub_title',
             'btn_simulasi' => $variabel->btn_simulasi->value ?? 'btn_simulasi',
             'mitra' => Mitra::where('type', 'client')->paginate(10),
-            'count' => Mitra::where('type', 'client')->count()
+            'count' => Mitra::where('type', 'client')->count(),
+            'variabel' => $variabel
         ]);
     }
 
@@ -170,7 +171,8 @@ class MitraController extends Controller
             'head_sub_title' => $variabel->mitra_sub_title->value ?? 'mitra_sub_title',
             'btn_simulasi' => $variabel->btn_simulasi->value ?? 'btn_simulasi',
             'mitra' => Mitra::where('type', 'rekanan')->paginate(10),
-            'count' => Mitra::where('type', 'rekanan')->count()
+            'count' => Mitra::where('type', 'rekanan')->count(),
+            'variabel' => $variabel
         ]);
     }
 }

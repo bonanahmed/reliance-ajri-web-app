@@ -38,6 +38,15 @@
                     @enderror
                 </div>
                 <div class="mb-3">
+                    <label for="alt" class="form-label">Alt Image</label>
+                    <input value="{{ old('alt')}}" name="alt" type="text" class="form-control @error('alt') is-invalid @enderror" id="alt" aria-describedby="alt">
+                    @error('alt')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+                <div class="mb-3">
                     <label for="title" class="form-label">Body</label>
                     <input id="body" type="hidden" name="body" value="{{ old('body') }}">
                     @error('body')
@@ -46,6 +55,15 @@
                     </p>
                     @enderror
                     <trix-editor input="body" class="trix-background"></trix-editor>
+                </div>
+                <div class="mb-3">
+                    <label for="meta_keywords" class="form-label">Keywords</label>
+                    <input data-role="tagsinput" value="{{ old('meta_keywords')}}" name="meta_keywords" type="text" class="form-control @error('meta_keywords') is-invalid @enderror multi-tag" id="meta_keywords" aria-describedby="meta_keywords">
+                    @error('meta_keywords')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

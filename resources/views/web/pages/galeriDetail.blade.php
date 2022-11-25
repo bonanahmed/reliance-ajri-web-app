@@ -1,6 +1,7 @@
 @extends('web.component.main')
 @section('title', 'Galeri '.$galeri->title)
 @section('description',Str::words(strip_tags(html_entity_decode($galeri->description)),15))
+@section('keywords',$galeri->meta_keywords)
 @section('canonical',Request::fullUrl())
 @section('container')
 <style>

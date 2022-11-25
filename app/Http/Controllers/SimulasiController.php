@@ -20,6 +20,7 @@ class SimulasiController extends Controller
             'head_title' => $variabel->simulasi_title->value ?? 'simulasi_title',
             'head_sub_title' => $variabel->simulasi_sub_title->value ?? 'simulasi_sub_title',
             'btn_simulasi' => $variabel->btn_simulasi->value ?? 'btn_simulasi',
+            'variabel' => $variabel
         ]);
     }
 
@@ -41,6 +42,7 @@ class SimulasiController extends Controller
             'head_title' => $variabel->simulasi_title->value ?? 'simulasi_title',
             'head_sub_title' => $variabel->simulasi_sub_title->value ?? 'simulasi_sub_title',
             'btn_simulasi' => $variabel->btn_simulasi->value ?? 'btn_simulasi',
+            'variabel' => $variabel
         ]);
     }
 
@@ -51,6 +53,7 @@ class SimulasiController extends Controller
             'head_title' => $variabel->simulasi_title->value ?? 'simulasi_title',
             'head_sub_title' => $variabel->simulasi_sub_title->value ?? 'simulasi_sub_title',
             'btn_simulasi' => $variabel->btn_simulasi->value ?? 'btn_simulasi',
+            'variabel' => $variabel
         ]);
     }
 
@@ -61,6 +64,7 @@ class SimulasiController extends Controller
             'head_title' => $variabel->form_request_title->value ?? 'form_request_title',
             'head_sub_title' => $variabel->form_request_sub_title->value ?? 'form_request_sub_title',
             'btn_simulasi' => $variabel->btn_simulasi->value ?? 'btn_simulasi',
+            'variabel' => $variabel
         ]);
     }
 }
