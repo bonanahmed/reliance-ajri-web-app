@@ -62,7 +62,7 @@
             "autoWidth": false,
             ajax: "{!! route('index_kumpulan') !!}",
             order: [
-                [1, 'asc']
+                [2, 'desc']
             ],
             columns: [{
                     data: 'DT_RowIndex',
