@@ -59,7 +59,7 @@
             "autoWidth": false,
             ajax: "{!! route('news.index') !!}",
             order: [
-                [1, 'asc']
+                [2, 'desc']
             ],
             columns: [{
                     data: 'DT_RowIndex',
