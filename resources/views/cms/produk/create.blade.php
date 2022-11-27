@@ -46,7 +46,7 @@
                     </div>
                     @enderror
                 </div>
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="title" class="form-label">Body</label>
                     <input id="body" type="hidden" name="body" value="{{ old('body') }}">
                     @error('body')
@@ -55,6 +55,15 @@
                     </p>
                     @enderror
                     <trix-editor input="body" class="trix-background"></trix-editor>
+                </div> -->
+                <div class="mb-3">
+                    <label for="title" class="form-label">Body</label>
+                    <textarea class="form-control" id="editor" name="body"></textarea>
+                    @error('body')
+                    <p class="text-danger">
+                        {{ $message }}
+                    </p>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="meta_keywords" class="form-label">Keywords</label>

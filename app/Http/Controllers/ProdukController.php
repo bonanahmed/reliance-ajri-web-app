@@ -210,9 +210,13 @@ class ProdukController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Produk $produk)
     {
-        //
+        if ($produk->image) {
+            Storage::delete($produk->image);
+        }
+        Produk::destroy($produk->id);
+        return redirect('/c/produk')->with('success', 'Produk has been deleted');
     }
 
     public function checkSlug(Request $request)
