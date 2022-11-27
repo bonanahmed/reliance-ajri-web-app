@@ -140,7 +140,7 @@
                 <div class="text-center">
                     <img class="img-fluid" src="{{ asset('assets/img/umbrella-rain.png') }}" alt="Produk Kumpulan" title="Produk Kumpulan">
                     <h5>Kumpulan</h5>
-                    <a href="/produk/kumpulan/{{ Request::get('produk') ? Request::get('produk')->slug : '' }}" class="btn btn-outline-primary">Cek Detail Sekarang</a>
+                    <a href="/produk/kumpulan/{{ Request::get('produk') ? Request::get('produk')->first()->slug : '' }}" class="btn btn-outline-primary">Cek Detail Sekarang</a>
                 </div>
             </div>
             <div class="col-md-4 mb-5">

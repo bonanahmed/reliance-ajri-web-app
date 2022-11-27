@@ -19,8 +19,8 @@ class Landing
      */
     public function handle(Request $request, Closure $next)
     {
-        $about = About::first();
-        $produk_kumpulan = Produk::where('type', 'kumpulan')->first();
+        $about = About::all();
+        $produk_kumpulan = Produk::where('type', 'kumpulan')->get();
         $variabel = Variabel::all();
         $object = new \stdClass;
         foreach ($variabel as $key => $value) {
@@ -35,7 +35,9 @@ class Landing
                 'image' => $value->image
             ];
         }
-        $request->merge(['variabel' => $object, 'about' => $about, 'produk' => $produk_kumpulan]);
+        view()->share('produk_kumpulan', $produk_kumpulan);
+        view()->share('about_list', $about);
+        $request->merge(['variabel' => $object, 'produk' => $produk_kumpulan]);
         return $next($request);
     }
 }

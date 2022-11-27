@@ -16,12 +16,31 @@
                     <li class="nav-item mx-1">
                         <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page" href="/">Beranda</a>
                     </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link {{ Request::is('about/*') ? 'active' : '' }}" href="/about/{{ Request::get('about') ? Request::get('about')->slug : '' }}">Tentang
-                            Kami</a>
+                    <li class="nav-item dropdown mx-3">
+                        <a class="nav-link {{ Request::is('about/*') ? 'active' : '' }} dropdown-toggle" href="#" id="dropdown_about_us" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Tentang Kami
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdown_about_us">
+                            @foreach($about_list as $item_about)
+                            <li><a class="dropdown-item" href="/about/{{ $item_about->slug }}">{{ $item_about->title }}</a></li>
+                            @endforeach
+                        </ul>
                     </li>
-                    <li class="nav-item mx-3">
-                        <a class="nav-link {{ Request::is('produk/*') ? 'active' : '' }}" href="/produk/kumpulan/{{ Request::get('produk') ? Request::get('produk')->slug : '' }}">Produk</a>
+                    <li class="nav-item dropdown mx-3">
+                        <a class="nav-link {{ Request::is('produk/*') ? 'active' : '' }} dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Produk
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                            <li><a class="dropdown-item" href="/produk/individu">Individu</a></li>
+                            @foreach($produk_kumpulan as $item_kumpulan)
+                            <li><a class="dropdown-item" href="/produk/kumpulan/{{ $item_kumpulan->slug }}">{{ $item_kumpulan->title }}</a></li>
+                            @endforeach
+
+                            <li><a class="dropdown-item" href="/produk/kumpulan/{{ Request::get('produk') ? Request::get('produk')->first()->slug : '' }}">Kumpulan</a></li>
+                            <!-- <li><a class="dropdown-item" href="/brosur">Brosur</a></li> -->
+                            <li><a class="dropdown-item" href="/simulasi/produk">Simulasi</a></li>
+                            <li><a class="dropdown-item" href="/form">Form Request</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item mx-3">
                         <a class="nav-link {{ Request::is('mitra/*') ? 'active' : '' }}" href="/mitra/klien">Mitra</a>
@@ -64,10 +83,10 @@
                 <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page" href="/">Beranda</a>
             </li>
             <li class="nav-item mx-3">
-                <a class="nav-link {{ Request::is('about/*') ? 'active' : '' }}" href="/about/{{ Request::get('about') ? Request::get('about')->slug : '' }}">Tentang Kami</a>
+                <a class="nav-link {{ Request::is('about/*') ? 'active' : '' }}" href="/about/{{ $about_list ? $about_list->first()->slug : '' }}">Tentang Kami</a>
             </li>
             <li class="nav-item mx-3">
-                <a class="nav-link {{ Request::is('produk/*') ? 'active' : '' }}" href="/produk/kumpulan/{{ Request::get('produk') ? Request::get('produk')->slug : '' }}">Produk</a>
+                <a class="nav-link {{ Request::is('produk/*') ? 'active' : '' }}" href="/produk/kumpulan/{{ Request::get('produk') ? Request::get('produk')->first()->slug : '' }}">Produk</a>
             </li>
             <li class="nav-item mx-3">
                 <a class="nav-link {{ Request::is('mitra/*') ? 'active' : '' }}" href="/mitra/klien">Mitra</a>
