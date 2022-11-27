@@ -32,11 +32,11 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                             <li><a class="dropdown-item" href="/produk/individu">Individu</a></li>
+                            <li><a class="dropdown-item" href="/produk/kumpulan/{{ $produk_kumpulan->first()->slug ?? '' }}">Kumpulan</a></li>
                             @foreach($produk_kumpulan as $item_kumpulan)
                             <li><a class="dropdown-item" href="/produk/kumpulan/{{ $item_kumpulan->slug }}">{{ $item_kumpulan->title }}</a></li>
                             @endforeach
 
-                            <li><a class="dropdown-item" href="/produk/kumpulan/{{ Request::get('produk') ? Request::get('produk')->first()->slug : '' }}">Kumpulan</a></li>
                             <!-- <li><a class="dropdown-item" href="/brosur">Brosur</a></li> -->
                             <li><a class="dropdown-item" href="/simulasi/produk">Simulasi</a></li>
                             <li><a class="dropdown-item" href="/form">Form Request</a></li>
@@ -83,10 +83,10 @@
                 <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page" href="/">Beranda</a>
             </li>
             <li class="nav-item mx-3">
-                <a class="nav-link {{ Request::is('about/*') ? 'active' : '' }}" href="/about/{{ $about_list ? $about_list->first()->slug : '' }}">Tentang Kami</a>
+                <a class="nav-link {{ Request::is('about/*') ? 'active' : '' }}" href="/about/{{ $about_list->first()->slug ?? '' }}">Tentang Kami</a>
             </li>
             <li class="nav-item mx-3">
-                <a class="nav-link {{ Request::is('produk/*') ? 'active' : '' }}" href="/produk/kumpulan/{{ Request::get('produk') ? Request::get('produk')->first()->slug : '' }}">Produk</a>
+                <a class="nav-link {{ Request::is('produk/*') ? 'active' : '' }}" href="/produk/kumpulan/{{ $produk_kumpulan->first()->slug ?? '' }}">Produk</a>
             </li>
             <li class="nav-item mx-3">
                 <a class="nav-link {{ Request::is('mitra/*') ? 'active' : '' }}" href="/mitra/klien">Mitra</a>
