@@ -71,6 +71,10 @@ class AboutController extends Controller
             'meta_keywords' => '',
         ]);
 
+        $previous = About::where('slug', $validatedData['slug'])->count();
+        if ($previous)
+            $validatedData['slug'] = $validatedData['slug'] . '-' . rand();
+
         if ($request->file('image')) {
             $validatedData['image'] = $request->file('image')->store('about-image');
         }
@@ -141,6 +145,14 @@ class AboutController extends Controller
 
         if ($request->slug != $about->slug) {
             $rules['slug'] = 'required';
+        }
+
+        $validatedData = $request->validate($rules);
+
+        if ($request->slug != $about->slug) {
+            $previous = About::where('slug', $validatedData['slug'])->count();
+            if ($previous)
+                $validatedData['slug'] = $validatedData['slug'] . '-' . rand();
         }
 
         $validatedData = $request->validate($rules);
