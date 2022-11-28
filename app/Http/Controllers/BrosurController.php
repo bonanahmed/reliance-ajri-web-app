@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Brosur;
 use App\Models\Brosur_kategori;
+use App\Models\File_brosur;
 use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Storage;
@@ -93,6 +94,10 @@ class BrosurController extends Controller
             'meta_keywords' => '',
         ]);
 
+        $previous = Brosur::where('slug', $validatedData['slug'])->count();
+        if ($previous)
+            $validatedData['slug'] = $validatedData['slug'] . '-' . rand();
+
         if ($request->file('image')) {
             $validatedData['image'] = $request->file('image')->store('brosur-image');
         }
@@ -100,7 +105,21 @@ class BrosurController extends Controller
         $validatedData['created_by'] = auth()->user()->id;
         $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
 
-        Brosur::create($validatedData);
+        $brosur = Brosur::create($validatedData);
+
+        if ($request->file('file')) {
+            $files = $request->file('file');
+            $filedata = [];
+            foreach ($files as $file) {
+                $fileurl = $file->store('brosur');
+                array_push($filedata, [
+                    'brosur_id' => $brosur->id,
+                    'file' => $fileurl,
+                    'created_at' => date("Y-m-d H:i:s")
+                ]);
+            }
+            File_brosur::insert($filedata);
+        }
         return redirect('/c/brosur')->with('success', 'Data has been added');
     }
 
@@ -121,6 +140,14 @@ class BrosurController extends Controller
 
         $validatedData = $request->validate($rules);
 
+        if ($request->slug != $brosur->slug) {
+            $previous = Brosur::where('slug', $validatedData['slug'])->count();
+            if ($previous)
+                $validatedData['slug'] = $validatedData['slug'] . '-' . rand();
+        }
+
+
+
         if ($request->file('image')) {
             if ($request->oldImage) {
                 Storage::delete($request->oldImage);
@@ -132,6 +159,24 @@ class BrosurController extends Controller
 
         Brosur::where('id', $brosur->id)
             ->update($validatedData);
+
+        if ($request->file('file')) {
+            $files = $request->file('file');
+            $filedata = [];
+            foreach ($files as $file) {
+                $fileurl = $file->storeAs(
+                    'attachment',
+                    $file->getClientOriginalName()
+                );
+                array_push($filedata, [
+                    'brosur_id' => $brosur->id,
+                    'file' => $fileurl,
+                    'filename' => $file->getClientOriginalName(),
+                    'created_at' => date("Y-m-d H:i:s")
+                ]);
+            }
+            File_brosur::insert($filedata);
+        }
         return redirect('/c/brosur')->with('success', 'Data has been updated');
     }
 
@@ -191,5 +236,14 @@ class BrosurController extends Controller
         return view('web.pages.brosurDetail', [
             'brosur' => $brosur
         ]);
+    }
+
+    public function fileDestroy(File_brosur $file_brosur)
+    {
+        if ($file_brosur->file) {
+            Storage::delete($file_brosur->file);
+        }
+        File_brosur::destroy($file_brosur->id);
+        return back()->with('success', 'Attachment has been deleted');
     }
 }

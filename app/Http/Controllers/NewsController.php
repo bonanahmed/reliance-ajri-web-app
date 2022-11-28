@@ -94,6 +94,10 @@ class NewsController extends Controller
             'meta_keywords' => '',
         ]);
 
+        $previous = News::where('slug', $validatedData['slug'])->count();
+        if ($previous)
+            $validatedData['slug'] = $validatedData['slug'] . '-' . rand();
+
         if ($request->file('image')) {
             $validatedData['image'] = $request->file('image')->store('news-image');
         }
@@ -121,6 +125,13 @@ class NewsController extends Controller
         }
 
         $validatedData = $request->validate($rules);
+
+        if ($request->slug != $news->slug) {
+            $previous = News::where('slug', $validatedData['slug'])->count();
+            if ($previous)
+                $validatedData['slug'] = $validatedData['slug'] . '-' . rand();
+        }
+
 
         if ($request->file('image')) {
             if ($request->oldImage) {

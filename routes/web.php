@@ -101,6 +101,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::delete('/c/image/{image}/delete', [GaleriController::class, 'imageDestroy']);
     Route::delete('/c/file/{file}/delete', [AboutController::class, 'fileDestroy']);
+    Route::delete('/c/file_brosur/{file_brosur}/delete', [BrosurController::class, 'fileDestroy']);
 
     Route::get('/c/faq', [KlaimController::class, 'faq']);
     Route::post('/c/faq', [KlaimController::class, 'faq_save']);

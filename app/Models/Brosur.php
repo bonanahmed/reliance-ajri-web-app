@@ -30,4 +30,9 @@ class Brosur extends Model
             ]
         ];
     }
+
+    public function files()
+    {
+        return $this->hasMany(File_brosur::class, 'brosur_id');
+    }
 }

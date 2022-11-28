@@ -88,6 +88,12 @@
     </div>
 </main>
 <script>
+    const title = document.querySelector('#title')
+    const slug = document.querySelector('#slug')
+    title.addEventListener('change', function() {
+        fetch('/c/news/checkSlug?title=' + title.value).then(resp => resp.json()).then(data => slug.value = data.slug)
+    })
+
     function previewImage() {
         const image = document.querySelector('#image');
         const imgPreview = document.querySelector('.img-preview');

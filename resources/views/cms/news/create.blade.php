@@ -92,10 +92,6 @@
         fetch('/c/news/checkSlug?title=' + title.value).then(resp => resp.json()).then(data => slug.value = data.slug)
     })
 
-    // const attachment = new Trix.Attachment({
-    //     content: '<iframe width="560" height="315" src="https://www.youtube.com/embed/_UbDeqPdUek" frameborder="0" allowfullscreen></iframe>'
-    // });
-    // document.querySelector('trix-editor').editor.insertAttachment(attachment);
 
     function previewImage() {
         const image = document.querySelector('#image');
