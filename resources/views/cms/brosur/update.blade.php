@@ -29,6 +29,18 @@
                     @enderror
                 </div>
                 <div class="mb-3">
+                    <label for="image" class="form-label">Kategori</label>
+                    <select class="form-select" aria-label="kategori_id" name="kategori_id">
+                        @foreach($kategori as $item)
+                        @if($item->id == $brosur->kategori_id)
+                        <option value="{{ $item->id }}" selected>{{ $item->title }}</option>
+                        @else
+                        <option value="{{ $item->id }}">{{ $item->title }}</option>
+                        @endif
+                        @endforeach
+                    </select>
+                </div>
+                <div class="mb-3">
                     <label for="image" class="form-label">Brosur Image</label>
                     <input type="hidden" name="oldImage" value="{{ $brosur->image }}">
                     @if($brosur->image)

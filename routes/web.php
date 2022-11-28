@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BrosurController;
+use App\Http\Controllers\BrosurKategoriController;
 use App\Http\Controllers\CKEditorController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FAQController;
@@ -113,6 +114,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/c/news', NewsController::class);
     Route::resource('/c/brosur', BrosurController::class);
     Route::resource('/c/kategori', KategoriController::class);
+    Route::resource('/c/category_brosur', BrosurKategoriController::class);
     Route::resource('/c/mitra', MitraController::class);
     Route::resource('/c/about', AboutController::class);
     Route::resource('/c/produk', ProdukController::class);

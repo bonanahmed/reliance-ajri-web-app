@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Brosur;
+use App\Models\Brosur_kategori;
 use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Storage;
@@ -60,13 +61,16 @@ class BrosurController extends Controller
 
     public function create(Request $request)
     {
-        return view('cms.brosur.create');
+        return view('cms.brosur.create', [
+            'kategori' => Brosur_kategori::all()
+        ]);
     }
 
     public function edit(Request $request, Brosur $brosur)
     {
         return view('cms.brosur.update', [
-            'brosur' => $brosur
+            'brosur' => $brosur,
+            'kategori' => Brosur_kategori::all()
         ]);
     }
 
@@ -84,6 +88,7 @@ class BrosurController extends Controller
             'slug' => 'required',
             'body' => 'required',
             'image' => 'image|file|max:1024',
+            'kategori_id' => 'required',
             'alt' => '',
             'meta_keywords' => '',
         ]);
@@ -105,6 +110,7 @@ class BrosurController extends Controller
             'title' => 'required',
             'body' => 'required',
             'image' => 'image|file|max:1024',
+            'kategori_id' => 'required',
             'alt' => '',
             'meta_keywords' => '',
         ];

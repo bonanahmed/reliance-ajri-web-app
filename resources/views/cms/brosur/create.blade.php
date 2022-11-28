@@ -28,6 +28,14 @@
                     @enderror
                 </div>
                 <div class="mb-3">
+                    <label for="image" class="form-label">Kategori</label>
+                    <select class="form-select" aria-label="kategori_id" name="kategori_id">
+                        @foreach($kategori as $item)
+                        <option value="{{ $item->id }}">{{ $item->title }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="mb-3">
                     <label for="image" class="form-label">Brosur Image</label>
                     <img class="img-preview img-fluid mb-3 col-sm-5">
                     <input name="image" id="image" class="form-control @error('image') is-invalid @enderror" type="file" onchange="previewImage()">

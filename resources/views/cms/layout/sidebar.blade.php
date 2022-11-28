@@ -37,6 +37,12 @@
                 </a>
             </li>
 
+            <li class="sidebar-item {{ Request::is('c/category_brosur*') ? 'active' : '' }}">
+                <a class="sidebar-link" href="/c/category_brosur">
+                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Brosur Kategori</span>
+                </a>
+            </li>
+
             <li class="sidebar-item {{ Request::is('c/faq*') ? 'active' : '' }}">
                 <a class="sidebar-link" href="/c/faq">
                     <i class="align-middle" data-feather="database"></i> <span class="align-middle">FAQ</span>
