@@ -16,6 +16,17 @@ body {
   background-size: cover;
   width: 100%;
 }
+.dropdown-toggle::after{
+  display: none!important;
+}
+.dropdown-menu-sub-menu{
+  display: none;
+  left: 100%;
+  top: 32px;
+}
+.dropdown-toggle-submenu:hover .dropdown-menu-sub-menu{
+  display: block;
+}
 .home_section_content {
   font-family: "Rubik";
   font-style: normal;

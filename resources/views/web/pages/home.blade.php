@@ -129,35 +129,35 @@
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-md-4 mb-5">
+            <div class="col-md-3 mb-5">
                 <div class="text-center">
                     <img class="img-fluid" src="{{ asset('assets/img/umbrella.png') }}" alt="Produk Individu" title="Produk Individu">
                     <h5>Individu</h5>
                     <a href="/produk/individu" class="btn btn-outline-primary">Cek Detail Sekarang</a>
                 </div>
             </div>
-            <div class="col-md-4 mb-5">
+            <div class="col-md-3 mb-5">
                 <div class="text-center">
                     <img class="img-fluid" src="{{ asset('assets/img/umbrella-rain.png') }}" alt="Produk Kumpulan" title="Produk Kumpulan">
                     <h5>Kumpulan</h5>
                     <a href="/produk/kumpulan/{{ $produk_kumpulan ? $produk_kumpulan->first()->slug : '' }}" class="btn btn-outline-primary">Cek Detail Sekarang</a>
                 </div>
             </div>
-            <div class="col-md-4 mb-5">
+            <!-- <div class="col-md-4 mb-5">
                 <div class="text-center">
                     <img class="img-fluid" src="{{ asset('assets/img/brosur.png') }}" title="Brosur" alt="Brosur">
                     <h5>Brosur</h5>
                     <button type="button" class="btn btn-outline-primary">Cek Detail Sekarang</button>
                 </div>
-            </div>
-            <div class="col-md-4 mb-5">
+            </div> -->
+            <div class="col-md-3 mb-5">
                 <div class="text-center">
                     <img class="img-fluid" src="{{ asset('assets/img/form-simulator.png') }}" alt="Form Simulasi" title="Form Simulasi">
                     <h5>Form Simulasi</h5>
                     <a href="/simulasi/produk" class="btn btn-outline-primary">Cek Form Simulasi Sekarang</a>
                 </div>
             </div>
-            <div class="col-md-4 mb-5">
+            <div class="col-md-3 mb-5">
                 <div class="text-center">
                     <img class="img-fluid" src="{{ asset('assets/img/form-request.png') }}" alt="Form Request" title="Form Request">
                     <h5>Form Request</h5>
@@ -189,7 +189,7 @@ font-size: 32px;">Info Daily Reliance</p>
 
                     <div class="card-body">
                         <p class="mb-2" style="font-size: 14px;color:#262626"><b>{{ $item->kategori->title }}</b>
-                            <span style="margin-left:22px; color:#737373">{{ date('d M Y', strtotime($item->created_at)); }}</span>
+                            <span style="margin-left:22px; color:#737373">{{ date('d M Y', strtotime($item->created_at)) }}</span>
                         </p>
 
                         <a href="/news/{{ $item->slug }}" style="text-decoration: none;" class="stretched-link">
