@@ -1,7 +1,9 @@
-<nav id="sidebar" class="sidebar js-sidebar">
-    <div class="sidebar-content js-simplebar">
+<nav id="sidebar" class="sidebar js-sidebar" style="background:#ddd">
+    <div class="sidebar-content js-simplebar" style="background:#ddd">
         <a class="sidebar-brand" href="/c">
-            <span class="align-middle">Reliance</span>
+            <span class="align-middle"><img src="{{ asset('assets/img/reliance_logo.png') }}" alt="Reliance Logo"
+                    title="Reliance Logo" height="30">
+            </span>
         </a>
 
         <ul class="sidebar-nav pb-5">
@@ -22,7 +24,7 @@
 
             @endcan
             <li class="sidebar-header">
-                Pages
+                About Us Pages
             </li>
 
             <li class="sidebar-item {{ Request::is('c/about*') ? 'active' : '' }}">
@@ -30,7 +32,9 @@
                     <i class="align-middle" data-feather="database"></i> <span class="align-middle">About Us</span>
                 </a>
             </li>
-
+            <li class="sidebar-header">
+                Brosur Pages
+            </li>
             <li class="sidebar-item {{ Request::is('c/brosur*') ? 'active' : '' }}">
                 <a class="sidebar-link" href="/c/brosur">
                     <i class="align-middle" data-feather="database"></i> <span class="align-middle">Brosur</span>
@@ -42,11 +46,22 @@
                     <i class="align-middle" data-feather="database"></i> <span class="align-middle">Brosur Kategori</span>
                 </a>
             </li>
+            <li class="sidebar-header">
+                Klaim Pages
+            </li>
 
             <li class="sidebar-item {{ Request::is('c/faq*') ? 'active' : '' }}">
                 <a class="sidebar-link" href="/c/faq">
-                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">FAQ</span>
+                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">FAQ Klaim</span>
                 </a>
+            </li>
+            <li class="sidebar-item {{ Request::is('c/prosedur') ? 'active' : '' }}">
+                <a class="sidebar-link" href="/c/prosedur">
+                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Prosedur Klaim</span>
+                </a>
+            </li>
+            <li class="sidebar-header">
+                Gallery Pages
             </li>
 
             <li class="sidebar-item {{ Request::is('c/galeri*') ? 'active' : '' }}">
@@ -55,10 +70,20 @@
                 </a>
             </li>
 
-
+            <li class="sidebar-header">
+                Homepages
+            </li>
             <li class="sidebar-item {{ Request::is('c/slider*') ? 'active' : '' }}">
                 <a class="sidebar-link" href="/c/slider">
                     <i class="align-middle" data-feather="database"></i> <span class="align-middle">Homepage Slider</span>
+                </a>
+            </li>
+            <li class="sidebar-header">
+                News Pages
+            </li>
+            <li class="sidebar-item {{ Request::is('c/news*') ? 'active' : '' }}">
+                <a class="sidebar-link" href="/c/news">
+                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">News</span>
                 </a>
             </li>
 
@@ -68,22 +93,19 @@
                 </a>
             </li>
 
+            <li class="sidebar-header">
+                Mitra Pages
+            </li>
             <li class="sidebar-item {{ Request::is('c/mitra*') ? 'active' : '' }}">
                 <a class="sidebar-link" href="/c/mitra">
                     <i class="align-middle" data-feather="database"></i> <span class="align-middle">Mitra</span>
                 </a>
             </li>
 
-            <li class="sidebar-item {{ Request::is('c/news*') ? 'active' : '' }}">
-                <a class="sidebar-link" href="/c/news">
-                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">News</span>
-                </a>
+            <li class="sidebar-header">
+                Product Pages
             </li>
-            <li class="sidebar-item {{ Request::is('c/prosedur') ? 'active' : '' }}">
-                <a class="sidebar-link" href="/c/prosedur">
-                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Prosedur Klaim</span>
-                </a>
-            </li>
+            
             <li class="sidebar-item {{ Request::is('c/produk/individu/top') ? 'active' : '' }}">
                 <a class="sidebar-link" href="/c/produk/individu/top">
                     <i class="align-middle" data-feather="database"></i> <span class="align-middle">Produk Section Top</span>
@@ -121,7 +143,7 @@
 
             <li class="sidebar-item {{ Request::is('c/request*') ? 'active' : '' }}">
                 <a class="sidebar-link" href="/c/request">
-                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Request</span>
+                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Form Request List</span>
                 </a>
             </li>
 

@@ -14,7 +14,7 @@
 
     <link rel="canonical" href="https://demo-basic.adminkit.io/pages-sign-in.html" />
 
-    <title>Sign In | AdminKit Demo</title>
+    <title>Sign In | Reliance </title>
 
     <link href="{{ asset('assets/c/css/app.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -24,14 +24,12 @@
     <main class="d-flex w-100">
         <div class="container d-flex flex-column">
             <div class="row vh-100">
-                <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+                <div class="col-sm-10 col-md-6 col-lg-5 mx-auto d-table h-100">
                     <div class="d-table-cell align-middle">
 
-                        <div class="text-center mt-4">
-                            <h1 class="h2">Welcome back</h1>
-                            <p class="lead">
-                                Sign in to your account to continue
-                            </p>
+                        <div class="text-center mt-4 mb-4">
+                        <img src="{{ asset('assets/img/reliance_logo.png') }}" alt="Reliance Logo"
+                        title="Reliance Logo" height="40">
                         </div>
 
                         @if(session()->has('success'))
@@ -50,9 +48,6 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="m-sm-4">
-                                    <div class="text-center">
-                                        <img src="{{ asset('assets/c/img/avatars/userblank.png') }}" alt="Charles Hall" class="img-fluid rounded-circle" width="132" height="132" />
-                                    </div>
                                     <form action="/c/login" method="post">
                                         @csrf
                                         <div class="mb-3">
@@ -72,7 +67,7 @@
                                         </div>
                                         <div class="text-center mt-3">
                                             <!-- <a href="index.html" class="btn btn-lg btn-primary">Sign in</a> -->
-                                            <button type="submit" class="btn btn-lg btn-primary">Sign in</button>
+                                            <button type="submit" class="btn btn-lg btn-primary" style="width:100%">Sign in</button>
                                         </div>
                                     </form>
                                 </div>

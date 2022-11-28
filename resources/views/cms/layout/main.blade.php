@@ -36,6 +36,28 @@
         trix-toolbar [data-trix-button-group="file-tools"] {
             display: none
         }
+        .sidebar-link i, .sidebar-link svg, a.sidebar-link i, a.sidebar-link svg{
+            color:#333;
+        }
+        .sidebar-item.active .sidebar-link:hover, .sidebar-item.active>.sidebar-link{
+            color:#333;
+        }
+        .sidebar-item.active .sidebar-link:hover i, .sidebar-item.active .sidebar-link:hover svg, .sidebar-item.active>.sidebar-link i, .sidebar-item.active>.sidebar-link svg{
+            color:#333;
+        }
+        .sidebar-link, a.sidebar-link{
+            background:#ddd;
+            color:#333;
+        }
+        .sidebar-header{
+            color:#333;
+        }
+        .sidebar-link:hover, .sidebar-link:hover i, .sidebar-link:hover svg{
+            color:#333;
+        }
+        .sidebar-link:hover{
+            background:#ddd
+        }
     </style>
 
 </head>
@@ -55,24 +77,8 @@
                     <div class="row text-muted">
                         <div class="col-6 text-start">
                             <p class="mb-0">
-                                <a class="text-muted" href="https://adminkit.io/" target="_blank"><strong>AdminKit</strong></a> - <a class="text-muted" href="https://adminkit.io/" target="_blank"><strong>Bootstrap Admin Template</strong></a> &copy;
+                                <a class="text-muted" href="#" target="_blank"><strong>Reliance</strong></a>
                             </p>
-                        </div>
-                        <div class="col-6 text-end">
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">Support</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">Help Center</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">Privacy</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">Terms</a>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </div>
