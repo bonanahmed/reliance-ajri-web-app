@@ -83,42 +83,19 @@
                 </div>
                 <div class="mb-3">
                     <label for="file" class="form-label">Attachment</label>
-                    <input name="file[]" type="file" class="form-control @error('file') is-invalid @enderror" id="file" aria-describedby="file" multiple="true">
+                    <input name="file" type="file" class="form-control @error('file') is-invalid @enderror" id="file" aria-describedby="file" multiple="true">
                     @error('file')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
                     @enderror
                 </div>
+                <div class="mb-3">
+                    <a href="{{ asset('storage/'.$brosur->file) }}" target="_blank">Attachment File</a>
+                </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
-        @if($brosur->files->count() > 0)
-        <div class="container">
-            <div class="row">
-                <table class="table">
-                    <thead>
-                        <th>Filename</th>
-                        <th>Action</th>
-                    </thead>
-                    <tbody>
-                        @foreach($brosur->files as $file)
-                        <tr>
-                            <td><a href="{{ asset('storage/'.$file->file) }}" target="_blank">{{ $file->filename }}</a></td>
-                            <td>
-                                <form action="/c/file_brosur/{{$file->id}}/delete" class="d-inline" method="post">
-                                    @method('delete')
-                                    @csrf
-                                    <button class="badge bg-danger border-0 button-submit"><span data-feather="trash-2"></span></button>
-                                </form>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        @endif
     </div>
 </main>
 <script>

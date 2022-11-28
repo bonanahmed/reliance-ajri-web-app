@@ -74,7 +74,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="file" class="form-label">Attachment</label>
-                    <input name="file[]" type="file" class="form-control @error('file') is-invalid @enderror" id="file" aria-describedby="file" multiple="true">
+                    <input name="file" type="file" class="form-control @error('file') is-invalid @enderror" id="file" aria-describedby="file" multiple="false">
                     @error('file')
                     <div class="invalid-feedback">
                         {{ $message }}

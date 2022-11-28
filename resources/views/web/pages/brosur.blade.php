@@ -4,10 +4,9 @@
 @section('keywords',$variabel->keyword_brosur->value ?? '')
 @section('canonical',Request::fullUrl())
 @section('container')
-@include('web.component.title_jumbotron')
-<section id="konten" class="m-5">
+<section id="konten" class="mt-5 py-5">
     <div class="container">
-        <div class="row">
+        <div class="row mt-5">
             @foreach($brosur as $item)
             <div class="col-md-6 mb-5">
                 <div class="card" style="border:none">
@@ -17,14 +16,19 @@
                         @else
                         <img src="{{ asset('assets/img/info-daily.png') }}" class="card-img-top" alt="{{ $item->title }}" style="border-radius:16px; height:400px; object-fit:contain">
                         @endif
+
+                        @if($item->file)
+                        <a href="{{ asset('storage/'.$item->file) }}" class="btn btn-download" download> <img width="60" height="60" src="{{ asset('assets/img/pdf.jpeg') }}" alt="download pdf"> </a>
+                        @endif
                     </div>
 
                     <div class="card-body">
                         <p class="mb-2" style="font-size: 14px;color:#262626"><b>{{ $item->kategori->title ?? '' }}</b>
-                            <span style="margin-left:22px; color:#737373">{{ date('d M Y', strtotime($item->created_at)); }}</span>
+                            <span style="margin-left:22px; color:#737373">{{ date('d M Y', strtotime($item->created_at)) }}</span>
                         </p>
                         <p style="font-size: 24px; font-weight: 500;" class="card-text">{{ $item->title }}</p>
-                        <a href="/brosur/{{ $item->slug }}" class="stretched-link"></a>
+
+                        <!-- <a href="/brosur/{{ $item->slug }}" class="stretched-link"></a> -->
                     </div>
                 </div>
             </div>

@@ -16,6 +16,11 @@ body {
   background-size: cover;
   width: 100%;
 }
+.btn-download{
+  position: absolute;
+  top:12px;
+  right: 12px;
+}
 .dropdown-toggle::after{
   display: none!important;
 }

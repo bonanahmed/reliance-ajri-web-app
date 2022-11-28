@@ -89,6 +89,7 @@ class BrosurController extends Controller
             'slug' => 'required',
             'body' => 'required',
             'image' => 'image|file|max:1024',
+            'file' => 'file|max:1024',
             'kategori_id' => 'required',
             'alt' => '',
             'meta_keywords' => '',
@@ -102,24 +103,15 @@ class BrosurController extends Controller
             $validatedData['image'] = $request->file('image')->store('brosur-image');
         }
 
+        if ($request->file('file')) {
+            $validatedData['file'] = $request->file('file')->store('brosur-file');
+        }
+
         $validatedData['created_by'] = auth()->user()->id;
         $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
 
         $brosur = Brosur::create($validatedData);
 
-        if ($request->file('file')) {
-            $files = $request->file('file');
-            $filedata = [];
-            foreach ($files as $file) {
-                $fileurl = $file->store('brosur');
-                array_push($filedata, [
-                    'brosur_id' => $brosur->id,
-                    'file' => $fileurl,
-                    'created_at' => date("Y-m-d H:i:s")
-                ]);
-            }
-            File_brosur::insert($filedata);
-        }
         return redirect('/c/brosur')->with('success', 'Data has been added');
     }
 
@@ -129,6 +121,7 @@ class BrosurController extends Controller
             'title' => 'required',
             'body' => 'required',
             'image' => 'image|file|max:1024',
+            'file' => 'file|mimes:pdf|max:1024',
             'kategori_id' => 'required',
             'alt' => '',
             'meta_keywords' => '',
@@ -146,37 +139,26 @@ class BrosurController extends Controller
                 $validatedData['slug'] = $validatedData['slug'] . '-' . rand();
         }
 
-
-
         if ($request->file('image')) {
+            if ($brosur->file) {
+                Storage::delete($brosur->file);
+            }
+            $validatedData['file'] = $request->file('brosur')->store('brosur');
+        }
+
+        if ($request->file('file')) {
             if ($request->oldImage) {
                 Storage::delete($request->oldImage);
             }
-            $validatedData['image'] = $request->file('image')->store('news-image');
+            $validatedData['file'] = $request->file('file')->store('brosur-file');
         }
+
         $validatedData['created_by'] = auth()->user()->id;
         $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
 
         Brosur::where('id', $brosur->id)
             ->update($validatedData);
 
-        if ($request->file('file')) {
-            $files = $request->file('file');
-            $filedata = [];
-            foreach ($files as $file) {
-                $fileurl = $file->storeAs(
-                    'attachment',
-                    $file->getClientOriginalName()
-                );
-                array_push($filedata, [
-                    'brosur_id' => $brosur->id,
-                    'file' => $fileurl,
-                    'filename' => $file->getClientOriginalName(),
-                    'created_at' => date("Y-m-d H:i:s")
-                ]);
-            }
-            File_brosur::insert($filedata);
-        }
         return redirect('/c/brosur')->with('success', 'Data has been updated');
     }
 

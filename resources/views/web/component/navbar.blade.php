@@ -46,7 +46,7 @@
                                     @endforeach
                                 </ul>
                             </li>
-                            <!-- <li><a class="dropdown-item" href="/brosur">Brosur</a></li> -->
+                            <li><a class="dropdown-item" href="/brosur">Brosur</a></li>
                             <li><a class="dropdown-item" href="/simulasi/produk">Simulasi</a></li>
                             <li><a class="dropdown-item" href="/form">Form Request</a></li>
                         </ul>
