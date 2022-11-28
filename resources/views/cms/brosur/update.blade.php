@@ -90,9 +90,11 @@
                     </div>
                     @enderror
                 </div>
+                @if($brosur->file)
                 <div class="mb-3">
                     <a href="{{ asset('storage/'.$brosur->file) }}" target="_blank">Attachment File</a>
                 </div>
+                @endif
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
