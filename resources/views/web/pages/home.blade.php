@@ -143,13 +143,13 @@
                     <a href="/produk/kumpulan/{{ $produk_kumpulan ? $produk_kumpulan->first()->slug : '' }}" class="btn btn-outline-primary">Cek Detail Sekarang</a>
                 </div>
             </div>
-            <!-- <div class="col-md-4 mb-5">
+            <div class="col-md-4 mb-5">
                 <div class="text-center">
                     <img class="img-fluid" src="{{ asset('assets/img/brosur.png') }}" title="Brosur" alt="Brosur">
                     <h5>Brosur</h5>
                     <button type="button" class="btn btn-outline-primary">Cek Detail Sekarang</button>
                 </div>
-            </div> -->
+            </div>
             <div class="col-md-3 mb-5">
                 <div class="text-center">
                     <img class="img-fluid" src="{{ asset('assets/img/form-simulator.png') }}" alt="Form Simulasi" title="Form Simulasi">
