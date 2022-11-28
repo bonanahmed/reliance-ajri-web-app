@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\BrosurController;
 use App\Http\Controllers\CKEditorController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FAQController;
@@ -42,6 +43,9 @@ Route::middleware(['landing'])->group(function () {
 
     Route::get('/news', [NewsController::class, 'news']);
     Route::get('/news/{news}', [NewsController::class, 'newsDetail']);
+
+    Route::get('/brosur', [BrosurController::class, 'brosur']);
+    Route::get('/brosur/{brosur}', [BrosurController::class, 'brosurDetail']);
 
     Route::get('/galeri', [GaleriController::class, 'galeri']);
     Route::get('/galeri/{galeri}', [GaleriController::class, 'galeriDetail']);
@@ -85,6 +89,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/c/produk/individu/top', [ProdukController::class, 'save_top_individu']);
     Route::post('/c/produk/individu/bottom', [ProdukController::class, 'save_bottom_individu']);
     Route::get('/c/news/checkSlug', [NewsController::class, 'checkSlug']);
+    Route::get('/c/brosur/checkSlug', [BrosurController::class, 'checkSlug']);
     Route::get('/c/about/checkSlug', [AboutController::class, 'checkSlug']);
     Route::get('/c/produk/checkSlug', [ProdukController::class, 'checkSlug']);
     Route::get('/c/galeri/checkSlug', [GaleriController::class, 'checkSlug']);
@@ -106,6 +111,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('/c/user', UserController::class);
     Route::resource('/c/news', NewsController::class);
+    Route::resource('/c/brosur', BrosurController::class);
     Route::resource('/c/kategori', KategoriController::class);
     Route::resource('/c/mitra', MitraController::class);
     Route::resource('/c/about', AboutController::class);
