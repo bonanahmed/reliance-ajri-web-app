@@ -34,7 +34,7 @@
                 <div class="ck-content px-3">
                     {!! $about->body !!}
                 </div>
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-md-12">
                         @if($about->files->count() > 0)
                         <div class="container">
@@ -54,7 +54,7 @@
                         </div>
                         @endif
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 

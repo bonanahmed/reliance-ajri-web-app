@@ -103,33 +103,36 @@
             </li>
 
             <li class="sidebar-header">
-                Product Pages
+                Product Individu
             </li>
             
             <li class="sidebar-item {{ Request::is('c/produk/individu/top') ? 'active' : '' }}">
                 <a class="sidebar-link" href="/c/produk/individu/top">
-                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Produk Section Top</span>
+                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Section Top</span>
                 </a>
             </li>
             <li class="sidebar-item {{ Request::is('c/produk/individu/bot') ? 'active' : '' }}">
                 <a class="sidebar-link" href="/c/produk/individu/bot">
-                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Produk Section Bottom</span>
+                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Section Bottom</span>
                 </a>
             </li>
             <li class="sidebar-item {{ Request::is('c/produk/individu/table') ? 'active' : '' }}">
                 <a class="sidebar-link" href="/c/produk/individu/table">
-                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Produk Individu Table</span>
+                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Table</span>
                 </a>
             </li>
             <li class="sidebar-item {{ Request::is('c/produk/individu/diagram') ? 'active' : '' }}">
                 <a class="sidebar-link" href="/c/produk/individu/diagram">
-                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Produk Individu Diagram</span>
+                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Diagram</span>
                 </a>
             </li>
             <li class="sidebar-item {{ Request::is('c/produk/individu/syarat') ? 'active' : '' }}">
                 <a class="sidebar-link" href="/c/produk/individu/syarat">
                     <i class="align-middle" data-feather="database"></i> <span class="align-middle">Syarat Kepesertaan</span>
                 </a>
+            </li>
+            <li class="sidebar-header">
+                Product Kumpulan
             </li>
             <li class="sidebar-item {{ Request::is('c/produk/kumpulan') ? 'active' : '' }}">
                 <a class="sidebar-link" href="/c/produk/kumpulan">

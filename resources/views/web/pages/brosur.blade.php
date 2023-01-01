@@ -1,5 +1,5 @@
 @extends('web.component.main')
-@section('title','Berita Terkini')
+@section('title','Brosur')
 @section('description',Str::words(strip_tags(html_entity_decode($variabel->description_brosur->content ?? '')),15))
 @section('keywords',$variabel->keyword_brosur->value ?? '')
 @section('canonical',Request::fullUrl())
@@ -14,11 +14,13 @@
                         @if($item->image)
                         <img src="{{ asset('storage/'.$item->image) }}" alt="{{ $item->title }}" style="border-radius:16px; height:400px; object-fit:contain">
                         @else
-                        <img src="{{ asset('assets/img/info-daily.png') }}" class="card-img-top" alt="{{ $item->title }}" style="border-radius:16px; height:400px; object-fit:contain">
+                        <img src="{{ asset('assets/img/pdf.jpeg') }}" class="card-img-top" alt="{{ $item->title }}" style="border-radius:16px; height:400px; object-fit:contain">
                         @endif
 
                         @if($item->file)
-                        <a href="{{ asset('storage/'.$item->file) }}" class="btn btn-download" download> <img width="60" height="60" src="{{ asset('assets/img/pdf.jpeg') }}" alt="download pdf"> </a>
+                        <a href="{{ asset('storage/'.$item->file) }}" class="btn btn-success btn-download" download> Download </a>
+                        @else
+                        <a href="{{ asset('storage/'.$item->image) }}" class="btn btn-success btn-download" download> Download </a>
                         @endif
                     </div>
 
