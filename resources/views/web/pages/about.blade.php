@@ -11,7 +11,7 @@
 
     }
 </style>
-@include('web.component.jumbotron')
+@include('web.component.about_jumbotron')
 <section id="konten" class="m-5">
     <div class="container">
         <div class="row">
