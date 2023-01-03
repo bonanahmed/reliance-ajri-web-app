@@ -14,7 +14,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $mitra = Mitra::all();
+        $mitra = Mitra::where('type', 'rekanan')->get();
         $variabel = Variabel::all();
         $news = News::orderBy('id', 'desc')->limit(3)->get();
         $slider = Slider::all();
