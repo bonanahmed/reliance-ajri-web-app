@@ -188,7 +188,7 @@ font-size: 32px;">Info Daily Reliance</p>
                     @endif
 
                     <div class="card-body">
-                        <p class="mb-2" style="font-size: 14px;color:#262626"><b>{{ $item->kategori->title }}</b>
+                        <p class="mb-2" style="font-size: 14px;color:#262626"><b>{{ $item->kategori->title ?? '' }}</b>
                             <span style="margin-left:22px; color:#737373">{{ date('d M Y', strtotime($item->created_at)) }}</span>
                         </p>
 
