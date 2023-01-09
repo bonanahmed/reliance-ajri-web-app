@@ -169,7 +169,7 @@ section {
   z-index: 1;
 }
 .bg-right-side {
-  background-image: url("/assets/img/frame.png");
+  background-image: url("/assets/img/jumbotron_pict.png");
   background-repeat: no-repeat;
   min-height: 612px;
   height: 100%;
@@ -205,7 +205,7 @@ section {
 }
 .bg-right-side img {
   position: absolute;
-  top: -60px;
+  top: -20px;
   right: -120px;
   width: 197px;
   height: 197px;
