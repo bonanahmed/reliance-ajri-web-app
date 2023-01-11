@@ -143,7 +143,7 @@ class BrosurController extends Controller
             if ($brosur->file) {
                 Storage::delete($brosur->file);
             }
-            $validatedData['file'] = $request->file('image')->store('brosur');
+            $validatedData['image'] = $request->file('image')->store('brosur');
         }
 
         if ($request->file('file')) {
