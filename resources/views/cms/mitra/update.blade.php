@@ -61,13 +61,14 @@
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
-                    <input id="description" type="hidden" name="description" value="{{ old('description',$mitra->description) }}">
+                    <!-- <input id="description" type="hidden" name="description" value="{{ old('description',$mitra->description) }}"> -->
+                    <textarea class="form-control" id="editor" name="description">{!! $mitra->description ?? '' !!}</textarea>
                     @error('description')
                     <p class="text-danger">
                         {{ $message }}
                     </p>
                     @enderror
-                    <trix-editor input="description" class="trix-background"></trix-editor>
+                    <!-- <trix-editor input="description" class="trix-background"></trix-editor> -->
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

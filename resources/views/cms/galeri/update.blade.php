@@ -41,13 +41,14 @@
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">description</label>
-                        <input id="description" type="hidden" name="description" value="{{ old('description',$galeri->description) }}">
+                        <!-- <input id="description" type="hidden" name="description" value="{{ old('description',$galeri->description) }}"> -->
+                        <textarea class="form-control" id="editor" name="description">{!! $galeri->description ?? '' !!}</textarea>
                         @error('description')
                         <p class="text-danger">
                             {{ $message }}
                         </p>
                         @enderror
-                        <trix-editor input="description" class="trix-background"></trix-editor>
+                        <!-- <trix-editor input="description" class="trix-background"></trix-editor> -->
                     </div>
                     <div class="mb-3">
                         <label for="image" class="form-label">image</label>
