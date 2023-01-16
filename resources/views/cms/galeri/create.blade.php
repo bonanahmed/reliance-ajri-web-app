@@ -39,7 +39,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="image" class="form-label">image</label>
-                    <input name="image[]" type="file" class="form-control @error('image') is-invalid @enderror" id="image" aria-describedby="image" multiple="true">
+                    <input required name="image[]" type="file" class="form-control @error('image') is-invalid @enderror" id="image" aria-describedby="image" multiple="true">
                     @error('image')
                     <div class="invalid-feedback">
                         {{ $message }}

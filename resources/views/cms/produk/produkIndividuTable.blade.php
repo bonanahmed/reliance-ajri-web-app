@@ -46,7 +46,7 @@
                     <img src="{{ asset('storage/'.$variabel->produk_table->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
                     @endif
                     <img class="img-preview img-fluid mb-3 col-sm-5">
-                    <input name="image" id="image" class="form-control @error('image') is-invalid @enderror" type="file" onchange="previewImage()">
+                    <input @if(!$variabel->produk_table->image) required @endif name="image" id="image" class="form-control @error('image') is-invalid @enderror" type="file" onchange="previewImage()">
                     @error('image')
                     <div class="invalid-feedback">
                         {{ $message }}
