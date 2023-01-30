@@ -3,7 +3,17 @@
 
 <main class="content">
     <div class="container-fluid p-0">
-
+        <div class="row">
+            <div class="col-12 d-flex">
+                <div class="card flex-fill">
+                    @if(session()->has('success'))
+                    <div class="row p-3 rounded" style="background-color:#cbf5d9 ;">
+                        {{ session('success') }}
+                    </div>
+                    @endif
+                </div>
+            </div>
+        </div>
         <h1 class="h3 mb-3">Update Slider Content</h1>
 
         <div class="col-lg-8">
@@ -36,9 +46,10 @@
                     <input type="hidden" name="oldImage" value="{{ $slider->image }}">
                     @if($slider->image)
                     <img src="{{ asset('storage/'.$slider->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                    <input type="submit" name="image_destroy" class="btn btn-danger mb-3" value="Remove Image">
                     @endif
                     <img class="img-preview img-fluid mb-3 col-sm-5">
-                    <input @if(!$slider->image) required @endif name="image" id="image" class="form-control @error('image') is-invalid @enderror" type="file" onchange="previewImage()">
+                    <input name="image" id="image" class="form-control @error('image') is-invalid @enderror" type="file" onchange="previewImage()">
                     @error('image')
                     <div class="invalid-feedback">
                         {{ $message }}

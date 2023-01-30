@@ -135,6 +135,12 @@ class AboutController extends Controller
      */
     public function update(Request $request, About $about)
     {
+        if ($request->image_destroy) {
+            Storage::delete($request->oldImage);
+            About::where('id', $about->id)
+                ->update(['image' => null]);
+            return redirect()->back()->with('success', 'Image has been deleted!');
+        }
         $rules = [
             'title' => 'required',
             'body' => 'required',
@@ -199,6 +205,17 @@ class AboutController extends Controller
         }
         About::destroy($about->id);
         return redirect('/c/about')->with('success', $about->title . ' has been deleted');
+    }
+
+    public function imageDestroy(About $about)
+    {
+        dd($about);
+        if ($about->image) {
+            Storage::delete($about->image);
+        }
+        About::where('id', $about->id)
+            ->update(['image' => null]);
+        return back()->with('success', 'Image has been deleted');
     }
 
     public function checkSlug(Request $request)

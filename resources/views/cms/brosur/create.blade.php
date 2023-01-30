@@ -38,7 +38,7 @@
                 <div class="mb-3">
                     <label for="image" class="form-label">Brosur Image</label>
                     <img class="img-preview img-fluid mb-3 col-sm-5">
-                    <input required name="image" id="image" class="form-control @error('image') is-invalid @enderror" type="file" onchange="previewImage()">
+                    <input name="image" id="image" class="form-control @error('image') is-invalid @enderror" type="file" onchange="previewImage()">
                     @error('image')
                     <div class="invalid-feedback">
                         {{ $message }}

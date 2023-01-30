@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Variabel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class KlaimController extends Controller
 {
@@ -25,6 +26,13 @@ class KlaimController extends Controller
 
     public function faq_save(Request $request)
     {
+        if ($request->image_destroy) {
+            Storage::delete($request->oldImage);
+            Variabel::updateOrCreate([
+                'var' => 'faq'
+            ], ['image' => null]);
+            return redirect()->back()->with('success', 'Image has been deleted!');
+        }
         $validatedData = $request->validate([
             'value' => 'required',
             'content' => 'required',
@@ -58,6 +66,13 @@ class KlaimController extends Controller
 
     public function prosedur_save(Request $request)
     {
+        if ($request->image_destroy) {
+            Storage::delete($request->oldImage);
+            Variabel::updateOrCreate([
+                'var' => 'prosedur_klaim'
+            ], ['image' => null]);
+            return redirect()->back()->with('success', 'Image has been deleted!');
+        }
         $validatedData = $request->validate([
             'value' => 'required',
             'content' => 'required',

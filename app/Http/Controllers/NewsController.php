@@ -111,6 +111,12 @@ class NewsController extends Controller
 
     public function update(Request $request, News $news)
     {
+        if ($request->image_destroy) {
+            Storage::delete($request->oldImage);
+            News::where('id', $news->id)
+                ->update(['image' => null]);
+            return redirect()->back()->with('success', 'Image has been deleted!');
+        }
         $rules = [
             'title' => 'required',
             'body' => 'required',

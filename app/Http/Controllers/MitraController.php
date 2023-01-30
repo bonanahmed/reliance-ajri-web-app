@@ -61,7 +61,7 @@ class MitraController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'type' => 'required',
-            'image' => 'required',
+            'image' => 'image|file|max:3072',
             'description' => 'required',
             'tanggal_kerjasama' => '',
             'alt' => '',
@@ -110,6 +110,12 @@ class MitraController extends Controller
      */
     public function update(Request $request, Mitra $mitra)
     {
+        if ($request->image_destroy) {
+            Storage::delete($request->oldImage);
+            Mitra::where('id', $mitra->id)
+                ->update(['image' => null]);
+            return redirect()->back()->with('success', 'Image has been deleted!');
+        }
         $rules = [
             'name' => 'required',
             'description' => '',

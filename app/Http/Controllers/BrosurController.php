@@ -117,6 +117,12 @@ class BrosurController extends Controller
 
     public function update(Request $request, Brosur $brosur)
     {
+        if ($request->image_destroy) {
+            Storage::delete($request->oldImage);
+            Brosur::where('id', $brosur->id)
+                ->update(['image' => null]);
+            return redirect()->back()->with('success', 'Image has been deleted!');
+        }
         $rules = [
             'title' => 'required',
             'body' => 'required',

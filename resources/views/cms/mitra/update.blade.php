@@ -41,6 +41,7 @@
                     <input type="hidden" name="oldImage" value="{{ $mitra->image }}">
                     @if($mitra->image)
                     <img src="{{ asset('storage/'.$mitra->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                    <input type="submit" name="image_destroy" class="btn btn-danger mb-3" value="Remove Image">
                     @endif
                     <img class="img-preview img-fluid mb-3 col-sm-5">
                     <input @if(!$mitra->image) required @endif name="image" id="image" class="form-control @error('image') is-invalid @enderror" type="file" onchange="previewImage()">

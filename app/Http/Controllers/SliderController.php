@@ -113,6 +113,12 @@ class SliderController extends Controller
      */
     public function update(Request $request, Slider $slider)
     {
+        if ($request->image_destroy) {
+            Storage::delete($request->oldImage);
+            Slider::where('id', $slider->id)
+                ->update(['image' => null]);
+            return redirect()->back()->with('success', 'Image has been deleted!');
+        }
         $validatedData = $request->validate([
             'title' => 'required',
             'description' => 'required',

@@ -80,6 +80,13 @@ class ProdukController extends Controller
 
     public function save_top_individu(Request $request)
     {
+        if ($request->image_destroy) {
+            Storage::delete($request->oldImage);
+            Variabel::updateOrCreate([
+                'var' => 'produk_individu_sec1'
+            ], ['image' => null]);
+            return redirect()->back()->with('success', 'Image has been deleted!');
+        }
         $validatedData = $request->validate([
             'value' => 'required',
             'content' => 'required',
@@ -178,6 +185,12 @@ class ProdukController extends Controller
      */
     public function update(Request $request, Produk $produk)
     {
+        if ($request->image_destroy) {
+            Storage::delete($request->oldImage);
+            Produk::where('id', $produk->id)
+                ->update(['image' => null]);
+            return redirect()->back()->with('success', 'Image has been deleted!');
+        }
         $rules = [
             'title' => 'required',
             'body' => 'required',
@@ -267,6 +280,13 @@ class ProdukController extends Controller
 
     public function saveDiagram(Request $request)
     {
+        if ($request->image_destroy) {
+            Storage::delete($request->oldImage);
+            Variabel::updateOrCreate([
+                'var' => 'produk_diagram'
+            ], ['image' => null]);
+            return redirect()->back()->with('success', 'Image has been deleted!');
+        }
         $validatedData = $request->validate([
             'value' => 'required',
             'content' => '',
@@ -299,6 +319,13 @@ class ProdukController extends Controller
 
     public function saveTable(Request $request)
     {
+        if ($request->image_destroy) {
+            Storage::delete($request->oldImage);
+            Variabel::updateOrCreate([
+                'var' => 'produk_table'
+            ], ['image' => null]);
+            return redirect()->back()->with('success', 'Image has been deleted!');
+        }
         $validatedData = $request->validate([
             'value' => 'required',
             'content' => '',
@@ -331,6 +358,13 @@ class ProdukController extends Controller
 
     public function saveSyarat(Request $request)
     {
+        if ($request->image_destroy) {
+            Storage::delete($request->oldImage);
+            Variabel::updateOrCreate([
+                'var' => 'produk_syarat'
+            ], ['image' => null]);
+            return redirect()->back()->with('success', 'Image has been deleted!');
+        }
         $validatedData = $request->validate([
             'value' => 'required',
             'content' => '',

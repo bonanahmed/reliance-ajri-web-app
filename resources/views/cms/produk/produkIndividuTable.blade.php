@@ -44,9 +44,11 @@
                     <label for="image" class="form-label">Image</label>
                     @if(isset($variabel->produk_table->image))
                     <img src="{{ asset('storage/'.$variabel->produk_table->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                    <input type="hidden" name="oldImage" value="{{$variabel->produk_table->image}}">
+                    <input type="submit" name="image_destroy" class="btn btn-danger mb-3" value="Remove Image">
                     @endif
                     <img class="img-preview img-fluid mb-3 col-sm-5">
-                    <input @if(!$variabel->produk_table->image) required @endif name="image" id="image" class="form-control @error('image') is-invalid @enderror" type="file" onchange="previewImage()">
+                    <input name="image" id="image" class="form-control @error('image') is-invalid @enderror" type="file" onchange="previewImage()">
                     @error('image')
                     <div class="invalid-feedback">
                         {{ $message }}
