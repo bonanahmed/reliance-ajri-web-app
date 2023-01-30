@@ -83,7 +83,7 @@ class ProdukController extends Controller
         $validatedData = $request->validate([
             'value' => 'required',
             'content' => 'required',
-            'image' => 'image|file|max:1024',
+            'image' => 'image|file|max:3072',
         ]);
         if ($request->file('image')) {
             $validatedData['image'] = $request->file('image')->store('produk-image');
@@ -131,7 +131,7 @@ class ProdukController extends Controller
             'title' => 'required',
             'slug' => 'required',
             'body' => 'required',
-            'image' => 'image|file|max:1024',
+            'image' => 'image|file|max:3072',
             'alt' => '',
             'meta_keywords' => '',
         ]);
@@ -181,7 +181,7 @@ class ProdukController extends Controller
         $rules = [
             'title' => 'required',
             'body' => 'required',
-            'image' => 'image|file|max:1024',
+            'image' => 'image|file|max:3072',
             'alt' => '',
             'meta_keywords' => '',
         ];
@@ -270,7 +270,7 @@ class ProdukController extends Controller
         $validatedData = $request->validate([
             'value' => 'required',
             'content' => '',
-            'image' => 'image|file|max:1024',
+            'image' => 'image|file|max:3072',
         ]);
         if ($request->file('image')) {
             $validatedData['image'] = $request->file('image')->store('produk-image');
@@ -302,7 +302,7 @@ class ProdukController extends Controller
         $validatedData = $request->validate([
             'value' => 'required',
             'content' => '',
-            'image' => 'image|file|max:1024',
+            'image' => 'image|file|max:3072',
         ]);
         if ($request->file('image')) {
             $validatedData['image'] = $request->file('image')->store('produk-image');
@@ -334,7 +334,7 @@ class ProdukController extends Controller
         $validatedData = $request->validate([
             'value' => 'required',
             'content' => '',
-            'image' => 'image|file|max:1024',
+            'image' => 'image|file|max:3072',
         ]);
         if ($request->file('image')) {
             $validatedData['image'] = $request->file('image')->store('produk-image');

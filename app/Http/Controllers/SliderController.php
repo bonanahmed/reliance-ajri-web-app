@@ -64,7 +64,7 @@ class SliderController extends Controller
         $validatedData = $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'image' => 'image|file|max:1024',
+            'image' => 'image|file|max:3072',
             'button' => '',
             'button_link' => '',
             'alt' => '',
@@ -116,7 +116,7 @@ class SliderController extends Controller
         $validatedData = $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'image' => 'image|file|max:1024',
+            'image' => 'image|file|max:3072',
             'button' => '',
             'button_link' => '',
             'alt' => '',

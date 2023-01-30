@@ -89,7 +89,7 @@ class NewsController extends Controller
             'slug' => 'required',
             'body' => 'required',
             'kategori_id' => 'required',
-            'image' => 'image|file|max:1024',
+            'image' => 'image|file|max:3072',
             'alt' => '',
             'meta_keywords' => '',
         ]);
@@ -115,7 +115,7 @@ class NewsController extends Controller
             'title' => 'required',
             'body' => 'required',
             'kategori_id' => 'required',
-            'image' => 'image|file|max:1024',
+            'image' => 'image|file|max:3072',
             'alt' => '',
             'meta_keywords' => '',
         ];

@@ -28,7 +28,7 @@ class KlaimController extends Controller
         $validatedData = $request->validate([
             'value' => 'required',
             'content' => 'required',
-            'image' => 'image|file|max:1024',
+            'image' => 'image|file|max:3072',
         ]);
         if ($request->file('image')) {
             $validatedData['image'] = $request->file('image')->store('faq-image');
@@ -61,7 +61,7 @@ class KlaimController extends Controller
         $validatedData = $request->validate([
             'value' => 'required',
             'content' => 'required',
-            'image' => 'image|file|max:1024',
+            'image' => 'image|file|max:3072',
         ]);
         if ($request->file('image')) {
             $validatedData['image'] = $request->file('image')->store('prosedur-klaim-image');

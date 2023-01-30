@@ -63,7 +63,7 @@ class VariabelController extends Controller
         $validatedData = $request->validate([
             'var' => 'required',
             'value' => '',
-            'image' => 'image|file|max:1024',
+            'image' => 'image|file|max:3072',
             'content' => ''
         ]);
 
@@ -112,7 +112,7 @@ class VariabelController extends Controller
         $validatedData = $request->validate([
             'var' => 'required',
             'value' => '',
-            'image' => 'image|file|max:1024',
+            'image' => 'image|file|max:3072',
             'content' => ''
         ]);
 

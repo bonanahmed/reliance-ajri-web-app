@@ -114,7 +114,7 @@ class MitraController extends Controller
             'name' => 'required',
             'description' => '',
             'type' => 'required',
-            'image' => 'image|file|max:1024',
+            'image' => 'image|file|max:3072',
             'tanggal_kerjasama' => '',
             'alt' => '',
             'meta_keywords' => '',

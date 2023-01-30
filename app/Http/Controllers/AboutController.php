@@ -64,7 +64,7 @@ class AboutController extends Controller
         $validatedData = $request->validate([
             'title' => 'required',
             'slug' => 'required',
-            'image' => 'image|file|max:1024',
+            'image' => 'image|file|max:3072',
             'body' => 'required',
             'file' => 'file|max:2024',
             'alt' => '',
@@ -138,7 +138,7 @@ class AboutController extends Controller
         $rules = [
             'title' => 'required',
             'body' => 'required',
-            'image' => 'image|file|max:1024',
+            'image' => 'image|file|max:3072',
             'alt' => '',
             'meta_keywords' => '',
         ];
