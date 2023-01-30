@@ -26,6 +26,7 @@
     </div>
     <div class="row justify-content-center g-0" style="background-color: #29559B;">
         <div class="col-md-4 text-center p-4" style="color:white ;">
+            PT Asuransi Jiwa Reliance Indonesia berizin dan diawasi oleh Otoritas Jasa Keuangan <br/>
             Copyrights © 2022 Reliance Life
         </div>
     </div>
