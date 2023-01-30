@@ -140,15 +140,15 @@ class BrosurController extends Controller
         }
 
         if ($request->file('image')) {
-            if ($brosur->file) {
-                Storage::delete($brosur->file);
+            if ($brosur->oldImage) {
+                Storage::delete($brosur->oldImage);
             }
             $validatedData['image'] = $request->file('image')->store('brosur-image');
         }
 
         if ($request->file('file')) {
-            if ($request->oldImage) {
-                Storage::delete($request->oldImage);
+            if ($request->file) {
+                Storage::delete($request->file);
             }
             $validatedData['file'] = $request->file('file')->store('brosur-file');
         }
