@@ -139,6 +139,18 @@
                 ]
             });
 
+
+            $('.banner').slick({
+                arrows: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 500,
+                infinite: true,
+                speed: 5000
+                
+            });
+
         });
 
         $(document).ready(function () {

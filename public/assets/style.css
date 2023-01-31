@@ -2,6 +2,14 @@ body {
   font-family: "Rubik", serif;
   overflow-x: hidden;
 }
+
+.banner .slick-prev:before, .banner .slick-next:before{
+  color: #000;
+  font-size: 40px;
+}
+.banner .slick-next{
+  right: -10px;
+}
 /* tes */
 .jumbotron {
   padding-top: 6rem;

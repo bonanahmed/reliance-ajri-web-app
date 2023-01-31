@@ -1,7 +1,18 @@
 <section class="jumbotron">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6">
+        <div class="col-md-12 banner my-2 rmb-5">
+            @foreach($banner as $item)
+            <div class="mx-2 justify-content-center text-center">
+                @if($item->image)
+                <img style="object-fit:cover; max-height:500px; width:100%" src="{{ asset('storage/'.$item->image) }}" alt="{{$item->name}}" title="{{$item->name}}">
+                @else
+                <img style="object-fit: contain ; border:none; background:#F2F2F2;" src="https://via.placeholder.com/160x56" alt="">
+                @endif
+            </div>
+            @endforeach
+        </div>
+            <!-- <div class="col-md-6">
                 <div class="pt-5 mt-5">
                     <p style="margin: 0px;color:#29559B; font-size:20px">Reliance</p>
                     <p style="color:#29559B;font-size:53px;font-weight:700; font-style:normal;letter-spacing: 0.025em;">
@@ -23,7 +34,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 
