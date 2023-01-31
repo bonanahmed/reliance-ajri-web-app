@@ -1,8 +1,7 @@
 <nav id="sidebar" class="sidebar js-sidebar" style="background:#ddd">
     <div class="sidebar-content js-simplebar" style="background:#ddd">
         <a class="sidebar-brand" href="/c">
-            <span class="align-middle"><img src="{{ asset('assets/img/reliance_logo.png') }}" alt="Reliance Logo"
-                    title="Reliance Logo" height="30">
+            <span class="align-middle"><img src="{{ asset('assets/img/reliance_logo.png') }}" alt="Reliance Logo" title="Reliance Logo" height="30">
             </span>
         </a>
 
@@ -32,6 +31,17 @@
                     <i class="align-middle" data-feather="database"></i> <span class="align-middle">About Us</span>
                 </a>
             </li>
+
+            <li class="sidebar-header">
+                Banner Pages
+            </li>
+
+            <li class="sidebar-item {{ Request::is('c/banner*') ? 'active' : '' }}">
+                <a class="sidebar-link" href="/c/banner">
+                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Banner</span>
+                </a>
+            </li>
+
             <li class="sidebar-header">
                 Brosur Pages
             </li>
@@ -105,7 +115,7 @@
             <li class="sidebar-header">
                 Product Individu
             </li>
-            
+
             <li class="sidebar-item {{ Request::is('c/produk/individu/top') ? 'active' : '' }}">
                 <a class="sidebar-link" href="/c/produk/individu/top">
                     <i class="align-middle" data-feather="database"></i> <span class="align-middle">Section Top</span>

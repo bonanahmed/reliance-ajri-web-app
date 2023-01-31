@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\BrosurController;
 use App\Http\Controllers\BrosurKategoriController;
 use App\Http\Controllers\CKEditorController;
@@ -122,6 +123,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/c/galeri', GaleriController::class);
     Route::resource('/c/slider', SliderController::class);
     Route::resource('/c/request', RequestController::class);
+    Route::resource('/c/banner', BannerController::class);
 
     // datatables
     Route::get('/datatables/news', [NewsController::class, 'getIndex']);
