@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Banner;
 use App\Models\Mitra;
 use App\Models\News;
 use App\Models\Produk;
@@ -18,6 +19,7 @@ class HomeController extends Controller
         $variabel = Variabel::all();
         $news = News::orderBy('id', 'desc')->limit(3)->get();
         $slider = Slider::all();
+        $banner = Banner::all();
         $object = new \stdClass;
         foreach ($variabel as $key => $value) {
             $object->{$value->var} = (object)[
@@ -30,7 +32,8 @@ class HomeController extends Controller
             'variabel' => $object,
             'mitras' => $mitra,
             'news' => $news,
-            'slider' => $slider
+            'slider' => $slider,
+            'banner' => $banner
         ]);
     }
 }
