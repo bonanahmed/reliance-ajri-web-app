@@ -10,6 +10,7 @@ use App\Http\Controllers\FAQController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\KeuanganController;
 use App\Http\Controllers\KlaimController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MitraController;
@@ -124,6 +125,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/c/slider', SliderController::class);
     Route::resource('/c/request', RequestController::class);
     Route::resource('/c/banner', BannerController::class);
+    Route::resource('/c/keuangan', KeuanganController::class);
 
     // datatables
     Route::get('/datatables/news', [NewsController::class, 'getIndex']);

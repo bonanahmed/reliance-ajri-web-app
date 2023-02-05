@@ -104,6 +104,15 @@
             </li>
 
             <li class="sidebar-header">
+                Laporan Pages
+            </li>
+            <li class="sidebar-item {{ Request::is('c/keuangan/*') ? 'active' : '' }}">
+                <a class="sidebar-link" href="/c/keuangan">
+                    <i class="align-middle" data-feather="database"></i> <span class="align-middle">Keuangan</span>
+                </a>
+            </li>
+
+            <li class="sidebar-header">
                 Mitra Pages
             </li>
             <li class="sidebar-item {{ Request::is('c/mitra*') ? 'active' : '' }}">
