@@ -39,6 +39,13 @@
                     @enderror
                 </div>
                 <div class="mb-3">
+                    <label for="image" class="form-label">Type Post</label>
+                    <select class="form-select" aria-label="type" name="type">
+                        <option value="paragraf" @if('paragraf'==$about->type) selected @endif> Paragraf</option>
+                        <option value="accordion" @if('accordion'==$about->type) selected @endif>Accordion</option>
+                    </select>
+                </div>
+                <div class="mb-3">
                     <label for="image" class="form-label">Image</label>
                     <input type="hidden" name="oldImage" value="{{ $about->image }}">
 

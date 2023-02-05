@@ -30,6 +30,13 @@
                     @enderror
                 </div>
                 <div class="mb-3">
+                    <label for="type" class="form-label">Type Post</label>
+                    <select class="form-select" aria-label="type" name="type">
+                        <option value="paragraf">Paragraf</option>
+                        <option value="accordion">Accordion</option>
+                    </select>
+                </div>
+                <div class="mb-3">
                     <label for="image" class="form-label">Image</label>
                     <img class="img-preview img-fluid mb-3 col-sm-5">
                     <input name="image" id="image" class="form-control @error('image') is-invalid @enderror" type="file" onchange="previewImage()">
