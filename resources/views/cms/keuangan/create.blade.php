@@ -34,7 +34,12 @@
                     <input name="link_names[]" type="text" class="form-control" id="title" aria-describedby="title">
                     <input name="links[]" type="text" class="form-control" id="title" aria-describedby="title">
                 </div> -->
-                <button type="button" class="btn btn-success" id="addFieldBtn">Tambah Field</button>
+                <button type="button" class="btn btn-success mb-3" id="addFieldBtn">Tambah Link</button>
+                <!-- <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <textarea class="form-control"></textarea>
+                    <button class="btn btn-danger" type="button" id="button-addon2">Button</button>
+                </div> -->
                 <div id="additionalFields"></div>
                 <div class="mb-3">
                     <label for="file" class="form-label">Attachment</label>
@@ -54,11 +59,10 @@
 <script>
     $(document).ready(function() {
         $("#addFieldBtn").click(function() {
-            var newField = '<div class="form-group">' +
-                '<label for="field">Field Baru:</label>' +
-                '<input type="text" class="form-control" id="field" name="field1[]">' +
-                '<button type="button" class="btn btn-danger removeFieldBtn">Hapus</button>' +
-                '</div>';
+            var newField = '<div class="input-group mb-3">' +
+                '<input name="link_names[]" type="text" class="form-control" placeholder="Link Name" aria-label="Link name" aria-describedby="button-addon2">' +
+                '<textarea placeholder="URL" name="links[]" class="form-control"></textarea>' +
+                '<button class="btn btn-danger" type="button" id="button-addon2">Remove Link</button></div>';
             $("#additionalFields").append(newField);
         });
 

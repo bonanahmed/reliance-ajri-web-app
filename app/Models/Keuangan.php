@@ -9,4 +9,14 @@ class Keuangan extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+
+    public function link()
+    {
+        return $this->hasMany(Keuangan_link::class, 'keuangan_id');
+    }
+
+    public function files()
+    {
+        return $this->hasMany(Keuangan_file::class, 'keuangan_id');
+    }
 }
