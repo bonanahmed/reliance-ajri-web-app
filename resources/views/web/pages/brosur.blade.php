@@ -12,9 +12,9 @@
                 <div class="card" style="border:none">
                     <div style="background:#ddd; text-align:center; border-radius:16px;">
                         @if($item->image)
-                        <img src="{{ asset('storage/'.$item->image) }}" alt="{{ $item->title }}" style="border-radius:16px; height:100%; max-height:466px; object-fit:cover">
+                        <img src="{{ asset('storage/'.$item->image) }}" alt="{{ $item->title }}" style="border-radius:16px; height:100%; width:100%; max-height:466px; object-fit:cover">
                         @else
-                        <img src="{{ asset('assets/img/pdf.jpeg') }}" class="card-img-top" alt="{{ $item->title }}" style="border-radius:16px; height:100%; max-height:466px; object-fit:cover">
+                        <img src="{{ asset('assets/img/pdf.jpeg') }}" class="card-img-top" alt="{{ $item->title }}" style="border-radius:16px; width:100%; height:100%; max-height:466px; object-fit:cover">
                         @endif
 
                         @if($item->file)
