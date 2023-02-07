@@ -104,7 +104,10 @@ class BrosurController extends Controller
         }
 
         if ($request->file('file')) {
-            $validatedData['file'] = $request->file('file')->store('brosur-file');
+            $file = $request->file('file');
+            $filename = $file->getClientOriginalName();
+            $fileurl = $file->storeAs('brosur-file', $filename);
+            $validatedData['file'] = $fileurl;
         }
 
         $validatedData['created_by'] = auth()->user()->id;
@@ -149,7 +152,10 @@ class BrosurController extends Controller
             if ($brosur->oldImage) {
                 Storage::delete($brosur->oldImage);
             }
-            $validatedData['image'] = $request->file('image')->store('brosur-image');
+            $file = $request->file('image');
+            $filename = $file->getClientOriginalName();
+            $fileurl = $file->storeAs('brosur-image', $filename);
+            $validatedData['image'] = $fileurl;
         }
 
         if ($request->file('file')) {
