@@ -10,11 +10,11 @@
             @foreach($brosur as $item)
             <div class="col-md-6 mb-5">
                 <div class="card" style="border:none">
-                    <div style="background:#ddd; text-align:center">
+                    <div style="background:#ddd; text-align:center; border-radius:16px;">
                         @if($item->image)
-                        <img src="{{ asset('storage/'.$item->image) }}" alt="{{ $item->title }}" style="border-radius:16px; height:400px; object-fit:contain">
+                        <img src="{{ asset('storage/'.$item->image) }}" alt="{{ $item->title }}" style="border-radius:16px; height:400px; object-fit:cover">
                         @else
-                        <img src="{{ asset('assets/img/pdf.jpeg') }}" class="card-img-top" alt="{{ $item->title }}" style="border-radius:16px; height:400px; object-fit:contain">
+                        <img src="{{ asset('assets/img/pdf.jpeg') }}" class="card-img-top" alt="{{ $item->title }}" style="border-radius:16px; height:400px; object-fit:cover">
                         @endif
 
                         @if($item->file)
