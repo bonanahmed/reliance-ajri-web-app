@@ -10,6 +10,7 @@ use App\Http\Controllers\FAQController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\KeuanganController;
 use App\Http\Controllers\KlaimController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MitraController;
@@ -69,6 +70,8 @@ Route::middleware(['landing'])->group(function () {
     Route::get('/simulasi/umkm', [SimulasiController::class, 'umkm']);
     Route::get('/form', [SimulasiController::class, 'form_request']);
 
+    Route::get('/keuangan', [KeuanganController::class, 'keuangan']);
+
     Route::post('/request', [RequestController::class, 'store']);
 });
 
@@ -103,6 +106,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/c/image/{image}/delete', [GaleriController::class, 'imageDestroy']);
     Route::delete('/c/file/{file}/delete', [AboutController::class, 'fileDestroy']);
     Route::delete('/c/file_brosur/{file_brosur}/delete', [BrosurController::class, 'fileDestroy']);
+    Route::delete('/c/file_keuangan/{file}/delete', [KeuanganController::class, 'fileDestroy']);
 
     Route::get('/c/faq', [KlaimController::class, 'faq']);
     Route::post('/c/faq', [KlaimController::class, 'faq_save']);
@@ -124,6 +128,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/c/slider', SliderController::class);
     Route::resource('/c/request', RequestController::class);
     Route::resource('/c/banner', BannerController::class);
+    Route::resource('/c/keuangan', KeuanganController::class);
 
     // datatables
     Route::get('/datatables/news', [NewsController::class, 'getIndex']);
