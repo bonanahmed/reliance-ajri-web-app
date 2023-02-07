@@ -29,17 +29,8 @@
                     </p>
                     @enderror
                 </div>
-                <!-- <div class="mb-3">
-                    <label for="title" class="form-label">Link</label>
-                    <input name="link_names[]" type="text" class="form-control" id="title" aria-describedby="title">
-                    <input name="links[]" type="text" class="form-control" id="title" aria-describedby="title">
-                </div> -->
-                <button type="button" class="btn btn-success mb-3" id="addFieldBtn">Tambah Link</button>
-                <!-- <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <textarea class="form-control"></textarea>
-                    <button class="btn btn-danger" type="button" id="button-addon2">Button</button>
-                </div> -->
+                <!-- <button type="button" class="btn btn-success mb-3" id="addFieldBtn">Tambah Link</button> -->
+
                 <div id="additionalFields"></div>
                 <div class="mb-3">
                     <label for="file" class="form-label">Attachment</label>

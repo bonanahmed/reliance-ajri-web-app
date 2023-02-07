@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\Keuangan;
 use App\Models\Keuangan_file;
 use App\Models\Keuangan_link;
@@ -82,6 +83,7 @@ class KeuanganController extends Controller
             Keuangan_file::insert($filedata);
         }
 
+        /*
         if ($request->input('links')) {
             $links = $request->input('links');
             $link_names = $request->input('link_names');
@@ -96,6 +98,7 @@ class KeuanganController extends Controller
             }
             Keuangan_link::insert($linkdata);
         }
+        */
 
         return redirect('c/keuangan')->with('success', 'Data has been added!');
     }
@@ -169,6 +172,7 @@ class KeuanganController extends Controller
             Keuangan_file::insert($filedata);
         }
 
+        /*
         if ($request->input('links')) {
             $links = $request->input('links');
             $link_names = $request->input('link_names');
@@ -184,6 +188,8 @@ class KeuanganController extends Controller
             Keuangan_link::where('keuangan_id', $keuangan->id)->delete();
             Keuangan_link::insert($linkdata);
         }
+        */
+
         return redirect('/c/keuangan')->with('success', 'Data has been updated');
     }
 
@@ -202,8 +208,12 @@ class KeuanganController extends Controller
             Storage::delete($file->file);
         }
         Keuangan::destroy($keuangan->id);
+
+        /*
         Keuangan_link::where('keuangan_id', $keuangan->id)->delete();
         Keuangan_file::where('keuangan_id', $keuangan->id)->delete();
+        */
+
         return redirect('/c/keuangan')->with('success', $keuangan->title . ' has been deleted');
     }
 
@@ -214,5 +224,12 @@ class KeuanganController extends Controller
         }
         Keuangan_file::destroy($file->id);
         return back()->with('success', 'Attachment has been deleted');
+    }
+
+    public function keuangan()
+    {
+        $keuangan = Keuangan::all();
+        $about = About::all();
+        return view('web.pages.keuangan', compact('keuangan', 'about'));
     }
 }

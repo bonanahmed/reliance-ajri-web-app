@@ -70,6 +70,8 @@ Route::middleware(['landing'])->group(function () {
     Route::get('/simulasi/umkm', [SimulasiController::class, 'umkm']);
     Route::get('/form', [SimulasiController::class, 'form_request']);
 
+    Route::get('/keuangan', [KeuanganController::class, 'keuangan']);
+
     Route::post('/request', [RequestController::class, 'store']);
 });
 

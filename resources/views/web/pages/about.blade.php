@@ -16,13 +16,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-xs-12">
-                <div class="list-group custom-list">
-                    @foreach($list as $item)
-                    <a href="/about/{{ $item->slug }}#konten" class="list-group-item list-group-item-action {{ Request::is('about/'.$item->slug) ? 'active' : '' }}">
-                        {{ $item->title }}
-                    </a>
-                    @endforeach
-                </div>
+                @include('web.component.about_list_menu')
             </div>
             <div class="col-md-8 col-xs-12">
                 <h1 class="text-center mb-3 resp-title">{{ $about->title }}</h1>
