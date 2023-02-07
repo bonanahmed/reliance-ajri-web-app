@@ -62,7 +62,7 @@
             var newField = '<div class="input-group mb-3">' +
                 '<input name="link_names[]" type="text" class="form-control" placeholder="Link Name" aria-label="Link name" aria-describedby="button-addon2">' +
                 '<textarea placeholder="URL" name="links[]" class="form-control"></textarea>' +
-                '<button class="btn btn-danger" type="button" id="button-addon2">Remove Link</button></div>';
+                '<button class="btn btn-danger removeFieldBtn" type="button" id="button-addon2">Remove Link</button></div>';
             $("#additionalFields").append(newField);
         });
 
