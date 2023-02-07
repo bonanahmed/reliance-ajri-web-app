@@ -30,20 +30,33 @@
             <div class="col-md-8 col-xs-12">
                 <h1 class="text-center mb-3 resp-title">Laporan Keuangan</h1>
 
-                <div class="accordion" id="accordionExample">
+                <div class="accordion" id="accordions">
                     @foreach($keuangan as $item)             
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                          {{ $item->title }}
-                        </button>
+                    <div class="accordion-item mb-2">
+                        <h2 class="accordion-header" id="heading-{{$item->id}}">
+                        @if($item->id === 1)
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{$item->id}}" aria-expanded="true" aria-controls="collapse-{{$item->id}}">
+                            {{ $item->title }}
+                            </button>
+                        @else
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{$item->id}}" aria-expanded="false" aria-controls="collapse-{{$item->id}}">
+                                {{ $item->title }}
+                            </button>
+                        @endif
                         </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            {!! $item->body !!}
+                        @if($item->id === 1)
+                        <div id="collapse-{{$item->id}}" class="accordion-collapse collapse show" aria-labelledby="heading-{{$item->id}}" data-bs-parent="#accordions">
+                            <div class="accordion-body">
+                                {!! $item->body !!}
+                            </div>                       
                         </div>
-                       
+                        @else
+                        <div id="collapse-{{$item->id}}" class="accordion-collapse collapse" aria-labelledby="heading-{{$item->id}}" data-bs-parent="#accordions">
+                            <div class="accordion-body">
+                                {!! $item->body !!}
+                            </div>                       
                         </div>
+                        @endif
                     </div>
                     @endforeach
                 </div>
