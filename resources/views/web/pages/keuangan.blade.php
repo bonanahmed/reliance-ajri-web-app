@@ -29,15 +29,25 @@
             </div>
             <div class="col-md-8 col-xs-12">
                 <h1 class="text-center mb-3 resp-title">Laporan Keuangan</h1>
-                @foreach($keuangan as $item)
-                <div class="row">
-                    <div class="col-12">{{ $item->title }}</div>
-                    <div class="col-12">{!! $item->body !!}</div>
-                    @foreach($item->files as $file)
-                    <a href="{{ asset('storage/'.$file->file) }}">{{ explode('/',$file->file)[1] }}</a>
+
+                <div class="accordion" id="accordionExample">
+                    @foreach($keuangan as $item)             
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          {{ $item->title }}
+                        </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            {!! $item->body !!}
+                        </div>
+                       
+                        </div>
+                    </div>
                     @endforeach
                 </div>
-                @endforeach
+                
             </div>
         </div>
 
