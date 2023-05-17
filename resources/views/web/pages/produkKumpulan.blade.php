@@ -1,6 +1,7 @@
 @extends('web.component.main')
 @section('title',$produk->title)
-@section('description',Str::words(strip_tags(html_entity_decode($produk->body ?? '')),15))
+@section('meta_title',$produk->meta_title)
+@section('description',$produk->meta_description)
 @section('keywords',$produk->meta_keywords)
 @section('canonical',Request::fullUrl())
 @section('container')

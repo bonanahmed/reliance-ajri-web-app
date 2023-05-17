@@ -92,6 +92,8 @@ class NewsController extends Controller
             'image' => 'image|file|max:3072',
             'alt' => '',
             'meta_keywords' => '',
+            'meta_description' => '',
+            'meta_title' => '',
         ]);
 
         $previous = News::where('slug', $validatedData['slug'])->count();
@@ -124,6 +126,8 @@ class NewsController extends Controller
             'image' => 'image|file|max:3072',
             'alt' => '',
             'meta_keywords' => '',
+            'meta_description' => '',
+            'meta_title' => '',
         ];
 
         if ($request->slug != $news->slug) {

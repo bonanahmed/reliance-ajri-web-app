@@ -82,9 +82,28 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="meta_keywords" class="form-label">Keywords</label>
+                    <label for="meta_title" class="form-label">Meta Title</label>
+                    <input value="{{ old('meta_title',$produk->meta_title)}}" name="meta_title" type="text" class="form-control @error('meta_title') is-invalid @enderror" id="meta_title" aria-describedby="meta_title">
+                    @error('meta_title')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label for="meta_keywords" class="form-label">Meta Keywords</label>
                     <input data-role="tagsinput" value="{{ old('meta_keywords',$produk->meta_keywords)}}" name="meta_keywords" type="text" class="form-control @error('meta_keywords') is-invalid @enderror multi-tag" id="meta_keywords" aria-describedby="meta_keywords">
                     @error('meta_keywords')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+
+                <div class="mb-3">
+                    <label for="meta_description" class="form-label">Meta Description</label>
+                    <input value="{{ old('meta_description',$produk->meta_description)}}" name="meta_description" type="text" class="form-control @error('meta_description') is-invalid @enderror" id="meta_description" aria-describedby="meta_description">
+                    @error('meta_description')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>

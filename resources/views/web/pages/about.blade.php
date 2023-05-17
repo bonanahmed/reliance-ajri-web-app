@@ -1,14 +1,14 @@
 @extends('web.component.main')
 @section('title', $about->title)
-@section('description',Str::words(strip_tags(html_entity_decode($about->body)),15))
+@section('description',$about->meta_description)
 @section('keywords',$about->meta_keywords)
+@section('meta_title',$about->meta_title)
 @section('canonical',Request::fullUrl())
 @section('container')
 
 <style>
     .list-group-item.active {
         background: linear-gradient(106deg, rgba(41, 85, 155, 0.5) 10.89%, #29559B 100%);
-
     }
 </style>
 @include('web.component.about_jumbotron')

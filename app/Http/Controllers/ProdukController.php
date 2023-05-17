@@ -141,6 +141,8 @@ class ProdukController extends Controller
             'image' => 'image|file|max:3072',
             'alt' => '',
             'meta_keywords' => '',
+            'meta_description' => '',
+            'meta_title' => '',
         ]);
 
         if ($request->file('image')) {
@@ -149,7 +151,7 @@ class ProdukController extends Controller
 
         $validatedData['created_by'] = auth()->user()->id;
         Produk::create($validatedData);
-        return redirect('/c/produk')->with('success', 'Data has been added');
+        return redirect('/c/produk/kumpulan')->with('success', 'Data has been added');
     }
 
     /**
@@ -197,6 +199,8 @@ class ProdukController extends Controller
             'image' => 'image|file|max:3072',
             'alt' => '',
             'meta_keywords' => '',
+            'meta_description' => '',
+            'meta_title' => '',
         ];
 
         if ($request->slug != $produk->slug) {

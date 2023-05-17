@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="@yield('description')">
     <meta name="keyword" content="@yield('keywords')">
+    <meta name="title" content="@yield('meta_title')">
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- my css -->
     <link rel="stylesheet" href="{{ asset('assets/style.css') }}">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
@@ -18,9 +18,7 @@
     <link rel='canonical' href="@yield('canonical')" />
 
     <!-- fontawesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- slick slider -->
     <!-- Add the slick-theme.css if you want default styling -->
@@ -86,9 +84,7 @@
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -104,7 +100,7 @@
                 return false;
             return true;
         }
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('.your-class').slick({
                 arrows: false,
                 slidesToShow: 6,
@@ -114,28 +110,28 @@
                 infinite: true,
                 speed: 5000,
                 responsive: [{
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 5,
-                        slidesToScroll: 3,
-                        infinite: true,
-                        dots: true
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 5,
+                            slidesToScroll: 3,
+                            infinite: true,
+                            dots: true
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 4,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
                     }
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 4,
-                        slidesToScroll: 2
-                    }
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                }
                 ]
             });
 
@@ -148,19 +144,19 @@
                 autoplaySpeed: 500,
                 infinite: true,
                 speed: 5000
-                
+
             });
 
         });
 
-        $(document).ready(function () {
+        $(document).ready(function() {
 
-            $('.tab-steps--list li').click(function () {
+            $('.tab-steps--list li').click(function() {
 
                 $(this).addClass('active');
 
                 var dataStep = $(this).attr('data-step');
-                $('.tab-steps--list li').each(function () {
+                $('.tab-steps--list li').each(function() {
                     if ($(this).attr('data-step') > dataStep) {
                         $(this).removeClass('active');
                     } else {
@@ -181,12 +177,12 @@
         //	});
 
 
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
 
 
             /////// Prevent closing from click inside dropdown
-            document.querySelectorAll('.dropdown-menu').forEach(function (element) {
-                element.addEventListener('click', function (e) {
+            document.querySelectorAll('.dropdown-menu').forEach(function(element) {
+                element.addEventListener('click', function(e) {
                     e.stopPropagation();
                 });
             })
@@ -197,18 +193,18 @@
             if (window.innerWidth < 992) {
 
                 // close all inner dropdowns when parent is closed
-                document.querySelectorAll('.navbar .dropdown').forEach(function (everydropdown) {
-                    everydropdown.addEventListener('hidden.bs.dropdown', function () {
+                document.querySelectorAll('.navbar .dropdown').forEach(function(everydropdown) {
+                    everydropdown.addEventListener('hidden.bs.dropdown', function() {
                         // after dropdown is hidden, then find all submenus
-                        this.querySelectorAll('.submenu').forEach(function (everysubmenu) {
+                        this.querySelectorAll('.submenu').forEach(function(everysubmenu) {
                             // hide every submenu as well
                             everysubmenu.style.display = 'none';
                         });
                     })
                 });
 
-                document.querySelectorAll('.dropdown-menu a').forEach(function (element) {
-                    element.addEventListener('click', function (e) {
+                document.querySelectorAll('.dropdown-menu a').forEach(function(element) {
+                    element.addEventListener('click', function(e) {
 
                         let nextEl = this.nextElementSibling;
                         if (nextEl && nextEl.classList.contains('submenu')) {
@@ -228,7 +224,7 @@
             // end if innerWidth
 
         });
-	// DOMContentLoaded  end
+        // DOMContentLoaded  end
     </script>
 
 

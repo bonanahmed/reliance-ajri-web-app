@@ -69,6 +69,8 @@ class AboutController extends Controller
             'file' => 'file|max:2024',
             'alt' => '',
             'meta_keywords' => '',
+            'meta_description' => '',
+            'meta_title' => '',
         ]);
 
         $previous = About::where('slug', $validatedData['slug'])->count();
@@ -147,6 +149,8 @@ class AboutController extends Controller
             'image' => 'image|file|max:3072',
             'alt' => '',
             'meta_keywords' => '',
+            'meta_description' => '',
+            'meta_title' => '',
         ];
 
         if ($request->slug != $about->slug) {

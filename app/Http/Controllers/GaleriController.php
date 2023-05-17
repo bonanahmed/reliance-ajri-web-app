@@ -63,6 +63,8 @@ class GaleriController extends Controller
             'title' => 'required',
             'description' => '',
             'slug' => 'required',
+            'meta_title' => '',
+            'meta_description' => '',
             'meta_keywords' => '',
         ]);
         $validatedData['created_by'] = auth()->user()->id;
@@ -122,6 +124,8 @@ class GaleriController extends Controller
             'title' => 'required',
             'description' => '',
             'meta_keywords' => '',
+            'meta_title' => '',
+            'meta_description' => '',
         ]);
 
         if ($request->file('image')) {
