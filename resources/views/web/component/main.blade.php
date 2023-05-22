@@ -9,6 +9,7 @@
     <meta name="description" content="@yield('description')">
     <meta name="keyword" content="@yield('keywords')">
     <meta name="title" content="@yield('meta_title')">
+    <meta name="google-site-verification" content="Emf8CsiuaOl1zbyWaDD_KHisExwr2jCuGHTwL39DTGg" />
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- my css -->
@@ -225,6 +226,19 @@
 
         });
         // DOMContentLoaded  end
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GGQ6NLHL14"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-GGQ6NLHL14');
     </script>
 
 
